@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteBase /ciske/
+
+#Any HTTP request other than those for index.php, and robots.txt
+#is treated as a request for your index.php file.
+
+RewriteCond $1 !^(index\.php|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
