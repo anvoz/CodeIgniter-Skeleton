@@ -6,6 +6,7 @@ class Template {
 
     private $_brand_name = 'CodeIgniter Skeleton';
     private $_title_separator = ' - ';
+    private $_ga_id = FALSE; // UA-XXXXX-X
 
     private $_layout = 'default';
 
@@ -140,7 +141,7 @@ class Template {
         $js = array();
         foreach ($this->_js as $js_file)
         {
-            $js[] = '<script src="' . $js_file . '" />';
+            $js[] = '<script src="' . assets_url('js/' . $js_file) . '"></script>';
         }
         $js = implode('', $js);
 
@@ -148,7 +149,7 @@ class Template {
         $css = array();
         foreach ($this->_css as $css_file)
         {
-            $css[] = '<link rel="stylesheet" href="' . $css_file . '">';
+            $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
         }
         $css = implode('', $css);
 
@@ -165,6 +166,7 @@ class Template {
             'js' => $js,
             'css' => $css,
             'body' => $body,
+            'ga_id' => $this->_ga_id,
         ));
     }
 }
