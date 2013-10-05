@@ -21,8 +21,20 @@ class Welcome extends MX_Controller {
     {
         $this->load->library('template');
 
-        $this->template->set_title('Welcome to CodeIgniter');
+        $this->template->set_title('Welcome');
+        $this->template->add_css('welcome.css');
+
         $this->template->load_view('welcome_message');
+    }
+
+    public function _pagelet_sidebar()
+    {
+        $this->load->view('pagelet_sidebar');
+    }
+
+    public function _pagelet_theme()
+    {
+        $this->load->view('pagelet_theme');
     }
 }
 
