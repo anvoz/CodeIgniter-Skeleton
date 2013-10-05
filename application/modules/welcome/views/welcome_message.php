@@ -2,7 +2,7 @@
     <div class="col-md-3">
         <?php echo Modules::run('welcome/_pagelet_sidebar'); ?>
     </div>
-    <div class="col-md-9" data-spy="scroll" data-target="#sidebar">
+    <div class="col-md-9">
         <div>
             <h1 id="welcome">Welcome to CodeIgniter Skeleton!</h1>
             <div class="container">

@@ -22,7 +22,8 @@ class Welcome extends MX_Controller {
         $this->load->library('template');
 
         $this->template->set_title('Welcome');
-        $this->template->add_css('welcome.css');
+        $this->template->add_js('modules/welcome.js');
+        $this->template->add_css('modules/welcome.css');
 
         $this->template->load_view('welcome_message');
     }
