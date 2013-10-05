@@ -73,7 +73,7 @@
     <div class="row">
         <div class="col-md-4">
             &lt;ul&gt;
-            <ul><li>&lt;li&gt;</li><li>List item<ul><li>&lt;ul&gt;&lt;li&gt;</li><li>List item</li></ul></li><li>List item</li></ul>
+            <ul><li>&lt;li&gt;</li><li>List item<ul><li><small>&lt;ul&gt;</small>&lt;li&gt;</li><li>&lt;li&gt;<small>&lt;/ul&gt;</small></li></ul></li><li>List item</li></ul>
             <br>
         </div>
         <div class="col-md-4">
@@ -158,7 +158,7 @@
     <div class="row">
         <div class="col-md-4">
             table.table
-            <table class="table"><tr><th>&lt;tr&gt;&lt;th&gt;</th><th>&lt;th&gt;&lt;/tr&gt;</th></tr><tr><td>&lt;tr&gt;&lt;td&gt;</td><td>&lt;td&gt;&lt;/tr&gt;</td></tr><tr><td>td</td><td>td</td></tr></table>
+            <table class="table"><tr><th><small>&lt;tr&gt;</small>&lt;th&gt;</th><th>&lt;th&gt;<small>&lt;/tr&gt;</small></th></tr><tr><td><small>&lt;tr&gt;</small>&lt;td&gt;</td><td>&lt;td&gt;<small>&lt;/tr&gt;</small></td></tr><tr><td>td</td><td>td</td></tr></table>
         </div>
         <div class="col-md-2">
             .table-striped
@@ -197,7 +197,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            div.table-responsive table
+            <small>div.table-responsive</small> table
             <div class="table-responsive">
                 <table class="table">
                     <tr><th>th</th><th>th</th><th>th</th><th>th</th></tr>
@@ -240,7 +240,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Text input">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">.input-group-btn button</button>
+                    <button class="btn btn-default" type="button"><small>.input-group-btn</small> button</button>
                 </span>
             </div>
         </div>
@@ -267,15 +267,15 @@
             <p class="help-block">.help-block: Example block-level help text here.</p>
         </div>
         <div class="form-group has-success">
-            <label class="control-label" for="inputSuccess">.has-success label</label>
+            <label class="control-label" for="inputSuccess"><small>.has-success</small> label</label>
             <input type="text" class="form-control" id="inputSuccess">
         </div>
         <div class="form-group has-warning">
-            <label class="control-label" for="inputWarning">.has-warning label</label>
+            <label class="control-label" for="inputWarning"><small>.has-warning</small> label</label>
             <input type="text" class="form-control" id="inputWarning">
         </div>
         <div class="form-group has-error">
-            <label class="control-label" for="inputError">.has-error label</label>
+            <label class="control-label" for="inputError"><small>.has-error</small> label</label>
             <input type="text" class="form-control" id="inputError">
         </div>
         <div class="form-group">
@@ -318,13 +318,13 @@
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
                 <div class="checkbox">
-                    <label><input type="checkbox">.checkbox label input[type="checkbox"]</label>
+                    <label><input type="checkbox"><small>.checkbox label</small> input[type="checkbox"]</label>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <label class="checkbox-inline"><input type="checkbox" value="option1">label.checkbox-inline Checkbox #1</label>
+                <label class="checkbox-inline"><input type="checkbox" value="option1"><small>label.checkbox-inline</small> Checkbox #1</label>
                 <label class="checkbox-inline"><input type="checkbox" value="option2">Checkbox #2</label>
                 <label class="checkbox-inline"><input type="checkbox" value="option3">Checkbox #3</label>
             </div>
@@ -341,13 +341,13 @@
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
                 <div class="radio">
-                    <label><input type="radio" name="optionsRadios" value="option1" checked>.radio label input[type="radio"]</label>
+                    <label><input type="radio" name="optionsRadios" value="option1" checked><small>.radio label</small> input[type="radio"]</label>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option1" checked>label.radio-inline Radio #1</label>
+                <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option1" checked><small>label.radio-inline</small> Radio #1</label>
                 <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option2">Radio #2</label>
                 <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option3">Radio #3</label>
             </div>
@@ -430,7 +430,7 @@
         <p>div.btn-group</p>
         <div class="btn-toolbar">
             <div class="btn-group btn-group-lg">
-                <button type="button" class="btn btn-default">.btn-group-lg button</button>
+                <button type="button" class="btn btn-default"><small>.btn-group-lg</small> button</button>
                 <button type="button" class="btn btn-default">2</button>
                 <button type="button" class="btn btn-default">3</button>
             </div>
@@ -440,12 +440,12 @@
                 <button type="button" class="btn btn-default">3</button>
             </div>
             <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-default">.btn-group-sm button</button>
+                <button type="button" class="btn btn-default"><small>.btn-group-sm</small> button</button>
                 <button type="button" class="btn btn-default">2</button>
                 <button type="button" class="btn btn-default">3</button>
             </div>
             <div class="btn-group btn-group-xs">
-                <button type="button" class="btn btn-default">.btn-group-xs button</button>
+                <button type="button" class="btn btn-default"><small>.btn-group-xs</small> button</button>
                 <button type="button" class="btn btn-default">2</button>
                 <button type="button" class="btn btn-default">3</button>
             </div>
@@ -467,7 +467,7 @@
         </div>
         <div class="btn-group dropup">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                .dropup button <span class="caret"></span>
+                <small>.dropup</small> button <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
                 <li><a href="#">Link #1</a></li>
@@ -484,7 +484,7 @@
             </ul>
         </div>
         <div class="btn-group-vertical">
-            <button class="btn btn-default" type="button">.btn-group-vertical button</button>
+            <button class="btn btn-default" type="button"><small>.btn-group-vertical</small> button</button>
             <div class="btn-group">
                 <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
                     Dropdown <span class="caret"></span>
@@ -522,7 +522,7 @@
     <h2 id="dropdowns">Dropdowns</h2>
 
     <div class="clearfix">
-        .dropdown ul.dropdown-menu
+        <small>.dropdown</small> ul.dropdown-menu
         <div class="dropdown">
             <!-- Apply inline style to force its display -->
             <ul class="dropdown-menu" style="display: block; position: static;">
@@ -651,7 +651,7 @@
     <h2 id="breadcrumbs">Breadcrumbs</h2>
 
     <ol class="breadcrumb">
-        <li><a href="#">ol.breadcrumb li a</a></li>
+        <li><a href="#"><small>ol.breadcrumb li</small> a</a></li>
         <li><a href="#">Link #2</a></li>
         <li class="active">.active</li>
     </ol>
@@ -662,7 +662,7 @@
 
     <div>
         <ul class="pagination">
-            <li><a href="#">ul.pagination li a &laquo;</a></li>
+            <li><a href="#"><small>ul.pagination li</small> a &laquo;</a></li>
             <li class="disabled"><a href="#">.disabled a</a></li>
             <li><a href="#">#2</a></li>
             <li class="active"><a href="#">.active a <span class="sr-only">(current)</span></a></li>
@@ -673,27 +673,27 @@
     </div>
     <div>
         <ul class="pagination pagination-lg">
-            <li><a href="#">ul.pagination.pagination-lg li a &laquo;</a></li>
+            <li><a href="#"><small>ul.pagination.pagination-lg li</small> a &laquo;</a></li>
             <li><a href="#">#1</a></li><li><a href="#">#2</a></li><li><a href="#">#3</a></li>
             <li><a href="#">&raquo;</a></li>
         </ul>
     </div>
     <div>
         <ul class="pagination pagination-sm">
-            <li><a href="#">ul.pagination.pagination-sm li a &laquo;</a></li>
+            <li><a href="#"><small>ul.pagination.pagination-sm li</small> a &laquo;</a></li>
             <li><a href="#">#1</a></li><li><a href="#">#2</a></li><li><a href="#">#3</a></li>
             <li><a href="#">&raquo;</a></li>
         </ul>
     </div>
     <div>
         <ul class="pager">
-            <li><a href="#">ul.pager li a Previous</a></li>
+            <li><a href="#"><small>ul.pager li</small> a Previous</a></li>
             <li class="disabled"><a href="#">li.disabled a Next</a></li>
         </ul>
     </div>
     <div>
         <ul class="pager">
-            <li class="previous"><a href="#">li.previous a &larr; Older</a></li>
+            <li class="previous"><a href="#"><small>ul.pager li.previous</small> a &larr; Older</a></li>
             <li class="next"><a href="#">li.next a Newer &rarr;</a></li>
         </ul>
     </div>
@@ -704,9 +704,8 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1>.jumbotron .container h1</h1>
+            <h1><small>.jumbotron .container</small> h1</h1>
             <p>&lt;p&gt;</p>
-            <p><a class="btn btn-primary btn-lg">p a.btn.btn-primary.btn-lg</a></p>
         </div>
     </div>
 </div>
@@ -715,14 +714,14 @@
     <h2 id="page-header">Page header</h2>
 
     <div class="page-header">
-        <h1>.page-header &lt;h1 <small>&lt;small&gt;</small> h1&gt;</h1>
+        <h1><small>.page-header</small> h1</h1>
     </div>
 </div>
 
 <div>
     <h2 id="progress-bars">Progress bars</h2>
 
-    .progress .progress-bar
+    <small>.progress</small> .progress-bar
     <div class="progress">
         <div class="progress-bar" style="width: 15%;"></div>
         <div class="progress-bar progress-bar-success" style="width: 15%;"></div>
@@ -731,7 +730,7 @@
         <div class="progress-bar progress-bar-danger" style="width: 15%;"></div>
     </div>
 
-    .progress.progress-striped .progress-bar
+    <small>.progress.progress-striped</small> .progress-bar
     <div class="progress progress-striped">
         <div class="progress-bar" style="width: 15%;"></div>
         <div class="progress-bar progress-bar-success" style="width: 15%;"></div>
@@ -740,7 +739,7 @@
         <div class="progress-bar progress-bar-danger" style="width: 15%;"></div>
     </div>
 
-    .progress.progress-striped.active .progress-bar
+    <small>.progress.progress-striped.active</small> .progress-bar
     <div class="progress progress-striped active">
         <div class="progress-bar" style="width: 15%;"></div>
         <div class="progress-bar progress-bar-success" style="width: 15%;"></div>
@@ -753,19 +752,19 @@
 <div>
     <h2 id="panels">Panels</h2>
 
-    .panel .panel-default
+    .panel.panel-default
     <div class="panel panel-default">
         <div class="panel-heading">.panel-heading</div>
-        <div class="panel-heading"><h3 class="panel-title">.panel-heading h3.panel-title</h3></div>
+        <div class="panel-heading"><h3 class="panel-title"><small>.panel-heading</small> h3.panel-title</h3></div>
         <div class="panel-body">.panel-body</div>
         <div class="panel-footer">.panel-footer</div>
     </div>
 
-    <div class="panel panel-primary"><div class="panel-heading">.panel.panel-primary .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-success"><div class="panel-heading">.panel.panel-success .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-info"><div class="panel-heading">.panel.panel-info .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-warning"><div class="panel-heading">.panel.panel-warning .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-danger"><div class="panel-heading">.panel.panel-danger .panel-heading</div><div class="panel-body">...</div></div>
+    <div class="panel panel-primary"><div class="panel-heading"><small>.panel.panel-primary</small> .panel-heading</div><div class="panel-body">...</div></div>
+    <div class="panel panel-success"><div class="panel-heading"><small>.panel.panel-success</small> .panel-heading</div><div class="panel-body">...</div></div>
+    <div class="panel panel-info"><div class="panel-heading"><small>.panel.panel-info</small> .panel-heading</div><div class="panel-body">...</div></div>
+    <div class="panel panel-warning"><div class="panel-heading"><small>.panel.panel-warning</small> .panel-heading</div><div class="panel-body">...</div></div>
+    <div class="panel panel-danger"><div class="panel-heading"><small>.panel.panel-danger</small> .panel-heading</div><div class="panel-body">...</div></div>
 </div>
 
 <div>
