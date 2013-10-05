@@ -324,9 +324,18 @@
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <label class="checkbox-inline"><input type="checkbox" value="option1">label.checkbox-inline Checkbox</label>
+                <label class="checkbox-inline"><input type="checkbox" value="option1">label.checkbox-inline Checkbox #1</label>
                 <label class="checkbox-inline"><input type="checkbox" value="option2">Checkbox #2</label>
                 <label class="checkbox-inline"><input type="checkbox" value="option3">Checkbox #3</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary"><input type="checkbox"><small>data-toggle="buttons"</small> Checkbox #1</label>
+                    <label class="btn btn-primary"><input type="checkbox">Checkbox #2</label>
+                    <label class="btn btn-primary"><input type="checkbox">Checkbox #3</label>
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -338,9 +347,18 @@
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option1" checked>label.radio-inline Radio</label>
+                <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option1" checked>label.radio-inline Radio #1</label>
                 <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option2">Radio #2</label>
                 <label class="radio-inline"><input type="radio" name="optionsRadios2" value="option3">Radio #3</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary"><input type="radio" name="optionsRadios3" value="option1" checked="checked"><small>data-toggle="buttons"</small> Radio #1</label>
+                    <label class="btn btn-primary"><input type="radio" name="optionsRadios3" value="option2">Radio #2</label>
+                    <label class="btn btn-primary"><input type="radio" name="optionsRadios3" value="option3">Radio #3</label>
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -392,6 +410,20 @@
 
         <button class="btn btn-primary" type="button" disabled="disabled">Disabled button</button>
         <a class="btn btn-primary disabled" href="#">a.btn.disabled</a>
+    </p>
+    <p>
+        <div class="btn-group">
+            <button class="btn btn-primary" type="button" data-loading-text="Loading..." data-complete-text="Completed" onclick="$(this).button('loading').siblings('button').prop('disabled',false);" autocomplete="off">
+                .button('loading')
+            </button>
+            <button class="btn btn-primary" type="button" onclick="$(this).prop('disabled',true).parent().find('button:first').button('complete');" disabled="disabled" autocomplete="off">
+                &larr; .button('complete')
+            </button>
+            <button class="btn btn-primary" type="button" onclick="$(this).parent().find('button:first').button('reset').siblings('button').prop('disabled',true);" disabled="disabled" autocomplete="off">
+                &larr; .button('reset')
+            </button>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="button">data-toggle="button"</button>
     </p>
 
     <div>

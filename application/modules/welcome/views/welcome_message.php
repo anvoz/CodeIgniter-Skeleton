@@ -29,5 +29,8 @@
         <div>
             <?php echo Modules::run('welcome/_pagelet_theme'); ?>
         </div>
+        <div>
+            <?php echo Modules::run('welcome/_pagelet_javascript'); ?>
+        </div>
     </div>
 </div>

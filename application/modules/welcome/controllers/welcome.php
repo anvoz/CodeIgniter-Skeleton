@@ -37,6 +37,11 @@ class Welcome extends MX_Controller {
     {
         $this->load->view('pagelet_theme');
     }
+
+    public function _pagelet_javascript()
+    {
+        $this->load->view('pagelet_javascript');
+    }
 }
 
 /* End of file welcome.php */
