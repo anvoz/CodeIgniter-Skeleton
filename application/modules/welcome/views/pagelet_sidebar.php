@@ -18,7 +18,7 @@
                 <li><a href="#page-header">Page header</a></li>
                 <li><a href="#progress-bars">Progress bars</a></li>
                 <li><a href="#panels">Panels</a></li>
-                <li><a href="#thumbnails-and-media-object">Thumbnails and Media object</a></li>
+                <li><a href="#theme-more">More...</a></li>
             </ul>
         </li>
         <li>

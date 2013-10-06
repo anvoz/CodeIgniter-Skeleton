@@ -768,10 +768,11 @@
 </div>
 
 <div>
-    <h2 id="thumbnails-and-media-object">Thumbnails and Media object</h2>
+    <h2 id="theme-more">More...</h2>
 
     <div class="btn-group">
         <a href="#" class="btn btn-default disabled">Learn more</a>
+        <a href="http://getbootstrap.com/css/#grid" target="_blank" class="btn btn-primary">Grid system</a>
         <a href="http://getbootstrap.com/components/#thumbnails" target="_blank" class="btn btn-primary">Thumbnails</a>
         <a href="http://getbootstrap.com/components/#media" target="_blank" class="btn btn-primary">Media object</a>
     </div>
