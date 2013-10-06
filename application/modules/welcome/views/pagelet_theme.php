@@ -411,23 +411,21 @@
         <button class="btn btn-primary" type="button" disabled="disabled">Disabled button</button>
         <a class="btn btn-primary disabled" href="#">a.btn.disabled</a>
     </p>
-    <p>
-        <div class="btn-group">
-            <button class="btn btn-primary" type="button" data-loading-text="Loading..." data-complete-text="Completed" onclick="$(this).button('loading').siblings('button').prop('disabled',false);" autocomplete="off">
-                .button('loading')
-            </button>
-            <button class="btn btn-primary" type="button" onclick="$(this).prop('disabled',true).parent().find('button:first').button('complete');" disabled="disabled" autocomplete="off">
-                &larr; .button('complete')
-            </button>
-            <button class="btn btn-primary" type="button" onclick="$(this).parent().find('button:first').button('reset').siblings('button').prop('disabled',true);" disabled="disabled" autocomplete="off">
-                &larr; .button('reset')
-            </button>
-        </div>
-        <button type="button" class="btn btn-primary" data-toggle="button">data-toggle="button"</button>
-    </p>
+    <div class="btn-group">
+        <button class="btn btn-primary" type="button" data-loading-text="Loading..." data-complete-text="Completed" onclick="$(this).button('loading').siblings('button').prop('disabled',false);" autocomplete="off">
+            .button('loading')
+        </button>
+        <button class="btn btn-primary" type="button" onclick="$(this).prop('disabled',true).parent().find('button:first').button('complete');" disabled="disabled" autocomplete="off">
+            &larr; .button('complete')
+        </button>
+        <button class="btn btn-primary" type="button" onclick="$(this).parent().find('button:first').button('reset').siblings('button').prop('disabled',true);" disabled="disabled" autocomplete="off">
+            &larr; .button('reset')
+        </button>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="button">data-toggle="button"</button>
 
     <div>
-        <p>div.btn-group</p>
+        <br><p>div.btn-group</p>
         <div class="btn-toolbar">
             <div class="btn-group btn-group-lg">
                 <button type="button" class="btn btn-default"><small>.btn-group-lg</small> button</button>
@@ -543,8 +541,8 @@
 
     <div class="row">
         <div class="col-md-6">
-            <p>
-                ul.nav.nav-tabs
+            <div>
+                <br><p>ul.nav.nav-tabs</p>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#">li.active a</a></li>
                     <li class="disabled"><a href="#">li.disabled a</a></li>
@@ -555,9 +553,9 @@
                         <ul class="dropdown-menu"><li><a href="#">Link #1</a></li><li><a href="#">Link #2</a></li></ul>
                     </li>
                 </ul>
-            </p>
-            <p>
-                ul.nav.nav-pills
+            </div>
+            <div>
+                <br><p>ul.nav.nav-pills</p>
                 <ul class="nav nav-pills">
                     <li class="active"><a href="#">li.active a</a></li>
                     <li class="disabled"><a href="#">Disabled</a></li>
@@ -568,10 +566,10 @@
                         <ul class="dropdown-menu"><li><a href="#">Link #1</a></li><li><a href="#">Link #2</a></li></ul>
                     </li>
                 </ul>
-            </p>
+            </div>
         </div>
         <div class="col-md-6">
-            ul.nav.nav-pills.nav-stacked
+            <br><p>ul.nav.nav-pills.nav-stacked</p>
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="#">li.active a <span class="badge pull-right">.badge.pull-right</span></a></li>
                 <li class="disabled"><a href="#">Disabled</a></li>
@@ -584,22 +582,22 @@
             </ul>
         </div>
     </div>
-    <p>
-        ul.nav.nav-tabs.nav-justified
+    <div>
+        <br><p>ul.nav.nav-tabs.nav-justified</p>
         <ul class="nav nav-tabs nav-justified">
             <li class="active"><a href="#">li.active a <span class="badge">.badge</span></a></li>
             <li><a href="#">Link #2</a></li>
             <li><a href="#">Link #3</a></li>
         </ul>
-    </p>
-    <p>
-        ul.nav.nav-pills.nav-justified
+    </div>
+    <div>
+        <br><p>ul.nav.nav-pills.nav-justified</p>
         <ul class="nav nav-pills nav-justified">
             <li class="active"><a href="#">li.active a <span class="badge">.badge</span></a></li>
             <li><a href="#">Link #2</a></li>
             <li><a href="#">Link #3</a></li>
         </ul>
-    </p>
+    </div>
 </div>
 
 <div>
