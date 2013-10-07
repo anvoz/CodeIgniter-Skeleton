@@ -153,9 +153,11 @@ class Template {
         }
         $css = implode('', $css);
 
+        $header = $this->_ci->load->view('header', array(), TRUE);
         $main_content = $this->_ci->load->view($view, $data, TRUE);
 
         $body = $this->_ci->load->view('layout/' . $this->_layout, array(
+            'header' => $header,
             'main_content' => $main_content,
         ), TRUE);
 
