@@ -26,11 +26,11 @@ Example: `$config['assets_url'] = 'http://localhost/ciske/assets/';`
 
 * Use `assets_url()` to access js / css / img resources.
 * Use `$this->template->load_view()` instead of `$this->load->view()` to render page.
-* Only use `$this->load->view()` to render pagelet / widget.
-* Enable `Ion Auth` library:
+* Only use `$this->load->view()` to render pagelet (not include base view).
+* Setup the `Ion Auth` library (if you don't want to use this library, remove it from `autoload` config):
  * Run SQL script in `sql/ion_auth.sql` file.
  * Set your database settings in `application/config/database.php` file.
- * Autoload the library in `application/config/autoload.php` file: `$autoload['libraries'] = array('ion_auth');`.
- * Set your encryption key in `application/config/config.php` file to use the Session class.
+ * Edit your encryption key in `application/config/config.php` file.
  * Customize the library config in `application/config/ion_auth.php` file.
- * Go to `http://localhost/ciske/auth` to login with email: `admin@admin.com` and password: `password`.
+ * Default admin login account: email is `admin@admin.com` and password is `password`.
+ * `$this->auth` is an alias of `$this->ion_auth`.
