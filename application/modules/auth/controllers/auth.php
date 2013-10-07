@@ -746,6 +746,11 @@ class Auth extends MY_Controller {
         {
             $this->load->library('template');
 
+            if ($view != 'auth/index')
+            {
+                $this->template->set_layout('pagelet');
+            }
+
             if ( ! empty($data['title']))
             {
                 $this->template->set_title($data['title']);
