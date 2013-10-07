@@ -8,24 +8,24 @@ CodeIgniter-Skeleton
 * [jQuery](https://github.com/jquery/jquery) 1.10.2 (last updated: Jul 3, 2013)
 * [Bootstrap](https://github.com/twbs/bootstrap) 3.0 (last updated: Aug 19, 2013)
  * Not include Glyphicons
-* Custom Template library
+* Template library
  * Base view is a mix between Bootstrap and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template
  * Use `$this->template->load_view()` instead of `$this->load->view()` to render page
  * Only use `$this->load->view()` to render pagelet (not include base view)
 * Assets
  * Use `assets_url()` to get link of js, css or image resource
- * Folder structure:
+ * Folder structure
 
 ```
 assets/
     css/
         modules/
-            <module>.css                // Extra CSS for a specific module
+            {$module}.css               // Extra CSS for a specific module
         bootstrap.min.css               // Bootstrap core CSS
         main.css                        // CSS for all pages
     js/
         modules/
-            <module>.js                 // Extra JS for a specific module
+            {$module}.js                // Extra JS for a specific module
         jquery-1.10.2.min.js            // jQuery core JS
         html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
         plugins.js                      // Contain extra JS plugins
@@ -37,6 +37,10 @@ assets/
  * Not include Mongodb model
  * Customized controller to use with HMVC and Template library
  * Use an independent alias `$this->auth`
+* Ajaxify helper
+ * Auto-detect ajaxify links and forms via `rel="async"`: `<a href="#" rel="async" ajaxify="{$ajax_url}">...</a>` `<form rel="async" action="{$ajax_url}">...</form>`
+ * Make an ajax request manually: `CIS.Ajax.request('{$ajax_url}'[, settings])`
+ * Server-side Javascript: Use `$this->script()` of `Ajax_Controller` to define executable scripts after the request was successful
 
 # Usage
 

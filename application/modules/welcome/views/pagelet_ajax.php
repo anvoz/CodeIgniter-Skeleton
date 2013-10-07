@@ -1,0 +1,50 @@
+<div class="page-header"><h1 id="ajax">Ajax</h1></div>
+
+<h2>Ajaxify link</h2>
+
+<div>
+    <p>Via <code>rel="async"</code> and <code>ajaxify="{$ajax_url}"</code></p>
+    <p>
+        <a id="js-ajax-ex" class="btn btn-default" href="#"
+                rel="async"
+                ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=a'); ?>">
+            Right
+        </a>
+    </p>
+</div>
+
+<div>
+    <p>Via <code>CIS.Ajax.request('{$ajax_url}', { context: $('#js-ajax-ex') })</code></p>
+    <p>
+        <a class="btn btn-default" href="#"
+                onclick="CIS.Ajax.request('<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=a'); ?>', { context: $('#js-ajax-ex') }); return false;">
+            Trigger
+        </a>
+    </p>
+</div>
+
+<h2>Ajaxify form</h2>
+
+<div>
+    <p>Via <code>rel="async"</code> and <code>action="{$ajax_url}"</code></p>
+    <div class="row">
+        <div class="col-lg-6">
+            <form rel="async" action="<?php echo site_url('ajax/welcome_ajax/test_ajaxify'); ?>">
+                <input type="hidden" name="type" value="form">
+                <input type="hidden" name="target" value="js-ajax-ex2">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input class="form-control" type="text" name="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea class="form-control" name="content"></textarea>
+                </div>
+                <div class="form-group">
+                    <p><button class="btn btn-primary" type="submit">Submit</button></p>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6"><div id="js-ajax-ex2"></div></div>
+    </div>
+</div>

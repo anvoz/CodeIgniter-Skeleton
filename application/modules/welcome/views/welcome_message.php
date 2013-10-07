@@ -32,5 +32,8 @@
         <div>
             <?php echo Modules::run('welcome/_pagelet_javascript'); ?>
         </div>
+        <div>
+            <?php echo Modules::run('welcome/_pagelet_ajax'); ?>
+        </div>
     </div>
 </div>

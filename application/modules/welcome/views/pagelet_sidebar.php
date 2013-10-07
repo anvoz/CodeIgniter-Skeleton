@@ -34,5 +34,6 @@
                 <li><a href="#js-carousel">Carousel</a></li>
             </ul>
         </li>
+        <li class="active"><a href="#ajax">Ajax</a></li>
     </ul>
 </div>

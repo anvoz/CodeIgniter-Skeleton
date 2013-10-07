@@ -5,7 +5,7 @@ require APPPATH . 'third_party/MX/Controller.php';
 
 class MY_Controller extends MX_Controller {
 
-    private $_ci;
+    protected $_ci;
 
     public function __construct()
     {
@@ -15,6 +15,32 @@ class MY_Controller extends MX_Controller {
 
         // Set an alias of ion_auth library
         $this->_ci->auth =& $this->_ci->ion_auth;
+    }
+}
+
+class Ajax_Controller extends MY_Controller {
+
+    protected $_data;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ( ! $this->input->is_ajax_request())
+        {
+            exit;
+        }
+    }
+
+    protected function script($script)
+    {
+        $this->_data['scripts'][] = $script;
+    }
+
+    protected function send()
+    {
+        echo json_encode($this->_data);
+        exit;
     }
 }
 

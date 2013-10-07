@@ -42,6 +42,11 @@ class Welcome extends MY_Controller {
     {
         $this->load->view('pagelet_javascript');
     }
+
+    public function _pagelet_ajax()
+    {
+        $this->load->view('pagelet_ajax');
+    }
 }
 
 /* End of file welcome.php */
