@@ -18,7 +18,7 @@ class Template {
     private $_js = array();
     private $_css = array();
 
-    function __construct($config = array())
+    function __construct()
 	{
 		$this->_ci =& get_instance();
 	}
