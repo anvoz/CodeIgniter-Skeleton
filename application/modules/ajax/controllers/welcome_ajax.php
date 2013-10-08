@@ -29,7 +29,7 @@ JS;
 
                 $script = <<< JS
 $(this).find('input[type=text], textarea').val('');
-$('#{$target}').html({$json_html});
+$(this).parent().siblings('div').html({$json_html});
 JS;
                 $this->response->script($script);
                 break;
