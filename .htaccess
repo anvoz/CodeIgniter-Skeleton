@@ -1,5 +1,4 @@
 RewriteEngine on
-RewriteBase /ciske/
 
 #Any HTTP request other than those for index.php, assets folder and robots.txt
 #is treated as a request for your index.php file.
