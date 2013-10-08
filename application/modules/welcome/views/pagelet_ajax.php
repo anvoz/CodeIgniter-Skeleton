@@ -1,5 +1,4 @@
 <h2>Ajaxify link</h2>
-
 <div>
     <div>
         <p>Via <code>rel="async"</code> and <code>ajaxify="{$ajax_url}"</code></p>
@@ -23,7 +22,6 @@
 </div>
 
 <h2>Ajaxify form</h2>
-
 <div>
     <p>Via <code>rel="async"</code> and <code>action="{$ajax_url}"</code></p>
     <div class="row">
@@ -48,7 +46,6 @@
 </div>
 
 <h2>Ajaxify dialog</h2>
-
 <div>
     <div>
         <p>
@@ -56,7 +53,7 @@
             <a class="btn btn-default" href="#"
                     rel="async"
                     ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=alert'); ?>">
-                Alert
+                Show alert dialog
             </a>
         </p>
     </div>
@@ -66,7 +63,17 @@
             <a class="btn btn-default" href="#"
                     rel="async"
                     ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=confirm'); ?>">
-                Confirm
+                Show confirm dialog
+            </a>
+        </p>
+    </div>
+    <div>
+        <p>
+            <code>$this->response->dialog([ ... ])</code>
+            <a class="btn btn-default" href="#"
+                    rel="async"
+                    ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=dialog'); ?>">
+                Show custom dialog
             </a>
         </p>
     </div>

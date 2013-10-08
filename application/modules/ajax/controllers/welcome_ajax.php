@@ -42,6 +42,11 @@ JS;
                     $this->response->script('alert("Confirmed!");');
                 }
                 break;
+            case 'dialog':
+                $this->response->dialog(array(
+                    'body' => Modules::run('welcome/_pagelet_ajax')
+                ));
+                break;
         }
         $this->response->send();
     }

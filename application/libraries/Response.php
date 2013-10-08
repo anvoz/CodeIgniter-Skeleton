@@ -36,7 +36,7 @@ class Response {
      */
     public function alert($title, $body, $ok_label = 'OK')
     {
-        $this->_dialog(array(
+        $this->dialog(array(
             'title' => $title,
             'body' => $body,
             'buttons' => array('ok' => $ok_label)
@@ -75,7 +75,7 @@ class Response {
                     '<div class="modal-body">', $body, '</div>'
             ));
 
-            $this->_dialog(array(
+            $this->dialog(array(
                 'id' => $dialog_id,
                 'title' => $title,
                 'content' => $content,
@@ -95,21 +95,13 @@ class Response {
     }
 
     /**
-     * Send response to CIS.Ajax.response()
+     * Generate Dialog script
      *
-     * @access  public
+     * @access  private
+     * @param   array   $data
      * @return  void
      */
-    public function send()
-    {
-        if ( ! empty($this->_data))
-        {
-            echo json_encode($this->_data);
-            exit;
-        }
-    }
-
-    private function _dialog($data)
+    public function dialog($data)
     {
         $this->_ci->load->library('dialog');
 
@@ -158,6 +150,21 @@ $('#{$dialog_id}').modal().on('hidden.bs.modal', function(e) {
 });
 JS;
         $this->script($code);
+    }
+
+    /**
+     * Send response to CIS.Ajax.response()
+     *
+     * @access  public
+     * @return  void
+     */
+    public function send()
+    {
+        if ( ! empty($this->_data))
+        {
+            echo json_encode($this->_data);
+            exit;
+        }
     }
 }
 
