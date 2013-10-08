@@ -45,7 +45,8 @@ assets/
 
 # Usage
 
-* Edit `RewriteBase` in `.htaccess` file. Example: `RewriteBase /ciske/`.
+By default, you will be albe to check all features on the homepage of the project without doing any of the following instructions. Just unzip the package and put the source code in your server.
+
 * Set your base URL in `application/config/config.php` file. Example: `$config['base_url'] = 'http://localhost/ciske/';`.
 * Set your assets URL in `application/config/assets.php` file. Example: `$config['assets_url'] = 'http://localhost/ciske/assets/';`.
 * Setup the `Ion Auth` library (if you don't want to use this library, remove it from `autoload` config):
