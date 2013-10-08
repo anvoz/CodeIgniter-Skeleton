@@ -1,5 +1,3 @@
-<div class="page-header"><h1 id="ajax">Ajax</h1></div>
-
 <h2>Ajaxify link</h2>
 
 <div>

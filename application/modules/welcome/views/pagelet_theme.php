@@ -1,5 +1,3 @@
-<div class="page-header"><h1 id="theme">Theme</h1></div>
-
 <div>
     <h2 id="typography">Typography</h2>
 

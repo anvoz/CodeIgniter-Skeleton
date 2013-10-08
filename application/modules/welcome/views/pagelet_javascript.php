@@ -1,5 +1,3 @@
-<div class="page-header"><h1 id="javascript">Javascript</h1></div>
-
 <div>
     <h2 id="js-modals">Modals</h2>
 

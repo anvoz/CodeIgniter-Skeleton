@@ -27,12 +27,15 @@
             </div>
         </div>
         <div>
+            <div class="page-header"><h1 id="theme">Theme</h1></div>
             <?php echo Modules::run('welcome/_pagelet_theme'); ?>
         </div>
         <div>
+            <div class="page-header"><h1 id="javascript">Javascript</h1></div>
             <?php echo Modules::run('welcome/_pagelet_javascript'); ?>
         </div>
         <div>
+            <div class="page-header"><h1 id="ajax">Ajax</h1></div>
             <?php echo Modules::run('welcome/_pagelet_ajax'); ?>
         </div>
     </div>
