@@ -48,3 +48,27 @@
         <div class="col-lg-6"><div id="js-ajax-ex2"></div></div>
     </div>
 </div>
+
+<h2>Ajaxify dialog</h2>
+
+<div>
+    <p>
+        <code>$this->response->alert($title, $body)</code>
+        <a class="btn btn-default" href="#"
+                rel="async"
+                ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=alert'); ?>">
+            Alert
+        </a>
+    </p>
+</div>
+
+<div>
+    <p>
+        <code>$this->response->confirm($title, $body)</code>
+        <a class="btn btn-default" href="#"
+                rel="async"
+                ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=confirm'); ?>">
+            Confirm
+        </a>
+    </p>
+</div>

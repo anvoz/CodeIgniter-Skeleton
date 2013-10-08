@@ -4,7 +4,7 @@ class Welcome_ajax extends Ajax_Controller {
 
     function test_ajaxify()
     {
-        switch ($this->input->get_post('type', TRUE))
+        switch ($this->input->get_post('type'))
         {
             case 'a':
                 $script = <<< JS
@@ -18,9 +18,9 @@ JS;
                 $this->response->script($script);
                 break;
             case 'form':
-                $target = $this->input->get_post('target', TRUE);
-                $title = $this->input->get_post('title', TRUE);
-                $content = $this->input->get_post('content', TRUE);
+                $target = $this->input->get_post('target');
+                $title = $this->input->get_post('title');
+                $content = $this->input->get_post('content');
 
                 $content = nl2br($content);
 
@@ -32,6 +32,15 @@ $(this).find('input[type=text], textarea').val('');
 $('#{$target}').html({$json_html});
 JS;
                 $this->response->script($script);
+                break;
+            case 'alert':
+                $this->response->alert('Alert title', 'Alert body');
+                break;
+            case 'confirm':
+                if ($this->response->confirm('Confirm title', 'Confirm body'))
+                {
+                    $this->response->script('alert("Confirmed!");');
+                }
                 break;
         }
         $this->response->send();
