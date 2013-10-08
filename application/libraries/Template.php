@@ -19,94 +19,94 @@ class Template {
     private $_css = array();
 
     function __construct()
-	{
-		$this->_ci =& get_instance();
-	}
+    {
+        $this->_ci =& get_instance();
+    }
 
     /**
-	 * Set page layout view (1 column, 2 column...)
-	 *
-	 * @access	public
-	 * @param	string	$layout
-	 * @return	void
-	 */
+     * Set page layout view (1 column, 2 column...)
+     *
+     * @access  public
+     * @param   string  $layout
+     * @return  void
+     */
     public function set_layout($layout)
     {
         $this->_layout = $layout;
     }
 
     /**
-	 * Set page title
-	 *
-	 * @access	public
-	 * @param	string	$title
-	 * @return	void
-	 */
+     * Set page title
+     *
+     * @access  public
+     * @param   string  $title
+     * @return  void
+     */
     public function set_title($title)
     {
         $this->_title = $title;
     }
 
     /**
-	 * Set page description
-	 *
-	 * @access	public
-	 * @param	string	$description
-	 * @return	void
-	 */
+     * Set page description
+     *
+     * @access  public
+     * @param   string  $description
+     * @return  void
+     */
     public function set_description($description)
     {
         $this->_description = $description;
     }
 
     /**
-	 * Add metadata
-	 *
-	 * @access	public
-	 * @param	string	$name
-	 * @param	string	$content
-	 * @return	void
-	 */
+     * Add metadata
+     *
+     * @access  public
+     * @param   string  $name
+     * @param   string  $content
+     * @return  void
+     */
     public function add_metadata($name, $content)
     {
         $name = htmlspecialchars(strip_tags($name));
-		$content = htmlspecialchars(strip_tags($content));
+        $content = htmlspecialchars(strip_tags($content));
 
         $this->_metadata[$name] = $content;
     }
 
     /**
-	 * Add js file path
-	 *
-	 * @access	public
-	 * @param   string	$js
-	 * @return	void
-	 */
+     * Add js file path
+     *
+     * @access  public
+     * @param   string  $js
+     * @return  void
+     */
     public function add_js($js)
     {
         $this->_js[$js] = $js;
     }
 
     /**
-	 * Add css file path
-	 *
-	 * @access  public
-	 * @param   string	$css
-	 * @return  void
-	 */
+     * Add css file path
+     *
+     * @access  public
+     * @param   string  $css
+     * @return  void
+     */
     public function add_css($css)
     {
         $this->_css[$css] = $css;
     }
 
     /**
-	 * Load view
-	 *
-	 * @access	public
-	 * @param	string	$view
-	 * @param	mixed	$data
-	 * @return	void
-	 */
+     * Load view
+     *
+     * @access  public
+     * @param   string  $view
+     * @param   mixed   $data
+     * @return  void
+     */
     public function load_view($view, $data = array())
     {
         // Title
