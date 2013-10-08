@@ -20,8 +20,6 @@ class MY_Controller extends MX_Controller {
 
 class Ajax_Controller extends MY_Controller {
 
-    protected $_data;
-
     public function __construct()
     {
         parent::__construct();
@@ -30,17 +28,8 @@ class Ajax_Controller extends MY_Controller {
         {
             exit;
         }
-    }
 
-    protected function script($script)
-    {
-        $this->_data['scripts'][] = $script;
-    }
-
-    protected function send()
-    {
-        echo json_encode($this->_data);
-        exit;
+        $this->load->library('response');
     }
 }
 

@@ -40,7 +40,7 @@ assets/
 * Ajaxify helper
  * Auto-detect ajaxify links and forms via `rel="async"`: `<a href="#" rel="async" ajaxify="{$ajax_url}">...</a>` `<form rel="async" action="{$ajax_url}">...</form>`
  * Make an ajax request manually: `CIS.Ajax.request('{$ajax_url}'[, settings])`
- * Server-side Javascript: Use `$this->script()` of `Ajax_Controller` to define executable scripts after the request was successful
+ * Server-side Javascript: Use `$this->response->script($javascript)` in `Ajax_Controller` to define executable scripts after the request was successful
 
 # Usage
 

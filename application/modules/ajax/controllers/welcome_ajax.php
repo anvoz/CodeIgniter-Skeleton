@@ -15,7 +15,7 @@ if ($(this).parent().hasClass('text-right')) {
     $(this).text('Right');
 }
 JS;
-                $this->script($script);
+                $this->response->script($script);
                 break;
             case 'form':
                 $target = $this->input->get_post('target', TRUE);
@@ -31,10 +31,10 @@ JS;
 $(this).find('input[type=text], textarea').val('');
 $('#{$target}').html({$json_html});
 JS;
-                $this->script($script);
+                $this->response->script($script);
                 break;
         }
-        $this->send();
+        $this->response->send();
     }
 }
 
