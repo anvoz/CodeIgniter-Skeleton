@@ -1,6 +1,8 @@
 CodeIgniter-Skeleton
 ====================
 
+![CIS Screenshot](https://f.cloud.github.com/assets/4688035/1290373/d7c0997a-302f-11e3-8901-b32ae3209884.png)
+
 # Include
 
 * [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.1.4 (last updated: Jul 8, 2013)
