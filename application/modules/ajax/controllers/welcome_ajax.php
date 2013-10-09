@@ -52,5 +52,5 @@ JS;
     }
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file welcome_ajax.php */
+/* Location: ./application/modules/ajax/controllers/welcome_ajax.php */

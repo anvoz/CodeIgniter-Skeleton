@@ -57,4 +57,4 @@ JS;
 }
 
 /* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* Location: ./application/modules/welcome/controllers/welcome.php */
