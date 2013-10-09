@@ -4,7 +4,7 @@
     var // Localise globals
         document = window.document,
         $ = window.$,
-        CIS = window.CIS = {};
+        CIS = window.CIS = window.CIS || {};
 
     $(function() {
         $('[data-toggle="tooltip"]').tooltip();
@@ -74,4 +74,16 @@
             }
         }
     };
+
+    CIS.Script = $.extend({
+        queue: []
+    }, CIS.Script);
+    // Execute queued scripts
+    (function(queue) {
+        for (var i = 0, length = queue.length; i < length; i++) {
+            if (typeof queue[i] === 'function') {
+                queue[i]();
+            }
+        }
+    })(CIS.Script.queue);
 })(window);

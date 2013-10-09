@@ -46,6 +46,13 @@ class Welcome extends MY_Controller {
     public function _pagelet_ajax()
     {
         $this->load->view('pagelet_ajax');
+
+        $script = <<< JS
+$(function() {
+    console.log('Script executed!');
+});
+JS;
+        $this->_load_script($script);
     }
 }
 

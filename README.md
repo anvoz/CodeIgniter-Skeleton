@@ -14,6 +14,7 @@ CodeIgniter-Skeleton
  * Base view is a mix between Bootstrap and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template
  * Use `$this->template->load_view()` instead of `$this->load->view()` to render page
  * Only use `$this->load->view()` to render pagelet (not include base view)
+ * Use `$this->_load_script()` to put Javascript inside a pagelet (these scripts will only be executed after everything is loaded)
 * Assets
  * Use `assets_url()` to get link of js, css or image resource
  * Folder structure

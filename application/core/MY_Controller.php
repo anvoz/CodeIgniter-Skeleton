@@ -16,6 +16,23 @@ class MY_Controller extends MX_Controller {
         // Set an alias of ion_auth library
         $this->_ci->auth =& $this->_ci->ion_auth;
     }
+
+    public function _load_script($script)
+    {
+        if (isset($this->_ci->template) && is_object($this->_ci->template))
+        {
+            echo <<< JS
+<script>
+    var CIS = CIS || { Script: { queue: [] } };
+    CIS.Script.queue.push(function() { $script });
+</script>
+JS;
+        }
+        else
+        {
+            echo '<script>' . $script . '</script>';
+        }
+    }
 }
 
 class Ajax_Controller extends MY_Controller {

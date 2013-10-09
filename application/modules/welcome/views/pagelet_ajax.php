@@ -77,4 +77,10 @@
             </a>
         </p>
     </div>
+    <div>
+        <p>
+            This pagelet also contains script using <code>$this->_load_script()</code> of <code>MY_Controller</code>.<br>
+            You will see the message "Script executed!" on the browser console.
+        </p>
+    </div>
 </div>
