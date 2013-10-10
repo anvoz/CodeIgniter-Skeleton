@@ -23,7 +23,7 @@ class Photo extends MY_Controller {
         $script = <<< JS
 $(function() {
     $.getScript('{$fileupload_js}', function() {
-        $('#fileupload').fileupload({
+        $('#file-upload').fileupload({
             url: '{$upload_url}',
             dataType: 'json',
             progressall: function(e, data) {

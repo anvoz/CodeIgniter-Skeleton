@@ -1,6 +1,6 @@
 <div>
     <div class="control">
-        <p><input id="fileupload" type="file" name="files[]" multiple></p>
+        <p><input id="file-upload" type="file" name="files[]" multiple></p>
     </div>
     <div class="progress">
         <div class="progress-bar"></div>
