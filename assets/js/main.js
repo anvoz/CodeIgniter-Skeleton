@@ -76,8 +76,44 @@
     };
 
     CIS.Script = $.extend({
-        queue: []
+        queue: [],      // Queued scripts that were randomly placed inside <body>
+        loaded: {},     // Loaded script files using CIS.Script.require function
+
+        require: function(file, callback) {
+            var self = this,
+                files = (file instanceof Array) ? file : [file],
+                unloadedFiles = [],
+                functions = [];
+
+            // Script files register
+            for (var i = 0; i < files.length; i++) {
+                if (typeof files[i] === 'string' || files[i] instanceof String) {
+                    if ( ! self.loaded.hasOwnProperty(files[i])) { // File was not loaded yet
+                        unloadedFiles.push(files[i]);
+                        functions.push($.getScript(files[i]));
+                    }
+                }
+            }
+
+            if (unloadedFiles.length > 0) {
+                // Check if $() is ready
+                functions.push($.Deferred(function(deferred) {
+                    $(deferred.resolve);
+                }));
+
+                // Trigger callback after all script files were loaded completely (random order)
+                $.when.apply(self, functions).done(function() {
+                    for (var j = 0; j < unloadedFiles.length; j++) {
+                        self.loaded[unloadedFiles[j]] = true; // Mark file as loaded
+                    }
+                    callback();
+                });
+            } else {
+                callback();
+            }
+        }
     }, CIS.Script);
+
     // Execute queued scripts
     (function(queue) {
         for (var i = 0, length = queue.length; i < length; i++) {

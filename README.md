@@ -45,6 +45,7 @@ assets/
  * Make an ajax request manually: `CIS.Ajax.request('{$ajax_url}'[, settings])`
  * Server-side Javascript: Use `$this->response->script($javascript)` in `Ajax_Controller` to define executable scripts after the request was successful
  * Server-side Dialog: `$this->response->alert($title, $body)` `$this->response->confirm($title, $body)` `$this->response->dialog([ ... ])`
+ * Execute function after required Javascript files were loaded: `CIS.Script.require(js_file, callback)`
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 8.8.7 (last updated: Oct 8, 2013)
  * Be able to load in an isolated pagelet via `Modules::run('photo/_pagelet_upload')`
 

@@ -22,7 +22,7 @@ class Photo extends MY_Controller {
 
         $script = <<< JS
 $(function() {
-    $.getScript('{$fileupload_js}', function() {
+    CIS.Script.require('{$fileupload_js}', function() {
         $('#file-upload').fileupload({
             url: '{$upload_url}',
             dataType: 'json',
