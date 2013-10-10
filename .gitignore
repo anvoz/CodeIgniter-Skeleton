@@ -2,6 +2,8 @@
 
 */config/development
 
+files/*
+
 application/cache/*
 !application/cache/index.html
 !application/cache/.htaccess

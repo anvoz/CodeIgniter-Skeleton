@@ -45,6 +45,8 @@ assets/
  * Make an ajax request manually: `CIS.Ajax.request('{$ajax_url}'[, settings])`
  * Server-side Javascript: Use `$this->response->script($javascript)` in `Ajax_Controller` to define executable scripts after the request was successful
  * Server-side Dialog: `$this->response->alert($title, $body)` `$this->response->confirm($title, $body)` `$this->response->dialog([ ... ])`
+* [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 8.8.7 (last updated: Oct 8, 2013)
+ * Be able to load in an isolated pagelet via `Modules::run('photo/_pagelet_upload')`
 
 # Usage
 
@@ -64,4 +66,3 @@ By default, you will be albe to check all features on the homepage of the projec
 * Improve Template mechanic: be able to write more Javascript in pagelet (or be able to put executable scripts anywhere inside `<body>`. Currently, it was not fully supported because all core JS files were loaded last)
 * Improve Ajaxify mechanic: be able to load dependent JS files before execute the script
 * Basic CRUD model
-* Photo upload widget

@@ -1,7 +1,7 @@
 RewriteEngine on
 
-#Any HTTP request other than those for index.php, assets folder and robots.txt
+#Any HTTP request other than those for index.php, assets folder, files folder and robots.txt
 #is treated as a request for your index.php file.
 
-RewriteCond $1 !^(index\.php|assets|robots\.txt)
+RewriteCond $1 !^(index\.php|assets|files|robots\.txt)
 RewriteRule ^(.*)$ index.php/$1 [L]
