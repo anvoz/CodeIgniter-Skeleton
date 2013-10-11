@@ -13,7 +13,8 @@ class Photo_ajax extends Ajax_Controller {
 
     function upload()
     {
-        $this->load->library('uploader');
+        $this->load->config('upload', TRUE);
+        $this->load->library('uploader', $this->config->item('photo', 'upload'));
     }
 }
 
