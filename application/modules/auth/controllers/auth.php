@@ -7,7 +7,6 @@ class Auth extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->library('ion_auth');
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 
@@ -27,12 +26,12 @@ class Auth extends MY_Controller {
 	function index()
 	{
 
-		if (!$this->ion_auth->logged_in())
+		if (!$this->auth->logged_in())
 		{
 			//redirect them to the login page
 			redirect('auth/login', 'refresh');
 		}
-		elseif (!$this->ion_auth->is_admin())
+		elseif (!$this->auth->is_admin())
 		{
 			//redirect them to the home page because they must be an administrator to view this
 			redirect('/', 'refresh');
@@ -43,10 +42,10 @@ class Auth extends MY_Controller {
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			//list the users
-			$this->data['users'] = $this->ion_auth->users()->result();
+			$this->data['users'] = $this->auth->users()->result();
 			foreach ($this->data['users'] as $k => $user)
 			{
-				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+				$this->data['users'][$k]->groups = $this->auth->get_users_groups($user->id)->result();
 			}
 
 			$this->_render_page('auth/index', $this->data);
@@ -68,18 +67,18 @@ class Auth extends MY_Controller {
 			//check for "remember me"
 			$remember = (bool) $this->input->post('remember');
 
-			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+			if ($this->auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
 				//if the login is successful
 				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', $this->auth->messages());
 				redirect('/', 'refresh');
 			}
 			else
 			{
 				//if the login was un-successful
 				//redirect them back to the login page
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('message', $this->auth->errors());
 				redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		}
@@ -109,10 +108,10 @@ class Auth extends MY_Controller {
 		$this->data['title'] = "Logout";
 
 		//log the user out
-		$logout = $this->ion_auth->logout();
+		$logout = $this->auth->logout();
 
 		//redirect them to the login page
-		$this->session->set_flashdata('message', $this->ion_auth->messages());
+		$this->session->set_flashdata('message', $this->auth->messages());
 		redirect('auth/login', 'refresh');
 	}
 
@@ -123,12 +122,12 @@ class Auth extends MY_Controller {
 		$this->form_validation->set_rules('new', $this->lang->line('change_password_validation_new_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
 		$this->form_validation->set_rules('new_confirm', $this->lang->line('change_password_validation_new_password_confirm_label'), 'required');
 
-		if (!$this->ion_auth->logged_in())
+		if (!$this->auth->logged_in())
 		{
 			redirect('auth/login', 'refresh');
 		}
 
-		$user = $this->ion_auth->user()->row();
+		$user = $this->auth->user()->row();
 
 		if ($this->form_validation->run() == false)
 		{
@@ -168,17 +167,17 @@ class Auth extends MY_Controller {
 		{
 			$identity = $this->session->userdata($this->config->item('identity', 'ion_auth'));
 
-			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
+			$change = $this->auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));
 
 			if ($change)
 			{
 				//if the password was successfully changed
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', $this->auth->messages());
 				$this->logout();
 			}
 			else
 			{
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('message', $this->auth->errors());
 				redirect('auth/change_password', 'refresh');
 			}
 		}
@@ -214,17 +213,17 @@ class Auth extends MY_Controller {
 			$identity = $this->db->where('email', $this->input->post('email'))->limit('1')->get($config_tables['users'])->row();
 
 			//run the forgotten password method to email an activation code to the user
-			$forgotten = $this->ion_auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});
+			$forgotten = $this->auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});
 
 			if ($forgotten)
 			{
 				//if there were no errors
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', $this->auth->messages());
 				redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
 			}
 			else
 			{
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('message', $this->auth->errors());
 				redirect("auth/forgot_password", 'refresh');
 			}
 		}
@@ -238,7 +237,7 @@ class Auth extends MY_Controller {
 			show_404();
 		}
 
-		$user = $this->ion_auth->forgotten_password_check($code);
+		$user = $this->auth->forgotten_password_check($code);
 
 		if ($user)
 		{
@@ -286,7 +285,7 @@ class Auth extends MY_Controller {
 				{
 
 					//something fishy might be up
-					$this->ion_auth->clear_forgotten_password_code($code);
+					$this->auth->clear_forgotten_password_code($code);
 
 					show_error($this->lang->line('error_csrf'));
 
@@ -296,17 +295,17 @@ class Auth extends MY_Controller {
 					// finally change the password
 					$identity = $user->{$this->config->item('identity', 'ion_auth')};
 
-					$change = $this->ion_auth->reset_password($identity, $this->input->post('new'));
+					$change = $this->auth->reset_password($identity, $this->input->post('new'));
 
 					if ($change)
 					{
 						//if the password was successfully changed
-						$this->session->set_flashdata('message', $this->ion_auth->messages());
+						$this->session->set_flashdata('message', $this->auth->messages());
 						$this->logout();
 					}
 					else
 					{
-						$this->session->set_flashdata('message', $this->ion_auth->errors());
+						$this->session->set_flashdata('message', $this->auth->errors());
 						redirect('auth/reset_password/' . $code, 'refresh');
 					}
 				}
@@ -315,7 +314,7 @@ class Auth extends MY_Controller {
 		else
 		{
 			//if the code is invalid then send them back to the forgot password page
-			$this->session->set_flashdata('message', $this->ion_auth->errors());
+			$this->session->set_flashdata('message', $this->auth->errors());
 			redirect("auth/forgot_password", 'refresh');
 		}
 	}
@@ -326,23 +325,23 @@ class Auth extends MY_Controller {
 	{
 		if ($code !== false)
 		{
-			$activation = $this->ion_auth->activate($id, $code);
+			$activation = $this->auth->activate($id, $code);
 		}
-		else if ($this->ion_auth->is_admin())
+		else if ($this->auth->is_admin())
 		{
-			$activation = $this->ion_auth->activate($id);
+			$activation = $this->auth->activate($id);
 		}
 
 		if ($activation)
 		{
 			//redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
+			$this->session->set_flashdata('message', $this->auth->messages());
 			redirect("auth", 'refresh');
 		}
 		else
 		{
 			//redirect them to the forgot password page
-			$this->session->set_flashdata('message', $this->ion_auth->errors());
+			$this->session->set_flashdata('message', $this->auth->errors());
 			redirect("auth/forgot_password", 'refresh');
 		}
 	}
@@ -360,7 +359,7 @@ class Auth extends MY_Controller {
 		{
 			// insert csrf check
 			$this->data['csrf'] = $this->_get_csrf_nonce();
-			$this->data['user'] = $this->ion_auth->user($id)->row();
+			$this->data['user'] = $this->auth->user($id)->row();
 
 			$this->_render_page('auth/deactivate_user', $this->data);
 		}
@@ -376,9 +375,9 @@ class Auth extends MY_Controller {
 				}
 
 				// do we have the right userlevel?
-				if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
+				if ($this->auth->logged_in() && $this->auth->is_admin())
 				{
-					$this->ion_auth->deactivate($id);
+					$this->auth->deactivate($id);
 				}
 			}
 
@@ -392,7 +391,7 @@ class Auth extends MY_Controller {
 	{
 		$this->data['title'] = "Create User";
 
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		if (!$this->auth->logged_in() || !$this->auth->is_admin())
 		{
 			redirect('auth', 'refresh');
 		}
@@ -419,18 +418,18 @@ class Auth extends MY_Controller {
 				'phone'      => $this->input->post('phone'),
 			);
 		}
-		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data))
+		if ($this->form_validation->run() == true && $this->auth->register($username, $password, $email, $additional_data))
 		{
 			//check to see if we are creating the user
 			//redirect them back to the admin page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
+			$this->session->set_flashdata('message', $this->auth->messages());
 			redirect("auth", 'refresh');
 		}
 		else
 		{
 			//display the create user form
 			//set the flash data error message if there is one
-			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->auth->errors() ? $this->auth->errors() : $this->session->flashdata('message')));
 
 			$this->data['first_name'] = array(
 				'name'  => 'first_name',
@@ -484,14 +483,14 @@ class Auth extends MY_Controller {
 	{
 		$this->data['title'] = "Edit User";
 
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		if (!$this->auth->logged_in() || !$this->auth->is_admin())
 		{
 			redirect('auth', 'refresh');
 		}
 
-		$user = $this->ion_auth->user($id)->row();
-		$groups=$this->ion_auth->groups()->result_array();
-		$currentGroups = $this->ion_auth->get_users_groups($id)->result();
+		$user = $this->auth->user($id)->row();
+		$groups=$this->auth->groups()->result_array();
+		$currentGroups = $this->auth->get_users_groups($id)->result();
 
 		//validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'required|xss_clean');
@@ -520,10 +519,10 @@ class Auth extends MY_Controller {
 
 			if (isset($groupData) && !empty($groupData)) {
 
-				$this->ion_auth->remove_from_group('', $id);
+				$this->auth->remove_from_group('', $id);
 
 				foreach ($groupData as $grp) {
-					$this->ion_auth->add_to_group($grp, $id);
+					$this->auth->add_to_group($grp, $id);
 				}
 
 			}
@@ -539,7 +538,7 @@ class Auth extends MY_Controller {
 
 			if ($this->form_validation->run() === TRUE)
 			{
-				$this->ion_auth->update($user->id, $data);
+				$this->auth->update($user->id, $data);
 
 				//check to see if we are creating the user
 				//redirect them back to the admin page
@@ -552,7 +551,7 @@ class Auth extends MY_Controller {
 		$this->data['csrf'] = $this->_get_csrf_nonce();
 
 		//set the flash data error message if there is one
-		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->auth->errors() ? $this->auth->errors() : $this->session->flashdata('message')));
 
 		//pass the user to the view
 		$this->data['user'] = $user;
@@ -602,7 +601,7 @@ class Auth extends MY_Controller {
 	{
 		$this->data['title'] = $this->lang->line('create_group_title');
 
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		if (!$this->auth->logged_in() || !$this->auth->is_admin())
 		{
 			redirect('auth', 'refresh');
 		}
@@ -613,12 +612,12 @@ class Auth extends MY_Controller {
 
 		if ($this->form_validation->run() == TRUE)
 		{
-			$new_group_id = $this->ion_auth->create_group($this->input->post('group_name'), $this->input->post('description'));
+			$new_group_id = $this->auth->create_group($this->input->post('group_name'), $this->input->post('description'));
 			if($new_group_id)
 			{
 				// check to see if we are creating the group
 				// redirect them back to the admin page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', $this->auth->messages());
 				redirect("auth", 'refresh');
 			}
 		}
@@ -626,7 +625,7 @@ class Auth extends MY_Controller {
 		{
 			//display the create group form
 			//set the flash data error message if there is one
-			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->auth->errors() ? $this->auth->errors() : $this->session->flashdata('message')));
 
 			$this->data['group_name'] = array(
 				'name'  => 'group_name',
@@ -656,12 +655,12 @@ class Auth extends MY_Controller {
 
 		$this->data['title'] = $this->lang->line('edit_group_title');
 
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+		if (!$this->auth->logged_in() || !$this->auth->is_admin())
 		{
 			redirect('auth', 'refresh');
 		}
 
-		$group = $this->ion_auth->group($id)->row();
+		$group = $this->auth->group($id)->row();
 
 		//validate form input
 		$this->form_validation->set_rules('group_name', $this->lang->line('edit_group_validation_name_label'), 'required|alpha_dash|xss_clean');
@@ -671,7 +670,7 @@ class Auth extends MY_Controller {
 		{
 			if ($this->form_validation->run() === TRUE)
 			{
-				$group_update = $this->ion_auth->update_group($id, $_POST['group_name'], $_POST['group_description']);
+				$group_update = $this->auth->update_group($id, $_POST['group_name'], $_POST['group_description']);
 
 				if($group_update)
 				{
@@ -679,14 +678,14 @@ class Auth extends MY_Controller {
 				}
 				else
 				{
-					$this->session->set_flashdata('message', $this->ion_auth->errors());
+					$this->session->set_flashdata('message', $this->auth->errors());
 				}
 				redirect("auth", 'refresh');
 			}
 		}
 
 		//set the flash data error message if there is one
-		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->auth->errors() ? $this->auth->errors() : $this->session->flashdata('message')));
 
 		//pass the user to the view
 		$this->data['group'] = $group;

@@ -13,8 +13,8 @@ class MY_Controller extends MX_Controller {
 
         $this->_ci =& get_instance();
 
-        // Set an alias of ion_auth library
-        $this->_ci->auth =& $this->_ci->ion_auth;
+        // Set an alias of Authentication library
+        $this->_ci->auth =& $this->_ci->authentication;
     }
 
     public function _load_script($script)
