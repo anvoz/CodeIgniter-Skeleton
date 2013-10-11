@@ -33,16 +33,28 @@ $(function() {
                     .css({ width: progress + '%' });
             },
             done: function(e, data) {
-                var \$this = $(this);
+                var \$results = $(this).closest('.control').siblings('.results');
                 $.each(data.result.files, function (index, file) {
-                    \$this
-                        .closest('.control').siblings('.results')
-                        .append([
-                            '<a class="thumbnail pull-left" target="_blank" href="' + file.url + '" style="margin: 0 10px 10px 0;">',
-                                '<div class="text-center" style="min-height: 80px;"><img src="' + file.thumbnailUrl + '"></div>',
-                                '<div class="caption">' + file.name + '</div>',
-                            '</a>'
+                    if (file.url) {
+                        \$results.append([
+                            '<div class="alert alert-success">',
+                                '<img src="', file.thumbnailUrl, '"> ',
+                                file.name,
+                            '</div>'
                         ].join(''));
+                    } else if (file.error) {
+                        \$results.append([
+                            '<div class="alert alert-danger">',
+                                file.name, ': ', file.error,
+                            '</div>'
+                        ].join(''));
+                    }
+                });
+            },
+            fail: function(e, data) {
+                var \$results = $(this).closest('.control').siblings('.results');
+                $.each(data.files, function (index, file) {
+                    \$results.append('<div class="alert alert-danger">File upload failed.</div>');
                 });
             }
         }).prop('disabled', !$.support.fileInput);
