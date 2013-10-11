@@ -1,5 +1,15 @@
 <?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
+/**
+ * Template Library
+ * Render base view including metadata, Javascript and CSS files
+ *
+ * https://github.com/anvoz/CodeIgniter-Skeleton
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
 class Template {
 
     private $_ci;

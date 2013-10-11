@@ -1,5 +1,15 @@
 <?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
+/**
+ * Dialog Library
+ * Generate Dialog HTML
+ *
+ * https://github.com/anvoz/CodeIgniter-Skeleton
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
 class Dialog {
 
     private $_ci;
@@ -119,5 +129,5 @@ class Dialog {
     }
 }
 
-/* End of file Response.php */
-/* Location: ./application/libraries/Response.php */
+/* End of file Dialog.php */
+/* Location: ./application/libraries/Dialog.php */

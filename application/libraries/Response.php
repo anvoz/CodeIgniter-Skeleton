@@ -1,8 +1,16 @@
 <?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
 /**
- * Handle ajax request from CIS.Ajax.request() from client
+ * Response Library
+ * Handle ajax request of the CIS.Ajax.request() Javascript function from client
+ * Register Javascript from server which will be executed after the request was successful
+ *
+ * https://github.com/anvoz/CodeIgniter-Skeleton
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
  */
+
 class Response {
 
     private $_ci;
