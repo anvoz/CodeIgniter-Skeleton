@@ -64,6 +64,4 @@ By default, you will be albe to check all features on the homepage of the projec
 # TODO
 
 * Add `CIS.Dialog.alert()` and `CIS.Dialog.confirm()` for the replacement of `window.alert()` and `window.confirm()`
-* Improve Template mechanic: be able to write more Javascript in pagelet (or be able to put executable scripts anywhere inside `<body>`. Currently, it was not fully supported because all core JS files were loaded last)
-* Improve Ajaxify mechanic: be able to load dependent JS files before execute the script
 * Basic CRUD model
