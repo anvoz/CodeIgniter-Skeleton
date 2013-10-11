@@ -10,7 +10,7 @@
  * http://www.opensource.org/licenses/MIT
  */
 
-class Upload_handler
+class Uploadhandler
 {
     protected $options;
     // PHP File Upload error message codes:
