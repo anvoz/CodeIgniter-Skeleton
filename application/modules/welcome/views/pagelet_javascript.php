@@ -89,10 +89,10 @@
     <div>
         <p>Usage: <code>$('[data-toggle="tooltip"]').tooltip()</code></p>
         <div class="text-center">
-            <button title="Tooltip on left" data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button">Tooltip on left</button>
-            <button title="Tooltip on top" data-placement="top" data-toggle="tooltip" class="btn btn-default" type="button">Tooltip on top</button>
-            <button title="Tooltip on bottom" data-placement="bottom" data-toggle="tooltip" class="btn btn-default" type="button">Tooltip on bottom</button>
-            <button title="Tooltip on right" data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button">Tooltip on right</button>
+            <button title="Tooltip on left" data-placement="left" data-toggle="tooltip" class="btn btn-primary" type="button">Tooltip on left</button>
+            <button title="Tooltip on top" data-placement="top" data-toggle="tooltip" class="btn btn-primary" type="button">Tooltip on top</button>
+            <button title="Tooltip on bottom" data-placement="bottom" data-toggle="tooltip" class="btn btn-primary" type="button">Tooltip on bottom</button>
+            <button title="Tooltip on right" data-placement="right" data-toggle="tooltip" class="btn btn-primary" type="button">Tooltip on right</button>
         </div>
     </div>
     <p><br>Options: <code>animation</code> <code>html</code> <code>placement</code> <code>selector</code> <code>title</code> <code>trigger</code> <code>delay</code> <code>container</code></p>
@@ -106,10 +106,10 @@
     <div>
         <p>Usage: <code>$('[data-toggle="popover"]').popover()</code></p>
         <div class="text-center">
-            <button title="Popover on left" data-content="..." data-placement="left" data-toggle="popover" class="btn btn-default" type="button">Popover on left</button>
-            <button title="Popover on top" data-content="..." data-placement="top" data-toggle="popover" class="btn btn-default" type="button">Popover on top</button>
-            <button title="Popover on bottom" data-content="..." data-placement="bottom" data-toggle="popover" class="btn btn-default" type="button">Popover on bottom</button>
-            <button title="Popover on right" data-content="..." data-placement="right" data-toggle="popover" class="btn btn-default" type="button">Popover on right</button>
+            <button title="Popover on left" data-content="..." data-placement="left" data-toggle="popover" class="btn btn-primary" type="button">Popover on left</button>
+            <button title="Popover on top" data-content="..." data-placement="top" data-toggle="popover" class="btn btn-primary" type="button">Popover on top</button>
+            <button title="Popover on bottom" data-content="..." data-placement="bottom" data-toggle="popover" class="btn btn-primary" type="button">Popover on bottom</button>
+            <button title="Popover on right" data-content="..." data-placement="right" data-toggle="popover" class="btn btn-primary" type="button">Popover on right</button>
         </div>
     </div>
     <p><br>Options: <code>animation</code> <code>html</code> <code>placement</code> <code>selector</code> <code>title</code> <code>content</code> <code>trigger</code> <code>delay</code> <code>container</code></p>
@@ -123,7 +123,7 @@
     <div>
         <p>Via data attributes:</p>
         <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -135,7 +135,7 @@
                     <div class="panel-body">#collapseOne.collapse.in</div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">

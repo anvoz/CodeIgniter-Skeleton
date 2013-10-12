@@ -3,7 +3,7 @@
     <div>
         <p>Via <code>rel="async"</code> and <code>ajaxify="{$ajax_url}"</code></p>
         <p>
-            <a class="btn btn-default" href="#"
+            <a class="btn btn-primary" href="#"
                     rel="async"
                     ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=a'); ?>">
                 Right
@@ -13,7 +13,7 @@
     <div>
         <p>Via <code>CIS.Ajax.request('{$ajax_url}', { context: {$the_above_button} })</code></p>
         <p>
-            <a class="btn btn-default" href="#"
+            <a class="btn btn-primary" href="#"
                     onclick="CIS.Ajax.request('<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=a'); ?>', { context: $(this).closest('div').siblings('div').find('a') }); return false;">
                 Trigger
             </a>
@@ -50,7 +50,7 @@
     <div>
         <p>
             <code>$this->response->alert($title, $body)</code>
-            <a class="btn btn-default" href="#"
+            <a class="btn btn-primary" href="#"
                     rel="async"
                     ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=alert'); ?>">
                 Show alert dialog
@@ -60,7 +60,7 @@
     <div>
         <p>
             <code>$this->response->confirm($title, $body)</code>
-            <a class="btn btn-default" href="#"
+            <a class="btn btn-primary" href="#"
                     rel="async"
                     ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=confirm'); ?>">
                 Show confirm dialog
@@ -70,7 +70,7 @@
     <div>
         <p>
             <code>$this->response->dialog([ ... ])</code>
-            <a class="btn btn-default" href="#"
+            <a class="btn btn-primary" href="#"
                     rel="async"
                     ajaxify="<?php echo site_url('ajax/welcome_ajax/test_ajaxify?type=dialog'); ?>">
                 Show custom dialog
@@ -89,11 +89,11 @@
 
 <div>
     <p>
-        <a class="btn btn-default" href="<?php echo site_url('photo/upload'); ?>"
+        <a class="btn btn-primary" href="<?php echo site_url('photo/upload'); ?>"
                 rel="async"
                 ajaxify="<?php echo site_url('ajax/photo_ajax/dialog_upload'); ?>">
             Show photo upload dialog
         </a>
-        <a class="btn btn-default" href="<?php echo site_url('photo/upload'); ?>" target="_blank">Open photo upload page</a>
+        <a class="btn btn-primary" href="<?php echo site_url('photo/upload'); ?>" target="_blank">Open photo upload page</a>
     </p>
 </div>

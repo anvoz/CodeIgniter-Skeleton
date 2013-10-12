@@ -398,16 +398,16 @@
         <button class="btn btn-default btn-xs" type="button">.btn-xs</button>
     </p>
     <p>
-        <button class="btn btn-primary btn-block" type="button">.btn-block</button>
+        <button class="btn btn-default btn-block" type="button">.btn-block</button>
         <button class="btn btn-default btn-block" type="button">.btn-block</button>
     </p>
     <p>
-        <a class="btn btn-primary" href="#">a.btn</a>
-        <button class="btn btn-primary" type="button">button.btn</button>
-        <input class="btn btn-primary" type="button" value="input.btn">
+        <a class="btn btn-default" href="#">a.btn</a>
+        <button class="btn btn-default" type="button">button.btn</button>
+        <input class="btn btn-default" type="button" value="input.btn">
 
-        <button class="btn btn-primary" type="button" disabled="disabled">Disabled button</button>
-        <a class="btn btn-primary disabled" href="#">a.btn.disabled</a>
+        <button class="btn btn-default" type="button" disabled="disabled">Disabled button</button>
+        <a class="btn btn-default disabled" href="#">a.btn.disabled</a>
     </p>
     <div class="btn-group">
         <button class="btn btn-primary" type="button" data-loading-text="Loading..." data-complete-text="Completed" onclick="$(this).button('loading').siblings('button').prop('disabled',false);" autocomplete="off">
