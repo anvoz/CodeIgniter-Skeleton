@@ -228,7 +228,7 @@
         <div class="form-group">
             <label>.input-group</label>
             <div class="input-group">
-                <span class="input-group-addon">.input-group-addon</span>
+                <span class="input-group-addon"><abbr title=".input-group-addon: The horizontal scroll will appear in IE9 if this content is too long">...</abbr></span>
                 <input type="text" class="form-control" placeholder="Text input">
                 <span class="input-group-addon"><input type="checkbox"></span>
                 <span class="input-group-addon"><input type="radio"></span>
