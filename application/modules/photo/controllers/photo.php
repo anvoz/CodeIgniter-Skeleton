@@ -37,9 +37,14 @@ $(function() {
                 $.each(data.result.files, function (index, file) {
                     if (file.url) {
                         \$results.append([
-                            '<div class="alert alert-success">',
-                                '<img src="', file.thumbnailUrl, '"> ',
-                                file.name,
+                            '<div class="media alert alert-success">',
+                                '<a class="pull-left" target="_blank" href="', file.url, '">',
+                                    '<img src="', file.thumbnailUrl, '"> ',
+                                '</a>',
+                                '<div class="media-body">',
+                                    '<h4>', file.name, '</h4>',
+                                    file.type,
+                                '</div>',
                             '</div>'
                         ].join(''));
                     } else if (file.error) {
