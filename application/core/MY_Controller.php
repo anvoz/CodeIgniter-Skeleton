@@ -41,11 +41,6 @@ class Ajax_Controller extends MY_Controller {
     {
         parent::__construct();
 
-        if ( ! $this->input->is_ajax_request())
-        {
-            exit;
-        }
-
         $this->load->library('response');
     }
 }

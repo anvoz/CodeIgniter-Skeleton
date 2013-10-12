@@ -170,7 +170,10 @@ JS;
     {
         if ( ! empty($this->_data))
         {
-            echo json_encode($this->_data);
+            if ($this->_ci->input->is_ajax_request())
+            {
+                echo json_encode($this->_data);
+            }
             exit;
         }
     }
