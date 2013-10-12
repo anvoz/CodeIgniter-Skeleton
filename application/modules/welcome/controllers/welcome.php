@@ -36,6 +36,18 @@ class Welcome extends MY_Controller {
     public function _pagelet_theme()
     {
         $this->load->view('pagelet_theme');
+
+        $script = <<< JS
+$(function() {
+    $('a[href="#"]:not([data-toggle], [rel="async"])').click(function() {
+        return false;
+    });
+    $('form:not([action])').submit(function() {
+        return false;
+    });
+});
+JS;
+        $this->_load_script($script);
     }
 
     public function _pagelet_javascript()
