@@ -1,4 +1,4 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
  * jQuery File Upload Plugin PHP Class 6.9.1
  * https://github.com/blueimp/jQuery-File-Upload
