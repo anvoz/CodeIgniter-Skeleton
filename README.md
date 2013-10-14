@@ -63,6 +63,8 @@ By default, you will be albe to check all features on the welcome page without d
  * Edit your encryption key in `application/config/config.php` file.
  * Customize the library config in `application/config/ion_auth.php` file.
 
+[CodeIgniter Nginx Rewrite Rules](https://github.com/anvoz/CodeIgniter-Skeleton/wiki/CodeIgniter-Nginx-Rewrite-Rules)
+
 ## Guidelines
 
 ### Render a page
