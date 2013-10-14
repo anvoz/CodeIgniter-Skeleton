@@ -1,2 +1,4 @@
 # Normalise line endings:
 * eol=lf
+
+*.ttf binary
