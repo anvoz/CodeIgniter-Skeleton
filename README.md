@@ -95,21 +95,23 @@ class Welcome extends MY_Controller {
     }
 }
 ```
-Use `Modules::run('welcome/_pagelet_example')` to get pagelet output
+Use `Modules::run('welcome/_pagelet_example')` to get the pagelet HTML output.
 
 ### Write Javascript inside a pagelet
 ```
-$this->_load_script('$(function() { console.log("The DOM is loaded."); });');
+$this->_load_script('$(function() {
+    console.log("The DOM is loaded.");
+});');
 ```
-If pagelet is rendered via a normal page load, the script will be executed after everything was loaded.
+If pagelet is rendered via a normal page load, the script will be queued. Queued scripts will be executed by the code inside `main.js` when the file was loaded.
 
-If pagelet is rendered via an ajax request, the script will be executed immediately.
+If pagelet is rendered via an ajax request, the script will be executed immediately because all of the core Javascript files were already loaded. If you want to add extra files, see `CIS.Script.require()` function in the following section.
 
 You can also write Javascript directly inside the pagelet view but it is not recommended.
 
 Lengthy script should be packed in a Javascript file but its starting function should be called here.
 
-### Execute functions after all required Javascript files are loaded
+### Execute functions after all of the required Javascript files were loaded
 ```
 CIS.Script.require('{$js_file_path}', function() {
     console.log("Plugins are loaded.");
@@ -128,7 +130,7 @@ Via Javascript function: `CIS.Ajax.request('{$ajax_url}'[, settings])`
 
 ### Ajax response handler
 ```
-// Must extend Ajax_Controller to use Response library
+// Should extend Ajax_Controller to use the Response library
 class Example_ajax extends Ajax_Controller {
     // URL: {$site_url}/ajax/example_ajax/example
     function example()
@@ -143,3 +145,13 @@ class Example_ajax extends Ajax_Controller {
 Use `alert`, `confirm` and `dialog` functions of the `Response` library to display dialog in client-side.
 
 Lengthy script should be packed in a Javascript file but its starting function should be called here.
+
+## Examples
+
+### Login form
+
+This is an example of using CIS to make a function that can handle both normal and ajax requests. It is also an example to help you distinguishing between page and pagelet to organize source code in the right way.
+
+By default, login form should be accessible everywhere via a dialog and should use ajax to show errors instead of reloading an entire page. But if there is something wrong, the form can also be displayed in a single page or using regular submit without any Javascript needed.
+
+Check the `login` function, which was located at `application/modules/auth/controllers/auth.php`, for more details.

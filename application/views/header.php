@@ -17,7 +17,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php if ( ! $this->auth->logged_in()): ?>
-                    <li><a href="<?php echo site_url('auth/login'); ?>">Login</a></li>
+                    <li>
+                        <a href="<?php echo site_url('auth/login'); ?>" rel="async" ajaxify="<?php echo site_url('ajax/auth_ajax/dialog_login'); ?>">
+                            Log In
+                        </a>
+                    </li>
                 <?php else: ?>
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Logged in <b class="caret"></b></a>

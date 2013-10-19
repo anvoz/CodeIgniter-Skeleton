@@ -2,6 +2,20 @@
 
 class Auth extends MY_Controller {
 
+    /**
+     * Auth controller for Ion Auth library
+     * http://github.com/benedmunds/CodeIgniter-Ion-Auth
+     *
+     * Modified:
+     * function _render_page: customized to use with HMVC and Template library.
+     * function login: rewrote to use with pagelet and ajax submission.
+     *      By default, login form can be displayed in every page via a login dialog and use ajax request to submit data.
+     *      The form can also be loaded in a single page or use normal form submission without ajax
+     *      if there is something wrong with the Javascript.
+     *
+     * Note: modified functions use spaces instead of tabs for indentation
+     */
+
     public $data;
 
 	function __construct()
@@ -52,55 +66,112 @@ class Auth extends MY_Controller {
 		}
 	}
 
-	//log the user in
+    /**
+     * Render a single login page that can be access via /auth/login url.
+     * Also handle the login submission response for both normal and ajax requests.
+     */
 	function login()
 	{
-		$this->data['title'] = "Login";
+        if ($this->auth->logged_in() || $this->_login())
+        {
+            // Already logged in or just logged in successfully
+            if ( ! $this->input->is_ajax_request())
+            {
+                redirect('/', 'refresh');
+            }
+            else
+            {
+                $this->load->library('response');
+                // Force reloading the current page from the server
+                $this->response->script('window.location.reload(true);');
+                $this->response->send();
+            }
+        }
+        else
+        {
+            if ( ! $this->input->is_ajax_request())
+            {
+                // Load an entire login page
+                $this->load->library('template');
+                $this->template->set_layout('pagelet');
+                $this->template->set_title(lang('login_heading'));
+                $this->template->load_view('auth/login', array(
+                    'pagelet_login' => Modules::run('auth/_pagelet_login'),
+                ));
+            }
+            else
+            {
+                // Handle ajax response: only need to display errors
+                // instead of reloading an entire login page
+                $this->load->library('response');
 
-		//validate form input
+                // Reset error message container
+                $this->response->script("$('#infoMessage').removeClass('alert alert-danger').empty();");
+                $message = (validation_errors() ? validation_errors() : ($this->auth->errors() ? $this->auth->errors() : $this->session->flashdata('message')));
+                if ( ! empty($message))
+                {
+                    // Display error messages
+                    $json_message = json_encode($message);
+                    $this->response->script("$('#infoMessage').addClass('alert alert-danger').html({$json_message});");
+                }
+
+                $this->response->send();
+            }
+        }
+	}
+
+    /**
+     * Define register pagelet that only contains register form and error messages
+     */
+    function _pagelet_login()
+    {
+        $this->load->helper('form');
+
+        // Get error messages from form valdation or auth library
+        $data['message'] = (validation_errors() ? validation_errors() : ($this->auth->errors() ? $this->auth->errors() : $this->session->flashdata('message')));
+
+        $data['identity'] = array('name' => 'identity',
+            'id' => 'identity-' . mt_rand(1, 999999),
+            'type' => 'text',
+            'value' => ($this->load->is_loaded('form_validation')) ?
+                    $this->form_validation->set_value('identity') : '',
+        );
+        $data['password'] = array('name' => 'password',
+            'id' => 'password-' . mt_rand(1, 999999),
+            'type' => 'password',
+        );
+
+        $this->load->view('auth/pagelet_login', $data);
+    }
+
+    /**
+     * Log the user in if the authentication is correct
+     */
+    function _login()
+    {
+        // Validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
-		if ($this->form_validation->run() == true)
-		{
-			//check to see if the user is logging in
-			//check for "remember me"
+        if ($this->form_validation->run() == true)
+        {
+			// Check for "remember me"
 			$remember = (bool) $this->input->post('remember');
 
-			if ($this->auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+            if ($this->auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
-				//if the login is successful
-				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->auth->messages());
-				redirect('/', 'refresh');
-			}
-			else
-			{
-				//if the login was un-successful
-				//redirect them back to the login page
-				$this->session->set_flashdata('message', $this->auth->errors());
-				redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
-			}
-		}
-		else
-		{
-			//the user is not logging in so display the login page
-			//set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                $this->session->set_flashdata('message', $this->auth->messages());
+                return TRUE;
+            }
+            else
+            {
+                $this->session->set_flashdata('message', $this->auth->errors());
+                return FALSE;
+            }
+        }
 
-			$this->data['identity'] = array('name' => 'identity',
-				'id' => 'identity',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('identity'),
-			);
-			$this->data['password'] = array('name' => 'password',
-				'id' => 'password',
-				'type' => 'password',
-			);
-
-			$this->_render_page('auth/login', $this->data);
-		}
-	}
+        return FALSE;
+    }
 
 	//log the user out
 	function logout()
@@ -731,7 +802,6 @@ class Auth extends MY_Controller {
 		}
 	}
 
-    // Customized to use HMVC and Temple library
 	function _render_page($view, $data = NULL, $render = FALSE)
 	{
 		// $this->viewdata = (empty($data)) ? $this->data: $data;
