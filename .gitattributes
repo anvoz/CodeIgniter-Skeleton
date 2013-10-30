@@ -1,4 +1,16 @@
 # Normalise line endings:
 * eol=lf
 
-*.ttf binary
+# Text files:
+*.php   text
+*.css   text
+*.js    text
+*.html  text
+*.txt   text
+
+# Binary files:
+*.ico   binary
+*.gif   binary
+*.png   binary
+*.jpg   binary
+*.ttf   binary
