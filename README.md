@@ -16,7 +16,7 @@ CIS is also a great experience for CI-based developments to ajaxify modules. It 
 * [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.1.4 (last updated: Jul 8, 2013)
 * [Modular Extensions - HMVC](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 5.4 (last updated: Jul 31, 2013)
 * [jQuery](https://github.com/jquery/jquery) 1.10.2 (last updated: Jul 3, 2013)
-* [Bootstrap](https://github.com/twbs/bootstrap) 3.0 (last updated: Aug 19, 2013)
+* [Bootstrap](https://github.com/twbs/bootstrap) 3.0.2 (last updated: Nov 06, 2013)
  * Not include Glyphicons
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
  * Not include Mongodb model

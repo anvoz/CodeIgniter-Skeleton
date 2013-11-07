@@ -699,10 +699,8 @@
     <h2 id="jumbotron">Jumbotron</h2>
 
     <div class="jumbotron">
-        <div class="container">
-            <h1><small>.jumbotron .container</small> h1</h1>
-            <p>&lt;p&gt;</p>
-        </div>
+        <h1><small>.jumbotron .container</small> h1</h1>
+        <p>&lt;p&gt;</p>
     </div>
 </div>
 
