@@ -63,6 +63,8 @@ By default, you will be albe to check all features on the welcome page without d
  * Edit your encryption key in `application/config/config.php` file.
  * Customize the library config in `application/config/ion_auth.php` file.
 
+[H5BP's Server Configs](https://github.com/h5bp/server-configs): Best-practice server configurations to help improve site performance.
+
 [CodeIgniter Nginx Rewrite Rules](https://github.com/anvoz/CodeIgniter-Skeleton/wiki/CodeIgniter-Nginx-Rewrite-Rules)
 
 ## Guidelines
