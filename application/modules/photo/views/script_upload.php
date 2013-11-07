@@ -7,13 +7,14 @@ $(function() {
             url: uploadURL,
             dataType: 'json',
             progressall: function(e, data) {
-                var progress = parseInt(data.loaded / data.total * 100, 10);
-                $(this)
-                    .closest('.control').siblings('.progress').find('.progress-bar')
-                    .css({ width: progress + '%' });
+                var progress = parseInt(data.loaded / data.total * 100, 10),
+                    $control = $(this).closest('.js-control'),
+                    $progress = $control.find($control.data('progress-holder'));
+                $progress.find('.progress-bar').css({ width: progress + '%' });
             },
             done: function(e, data) {
-                var $results = $(this).closest('.control').siblings('.results');
+                var $control = $(this).closest('.js-control');
+                    $results = $control.find($control.data('results-holder'));
                 $.each(data.result.files, function (index, file) {
                     if (file.url) {
                         $results.append([
@@ -37,7 +38,8 @@ $(function() {
                 });
             },
             fail: function(e, data) {
-                var $results = $(this).closest('.control').siblings('.results');
+                var $control = $(this).closest('.js-control');
+                    $results = $control.find($control.data('results-holder'));
                 $.each(data.files, function (index, file) {
                     $results.append('<div class="alert alert-danger">File upload failed.</div>');
                 });
