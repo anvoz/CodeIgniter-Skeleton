@@ -98,7 +98,7 @@ class Response {
 
         // Destroy dialog
         $dialog_id = $this->_ci->input->get_post('_dialog_id');
-        $this->script("$('#{$dialog_id}').modal('hide').on('hidden.bs.modal', function(e) { $(e.target).remove(); });");
+        $this->script("$('#{$dialog_id}').modal('hide');");
         return TRUE;
     }
 
@@ -149,13 +149,25 @@ class Response {
         $html = $this->_ci->dialog->html();
         $json_html = json_encode($html);
 
-        // Append dialog to body and show
-        // Destroy dialog after it was closed
+        /*
+         * - Append dialog HTML to <body>.
+         * - Store reference of the button that toggles this dialog (caller)
+         * on every async forms of the dialog.
+         * - Launch the dialog.
+         * - Register an event to destroy the dialog after it was closed
+         * (must use setTimeout to prevent the dialog from being completely removed
+         * before other scripts, which retrieve dialog's data, are executed,
+         * especially for dialogs that have no hidden effect or for IE).
+         */
         $code = <<< JS
 $('body').append({$json_html});
-$('#{$dialog_id}').modal().on('hidden.bs.modal', function(e) {
-    $(e.target).remove();
-});
+$('#{$dialog_id}')
+    .find('form[rel="async"]').data('caller', $(this)).end()
+    .modal().on('hidden.bs.modal', function(e) {
+        setTimeout(function() {
+            $(e.target).remove();
+        }, 1);
+    });
 JS;
         $this->script($code);
     }

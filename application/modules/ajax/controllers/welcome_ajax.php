@@ -39,7 +39,7 @@ JS;
             case 'confirm':
                 if ($this->response->confirm('Confirm title', 'Confirm body'))
                 {
-                    $this->response->script('alert("Confirmed!");');
+                    $this->response->script('$(this).data("caller").after("<div>Confirmed!</div>");');
                 }
                 break;
             case 'dialog':
