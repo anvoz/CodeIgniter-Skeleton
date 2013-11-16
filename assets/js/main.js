@@ -76,21 +76,37 @@
     };
 
     CIS.Script = $.extend({
-        queue: [],      // Queued scripts that were randomly placed inside <body>
-        loaded: {},     // Loaded script files using CIS.Script.require function
+        // Store all of the scripts that were randomly placed inside the page's body
+        // to be executed later after the page was completely rendered
+        queue: [],
+        // List of Javascript files that were already loaded
+        // by the CIS.Script.require function
+        loadedFiles: {},
 
+        /**
+         * Load Javascript files if they were not loaded, then execute them
+         * file: string or array of string
+         * callback: function
+         */
         require: function(file, callback) {
             var self = this,
                 files = (file instanceof Array) ? file : [file],
+                // List of Javascript files that were not loaded
                 unloadedFiles = [],
+                // List of functions that will be executed to load the Javascript file
                 functions = [];
 
-            // Script files register
+            // Prepare list of Javascript files that need to be loaded
             for (var i = 0; i < files.length; i++) {
                 if (typeof files[i] === 'string' || files[i] instanceof String) {
-                    if ( ! self.loaded.hasOwnProperty(files[i])) { // File was not loaded yet
+                    // Check if the file was loaded or not
+                    if ( ! self.loadedFiles.hasOwnProperty(files[i])) {
                         unloadedFiles.push(files[i]);
-                        functions.push($.getScript(files[i]));
+                        functions.push($.ajax({
+                            dataType: "script",
+                            cache: true,
+                            url: files[i]
+                        }));
                     }
                 }
             }
@@ -101,14 +117,17 @@
                     $(deferred.resolve);
                 }));
 
-                // Trigger callback after all script files were loaded completely (random order)
+                // Trigger callback after all Javascript files were loaded completely (random order)
                 $.when.apply(self, functions).done(function() {
                     for (var j = 0; j < unloadedFiles.length; j++) {
-                        self.loaded[unloadedFiles[j]] = true; // Mark file as loaded
+                        // Mark as loaded
+                        self.loadedFiles[unloadedFiles[j]] = true;
                     }
                     callback();
                 });
             } else {
+                // If all Javascript files were already loaded,
+                // trigger callback right away
                 callback();
             }
         }
