@@ -57,11 +57,14 @@ JS;
 
     public function _pagelet_ajax()
     {
-        $this->load->view('pagelet_ajax');
+        $test_message = 'Script executed!';
+        $this->load->view('pagelet_ajax', array(
+            'test_message' => $test_message,
+        ));
 
         $script = <<< JS
 $(function() {
-    console.log('Script executed!');
+    console.log('$test_message');
 });
 JS;
         $this->_load_script($script);

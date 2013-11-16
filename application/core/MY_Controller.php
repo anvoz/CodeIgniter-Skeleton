@@ -17,10 +17,16 @@ class MY_Controller extends MX_Controller {
         $this->_ci->auth =& $this->_ci->authentication;
     }
 
+    /**
+     * Load Javascript inside the page's body
+     * @access  public
+     * @param   string  $title
+     */
     public function _load_script($script)
     {
         if (isset($this->_ci->template) && is_object($this->_ci->template))
         {
+            // Queue up the script to be executed after the page is completely rendered
             echo <<< JS
 <script>
     var CIS = CIS || { Script: { queue: [] } };

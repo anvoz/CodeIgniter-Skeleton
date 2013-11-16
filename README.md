@@ -99,17 +99,13 @@ class Welcome extends MY_Controller {
 ```
 Use `Modules::run('welcome/_pagelet_example')` to get the pagelet HTML output.
 
-### Write Javascript inside a pagelet
+### Write Javascript inside the page's body
 ```
 $this->_load_script('$(function() {
     console.log("The DOM is loaded.");
 });');
 ```
-If pagelet is rendered via a normal page load, the script will be queued. Queued scripts will be executed by the code inside `main.js` when the file was loaded.
-
-If pagelet is rendered via an ajax request, the script will be executed immediately because all of the core Javascript files were already loaded. If you want to add extra files, see `CIS.Script.require()` function in the following section.
-
-You can also write Javascript directly inside the pagelet view but it is not recommended.
+To minify blocking time while the browser is executing the script, the script will be queued and only be executed after the page is completely rendered.
 
 Lengthy script should be packed in a Javascript file but its starting function should be called here.
 

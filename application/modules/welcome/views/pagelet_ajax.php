@@ -79,8 +79,8 @@
     </div>
     <div>
         <p>
-            This pagelet also contains script using <code>$this->_load_script()</code> of <code>MY_Controller</code>.<br>
-            You will see the message "Script executed!" on the browser console.
+            This pagelet also contains script that is executed by the <code>_load_script()</code> function.<br>
+            You will see a message that read, "<?php echo $test_message; ?>", in the browser console.
         </p>
     </div>
 </div>
