@@ -20,7 +20,7 @@ class MY_Controller extends MX_Controller {
     /**
      * Load Javascript inside the page's body
      * @access  public
-     * @param   string  $title
+     * @param   string  $script
      */
     public function _load_script($script)
     {
