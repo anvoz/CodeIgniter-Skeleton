@@ -122,14 +122,13 @@
         </div>
     </div>
 
+    <address>
+        <strong>Address</strong><br>
+        Address
+    </address>
+
     <div class="row">
-        <div class="col-md-4">
-            <address>
-                <strong>Address</strong><br>
-                Address
-            </address>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             &lt;dl&gt;
             <dl>
                 <dt>&lt;dt&gt;</dt>
@@ -138,7 +137,7 @@
                 <dd>Description<br>Description</dd>
             </dl>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             dl.dl-horizontal
             <dl class="dl-horizontal">
                 <dt>Term</dt>
