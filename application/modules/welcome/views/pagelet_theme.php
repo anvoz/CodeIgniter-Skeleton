@@ -38,20 +38,38 @@
         <span class="label label-danger">.label-danger</span>
     </p>
 
-    <div>
-        <div class="alert alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            .alert <strong>.alert-dismissable</strong> <a class="alert-link" href="#">a.alert-link</a>
+    <div class="alert alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        .alert <strong>.alert-dismissable</strong> <a class="alert-link" href="#">a.alert-link</a>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-success">.alert <strong>.alert-success</strong> <a class="alert-link" href="#">a.alert-link</a></div>
         </div>
-        <div class="alert alert-success">.alert <strong>.alert-success</strong> <a class="alert-link" href="#">a.alert-link</a></div>
-        <div class="alert alert-info">.alert <strong>.alert-info</strong> <a class="alert-link" href="#">a.alert-link</a></div>
-        <div class="alert alert-warning">.alert <strong>.alert-warning</strong> <a class="alert-link" href="#">a.alert-link</a></div>
-        <div class="alert alert-danger">.alert <strong>.alert-danger</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        <div class="col-md-6">
+            <div class="alert alert-info">.alert <strong>.alert-info</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-warning">.alert <strong>.alert-warning</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        </div>
+        <div class="col-md-6">
+            <div class="alert alert-danger">.alert <strong>.alert-danger</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        </div>
     </div>
 
-    <div class="well">.well</div>
-    <div class="well well-lg">.well.well-lg</div>
-    <div class="well well-sm">.well.well-sm</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well well-lg">.well.well-lg</div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">.well</div>
+        </div>
+        <div class="col-md-4">
+            <div class="well well-sm">.well.well-sm</div>
+        </div>
+    </div>
 
     <p class="text-left">.text-left</p>
     <p class="text-center">.text-center</p>
@@ -753,10 +771,22 @@
     </div>
 
     <div class="panel panel-primary"><div class="panel-heading"><small>.panel.panel-primary</small> .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-success"><div class="panel-heading"><small>.panel.panel-success</small> .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-info"><div class="panel-heading"><small>.panel.panel-info</small> .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-warning"><div class="panel-heading"><small>.panel.panel-warning</small> .panel-heading</div><div class="panel-body">...</div></div>
-    <div class="panel panel-danger"><div class="panel-heading"><small>.panel.panel-danger</small> .panel-heading</div><div class="panel-body">...</div></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-success"><div class="panel-heading"><small>.panel.panel-success</small> .panel-heading</div><div class="panel-body">...</div></div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-info"><div class="panel-heading"><small>.panel.panel-info</small> .panel-heading</div><div class="panel-body">...</div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-warning"><div class="panel-heading"><small>.panel.panel-warning</small> .panel-heading</div><div class="panel-body">...</div></div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-danger"><div class="panel-heading"><small>.panel.panel-danger</small> .panel-heading</div><div class="panel-body">...</div></div>
+        </div>
+    </div>
 </div>
 
 <div>
