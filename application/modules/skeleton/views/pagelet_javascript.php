@@ -63,7 +63,7 @@
         <p>Options: <code>target</code> <code>offset</code></p>
         <p>Methods: <code>.scrollspy('refresh')</code></p>
         <p>Events: <code>activate.bs.scrollspy</code></p>
-        <p>Example: <code>assets/js/modules/welcome.js</code></p>
+        <p>Example: <code>assets/js/modules/skeleton.js</code></p>
     </div>
 </div>
 

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome_ajax extends Ajax_Controller {
+class Skeleton_ajax extends Ajax_Controller {
 
     function test_ajaxify()
     {
@@ -44,7 +44,7 @@ JS;
                 break;
             case 'dialog':
                 $this->response->dialog(array(
-                    'body' => Modules::run('welcome/_pagelet_ajax')
+                    'body' => Modules::run('skeleton/_pagelet_ajax')
                 ));
                 break;
         }
@@ -52,5 +52,5 @@ JS;
     }
 }
 
-/* End of file welcome_ajax.php */
-/* Location: ./application/modules/ajax/controllers/welcome_ajax.php */
+/* End of file skeleton_ajax.php */
+/* Location: ./application/modules/ajax/controllers/skeleton_ajax.php */

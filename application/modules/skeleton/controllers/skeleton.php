@@ -1,20 +1,20 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends MY_Controller {
+class Skeleton extends MY_Controller {
 
     /**
      * Index Page for this controller.
      *
      * Maps to the following URL
-     * 		http://example.com/index.php/welcome
+     * 		http://example.com/index.php/skeleton
      *	- or -
-     * 		http://example.com/index.php/welcome/index
+     * 		http://example.com/index.php/skeleton/index
      *	- or -
      * Since this controller is set as the default controller in
      * config/routes.php, it's displayed at http://example.com/
      *
      * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
+     * map to /index.php/skeleton/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
     public function index()
@@ -22,8 +22,8 @@ class Welcome extends MY_Controller {
         $this->load->library('template');
 
         $this->template->set_title('Welcome');
-        $this->template->add_js('modules/welcome.js');
-        $this->template->add_css('modules/welcome.css');
+        $this->template->add_js('modules/skeleton.js');
+        $this->template->add_css('modules/skeleton.css');
 
         $this->template->load_view('welcome_message');
     }
@@ -71,5 +71,5 @@ JS;
     }
 }
 
-/* End of file welcome.php */
-/* Location: ./application/modules/welcome/controllers/welcome.php */
+/* End of file skeleton.php */
+/* Location: ./application/modules/skeleton/controllers/skeleton.php */
