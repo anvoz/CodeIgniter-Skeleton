@@ -23,17 +23,19 @@
                 <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
             </p>
         </div>
-        <div>
-            <div class="page-header"><h1 id="theme">Theme</h1></div>
-            <?php echo Modules::run('skeleton/_pagelet_theme'); ?>
-        </div>
-        <div>
-            <div class="page-header"><h1 id="javascript">Javascript</h1></div>
-            <?php echo Modules::run('skeleton/_pagelet_javascript'); ?>
-        </div>
-        <div>
-            <div class="page-header"><h1 id="ajax">Ajax</h1></div>
-            <?php echo Modules::run('skeleton/_pagelet_ajax'); ?>
-        </div>
+        <?php foreach ($skeleton_data as $key => $items): ?>
+            <div>
+                <div class="page-header">
+                    <h1 id="<?php echo $key; ?>"><?php echo ucfirst($key); ?></h1>
+                </div>
+                <?php if ( ! empty($items)): ?>
+                    <div>
+                    <?php foreach ($items as $sub_key => $label): ?>
+                        <?php echo $this->load->view('content/pagelet_' . str_replace('-', '_', $sub_key), TRUE); ?>
+                    <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>

@@ -35,8 +35,9 @@ class Skeleton extends MY_Controller {
             show_error('Failed to load skeleton.json');
         }
 
-        $this->template->load_view('welcome_message', array(
+        $this->template->load_view('index', array(
             'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),
+            'skeleton_data' => $skeleton_data
         ));
     }
 
@@ -45,43 +46,6 @@ class Skeleton extends MY_Controller {
         $this->load->view('pagelet_sidebar', array(
             'skeleton_data' => $skeleton_data,
         ));
-    }
-
-    public function _pagelet_theme()
-    {
-        $this->load->view('pagelet_theme');
-
-        $script = <<< JS
-$(function() {
-    $('a[href="#"]:not([data-toggle], [rel="async"])').click(function() {
-        return false;
-    });
-    $('form:not([action])').submit(function() {
-        return false;
-    });
-});
-JS;
-        $this->_load_script($script);
-    }
-
-    public function _pagelet_javascript()
-    {
-        $this->load->view('pagelet_javascript');
-    }
-
-    public function _pagelet_ajax()
-    {
-        $test_message = 'Script executed!';
-        $this->load->view('pagelet_ajax', array(
-            'test_message' => $test_message,
-        ));
-
-        $script = <<< JS
-$(function() {
-    console.log('$test_message');
-});
-JS;
-        $this->_load_script($script);
     }
 }
 
