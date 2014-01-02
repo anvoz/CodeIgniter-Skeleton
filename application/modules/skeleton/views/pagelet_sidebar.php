@@ -1,39 +1,17 @@
 <div id="welcome-sidebar" class="bs-sidebar hidden-print affix">
     <ul class="nav bs-sidenav">
         <li class="active"><a href="#welcome">Welcome</a></li>
-        <li>
-            <a href="#theme">Theme</a>
-            <ul class="nav">
-                <li><a href="#typography">Typography</a></li>
-                <li><a href="#tables">Tables</a></li>
-                <li><a href="#forms">Forms</a></li>
-                <li><a href="#buttons">Buttons</a></li>
-                <li><a href="#images">Images</a></li>
-                <li><a href="#dropdowns">Dropdowns</a></li>
-                <li><a href="#navs">Navs</a></li>
-                <li><a href="#navbar">Navbar</a></li>
-                <li><a href="#breadcrumbs">Breadcrumbs</a></li>
-                <li><a href="#pagination">Pagination</a></li>
-                <li><a href="#jumbotron">Jumbotron</a></li>
-                <li><a href="#page-header">Page header</a></li>
-                <li><a href="#progress-bars">Progress bars</a></li>
-                <li><a href="#panels">Panels</a></li>
-                <li><a href="#theme-more">More...</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#javascript">Javascript</a>
-            <ul class="nav">
-                <li><a href="#js-modals">Modals</a></li>
-                <li><a href="#js-dropdowns">Dropdowns</a></li>
-                <li><a href="#js-scrollspy">ScrollSpy</a></li>
-                <li><a href="#js-togglable-tabs">Togglable tabs</a></li>
-                <li><a href="#js-tooltips">Tooltips</a></li>
-                <li><a href="#js-popovers">Popovers</a></li>
-                <li><a href="#js-collapse">Collapse</a></li>
-                <li><a href="#js-carousel">Carousel</a></li>
-            </ul>
-        </li>
-        <li class="active"><a href="#ajax">Ajax</a></li>
+        <?php foreach ($skeleton_data as $key => $items): ?>
+            <li>
+                <a href="#<?php echo $key; ?>"><?php echo ucfirst($key); ?></a>
+                <?php if ( ! empty($items)): ?>
+                    <ul class="nav">
+                    <?php foreach ($items as $sub_key => $label): ?>
+                        <li><a href="#<?php echo $sub_key; ?>"><?php echo $label; ?></a></li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </div>
