@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-3">
-        <?php echo Modules::run('skeleton/_pagelet_sidebar'); ?>
+        <?php echo $pagelet_sidebar; ?>
     </div>
     <div class="col-md-9">
         <div>

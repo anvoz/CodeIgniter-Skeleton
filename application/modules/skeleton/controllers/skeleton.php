@@ -25,12 +25,26 @@ class Skeleton extends MY_Controller {
         $this->template->add_js('modules/skeleton.js');
         $this->template->add_css('modules/skeleton.css');
 
-        $this->template->load_view('welcome_message');
+        $skeleton_data = array();
+        if ($skeleton_json = @file_get_contents('skeleton.json'))
+        {
+            $skeleton_data = json_decode($skeleton_json, TRUE);
+        }
+        if (empty($skeleton_data))
+        {
+            show_error('Failed to load skeleton.json');
+        }
+
+        $this->template->load_view('welcome_message', array(
+            'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),
+        ));
     }
 
-    public function _pagelet_sidebar()
+    public function _pagelet_sidebar($skeleton_data)
     {
-        $this->load->view('pagelet_sidebar');
+        $this->load->view('pagelet_sidebar', array(
+            'skeleton_data' => $skeleton_data,
+        ));
     }
 
     public function _pagelet_theme()
