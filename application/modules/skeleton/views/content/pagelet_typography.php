@@ -1,22 +1,22 @@
 <h2 id="typography">Typography</h2>
 
 <div class="row">
-    <div class="col-sm-2"><h1>&lt;h1&gt;</h1></div>
-    <div class="col-sm-2"><h2>&lt;h2&gt;</h2></div>
-    <div class="col-sm-2"><h3>&lt;h3&gt;</h3></div>
-    <div class="col-sm-2"><h4>&lt;h4&gt;</h4></div>
-    <div class="col-sm-2"><h5>&lt;h5&gt;</h5></div>
-    <div class="col-sm-2"><h6>&lt;h6&gt;</h6></div>
+    <div class="col-lg-2"><h1>h1 <small>small</small></h1></div>
+    <div class="col-lg-2"><h2>h2 <small>small</small></h2></div>
+    <div class="col-lg-2"><h3>h3 <small>small</small></h3></div>
+    <div class="col-lg-2"><h4>h4 <small>small</small></h4></div>
+    <div class="col-lg-2"><h5>h5 <small>small</small></h5></div>
+    <div class="col-lg-2"><h6>h6 <small>small</small></h6></div>
 </div>
 
 <p>
     <span class="lead">.lead</span>
-    <small>&lt;small&gt;</small>
-    <strong>&lt;strong&gt;</strong>
-    <em>&lt;em&gt;</em>
-    <abbr title="abbreviation">&lt;abbr&gt;</abbr>
+    <small>small</small>
+    <strong>strong</strong>
+    <em>em</em>
+    <abbr title="abbreviation">abbr</abbr>
     <abbr title="abbreviation.initialism" class="initialism">abbr.initialism</abbr>
-    <code>&lt;code&gt;</code>
+    <code>code</code>
 </p>
 
 <p>
@@ -30,43 +30,43 @@
 
 <p>
     <span class="label label-default">.label.label-default</span>
-    <span class="label label-primary">.label-primary</span>
-    <span class="label label-success">.label-success</span>
-    <span class="label label-info">.label-info</span>
-    <span class="label label-warning">.label-warning</span>
-    <span class="label label-danger">.label-danger</span>
+    <span class="label label-primary">..label-primary</span>
+    <span class="label label-success">..label-success</span>
+    <span class="label label-info">..label-info</span>
+    <span class="label label-warning">..label-warning</span>
+    <span class="label label-danger">..label-danger</span>
 </p>
 
 <div class="alert alert-dismissable">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
-    .alert <strong>.alert-dismissable</strong> <a class="alert-link" href="#">a.alert-link</a>
+    .alert.alert-dismissable <a class="alert-link" href="#">a.alert-link</a>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <div class="alert alert-success">.alert <strong>.alert-success</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        <div class="alert alert-success">..alert-success <a class="alert-link" href="#">a.alert-link</a></div>
     </div>
     <div class="col-md-6">
-        <div class="alert alert-info">.alert <strong>.alert-info</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        <div class="alert alert-info">..alert-info <a class="alert-link" href="#">a.alert-link</a></div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <div class="alert alert-warning">.alert <strong>.alert-warning</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        <div class="alert alert-warning">..alert-warning <a class="alert-link" href="#">a.alert-link</a></div>
     </div>
     <div class="col-md-6">
-        <div class="alert alert-danger">.alert <strong>.alert-danger</strong> <a class="alert-link" href="#">a.alert-link</a></div>
+        <div class="alert alert-danger">..alert-danger <a class="alert-link" href="#">a.alert-link</a></div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <div class="well well-lg">.well.well-lg</div>
+        <div class="well well-lg">..well-lg</div>
     </div>
     <div class="col-md-4">
         <div class="well">.well</div>
     </div>
     <div class="col-md-4">
-        <div class="well well-sm">.well.well-sm</div>
+        <div class="well well-sm">..well-sm</div>
     </div>
 </div>
 
@@ -74,9 +74,10 @@
 <p class="text-center">.text-center</p>
 <p class="text-right">.text-right</p>
 
+
 <blockquote>
-    <p>&lt;blockquote&gt;&lt;p&gt;</p>
-    <small>&lt;small <cite title="Cite">&lt;cite&gt;</cite> small&gt;</small>
+    <p>blockquote p</p>
+    <small>small <cite title="Cite">cite</cite></small>
 </blockquote>
 <div class="clearfix">
     <blockquote class="pull-right">
@@ -87,12 +88,12 @@
 
 <div class="row">
     <div class="col-md-4">
-        &lt;ul&gt;
-        <ul><li>&lt;li&gt;</li><li>List item<ul><li><small>&lt;ul&gt;</small>&lt;li&gt;</li><li>&lt;li&gt;<small>&lt;/ul&gt;</small></li></ul></li><li>List item</li></ul>
+        ul
+        <ul><li>li</li><li>List item<ul><li><span class="text-muted">ul</span> li</li><li>li</li></ul></li><li>List item</li></ul>
         <br>
     </div>
     <div class="col-md-4">
-        &lt;ol&gt;
+        ol
         <ol><li>List item</li><li>List item<ol><li>List item</li><li>List item</li></ol></li><li>List item</li></ol>
         <br>
     </div>
@@ -140,16 +141,16 @@
 </div>
 
 <address>
-    <strong>Address</strong><br>
-    Address
+    <strong><span class="text-muted">address</span> strong</strong><br>
+    address
 </address>
 
 <div class="row">
     <div class="col-md-6">
-        &lt;dl&gt;
+        dl
         <dl>
-            <dt>&lt;dt&gt;</dt>
-            <dd>&lt;dd&gt;</dd>
+            <dt>dt</dt>
+            <dd>dd</dd>
             <dt>Term</dt>
             <dd>Description<br>Description</dd>
         </dl>

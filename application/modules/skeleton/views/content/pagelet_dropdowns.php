@@ -1,13 +1,13 @@
 <h2 id="dropdowns">Dropdowns</h2>
 
 <div class="clearfix">
-    <small>.dropdown</small> ul.dropdown-menu
+    <span class="text-muted">.dropdown</span> ul.dropdown-menu
     <div class="dropdown">
         <!-- Apply inline style to force its display -->
         <ul class="dropdown-menu" style="display: block; position: static;">
-            <li class="dropdown-header">.dropdown-header</li>
-            <li><a href="#">Regular link</a></li>
-            <li class="disabled"><a href="#">Disabled link</a></li>
+            <li class="dropdown-header">li.dropdown-header</li>
+            <li><a href="#"><small>li</small> a</a></li>
+            <li class="disabled"><a href="#"><small>li.disabled</small> a</a></li>
             <li><a href="#">Another link</a></li>
             <li class="divider"></li>
             <li class="dropdown-header">Dropdown header</li>
