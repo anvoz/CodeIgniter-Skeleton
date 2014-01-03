@@ -8,7 +8,7 @@
             <p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
             <p>
                 If you would like to edit this page you'll find it located at:<br>
-                <code>application/modules/skeleton/views/welcome_message.php</code>
+                <code>application/modules/skeleton/views/index.php</code>
             </p>
             <p>
                 The corresponding controller for this page is found at:<br>
