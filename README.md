@@ -16,8 +16,7 @@ CIS is also a great experience for CI-based developments to ajaxify modules. It 
 * [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.1.4 (last updated: Jul 8, 2013)
 * [Modular Extensions - HMVC](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 5.4 (last updated: Jul 31, 2013)
 * [jQuery](https://github.com/jquery/jquery) 1.10.2 (last updated: Jul 3, 2013)
-* [Bootstrap](https://github.com/twbs/bootstrap) 3.0.2 (last updated: Nov 06, 2013)
- * Not include Glyphicons
+* [Bootstrap](https://github.com/twbs/bootstrap) 3.0.3 (last updated: Dec 05, 2013)
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
  * Not include Mongodb model
  * Customized controller to use with HMVC and CIS Template library
@@ -43,8 +42,7 @@ assets/
         html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
         jquery.fileupload.js            // jQuery File Upload plugin (blueimp),
                                         // including jQuery UI Widget and jQuery Iframe Transport
-        plugins.js                      // Extra JS plugins for all pages,
-                                        // including window.console wrapper and Bootstrap
+        bootstrap.min.js                // Bootstrap core JS
         main.js                         // JS for all pages
     img/
 ```
