@@ -12,10 +12,11 @@
 <p>
     <span class="lead">.lead</span>
     <small>small</small>
+    <span class="small">.small</span>
     <strong>strong</strong>
     <em>em</em>
     <abbr title="abbreviation">abbr</abbr>
-    <abbr title="abbreviation.initialism" class="initialism">abbr.initialism</abbr>
+    <abbr title="abbreviation.initialism" class="initialism">.initialism</abbr>
     <code>code</code>
 </p>
 
@@ -88,29 +89,29 @@
 
 <div class="row">
     <div class="col-md-4">
-        ul
-        <ul><li>li</li><li>List item<ul><li><span class="text-muted">ul</span> li</li><li>li</li></ul></li><li>List item</li></ul>
+        <p>ul</p>
+        <ul><li>li</li><li>List item<ul><li><span class="text-muted">ul</span> li</li><li>List item</li></ul></li><li>List item</li></ul>
         <br>
     </div>
     <div class="col-md-4">
-        ol
+        <p>ol</p>
         <ol><li>List item</li><li>List item<ol><li>List item</li><li>List item</li></ol></li><li>List item</li></ol>
         <br>
     </div>
     <div class="col-md-4">
-        ul.list-unstyled
+        <p>ul.list-unstyled</p>
         <ul class="list-unstyled"><li>List item</li><li>List item<ul><li>List item</li><li>List item</li></ul></li><li>List item</li></ul>
         <br>
     </div>
 </div>
 <div>
-    ul.list-inline
+    <p>ul.list-inline</p>
     <ul class="list-inline"><li>List item</li><li>List item</li><li>List item</li></ul>
     <br>
 </div>
 <div class="row">
     <div class="col-lg-4">
-        ul.list-group
+        <p>ul.list-group</p>
         <ul class="list-group">
             <li class="list-group-item">li.list-group-item</li>
             <li class="list-group-item"><span class="badge">.badge</span> List item</li>
@@ -118,7 +119,7 @@
         </ul>
     </div>
     <div class="col-lg-4">
-        div.list-group
+        <p>div.list-group</p>
         <div class="list-group">
             <a href="#" class="list-group-item active">a.list-group-item.active</a>
             <a href="#" class="list-group-item">Link #2</a>
@@ -126,15 +127,16 @@
         </div>
     </div>
     <div class="col-lg-4">
-        div.list-group
+        <p>div.list-group</p>
         <div class="list-group">
             <a href="#" class="list-group-item active">
-                <h4 class="list-group-item-heading">h4.list-group-item-heading</h4>
-                <p class="list-group-item-text">p.list-group-item-text</p>
+                a.list-group-item.active
+                <h4 class="list-group-item-heading">&gt; h4.list-group-item-heading</h4>
+                <p class="list-group-item-text">&gt; p.list-group-item-text</p>
             </a>
             <a href="#" class="list-group-item">
                 <h4 class="list-group-item-heading">List group item heading</h4>
-                <p class="list-group-item-text">...</p>
+                <p class="list-group-item-text">Paragraph</p>
             </a>
         </div>
     </div>
@@ -147,7 +149,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        dl
+        <p>dl</p>
         <dl>
             <dt>dt</dt>
             <dd>dd</dd>
@@ -156,11 +158,11 @@
         </dl>
     </div>
     <div class="col-md-6">
-        dl.dl-horizontal
+        <p>dl.dl-horizontal</p>
         <dl class="dl-horizontal">
             <dt>Term</dt>
             <dd>Description</dd>
-            <dt>Term</dt>
+            <dt>Horizontal description lists will truncate terms that are too long to fit in the left column with text-overflow.</dt>
             <dd>Description<br>Description</dd>
         </dl>
     </div>

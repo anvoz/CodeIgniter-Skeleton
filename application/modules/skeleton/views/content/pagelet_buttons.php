@@ -28,7 +28,7 @@
     <a class="btn btn-default disabled" href="#">a...disabled</a>
 </p>
 
-<div>.btn-group (Default button group size)</div>
+<p>.btn-group (Default button group size)</p>
 <div class="btn-group">
     <button class="btn btn-primary" type="button" data-loading-text="Loading..." data-complete-text="Completed" onclick="$(this).button('loading').siblings('button').prop('disabled',false);" autocomplete="off">
         $(this).button('loading')
@@ -47,7 +47,7 @@
     <div class="btn-toolbar">
         <div class="btn-group btn-group-lg">
             <button type="button" class="btn btn-default">
-                <span class="text-muted">.btn-group.btn-group-lg</span> button
+                <span class="text-muted">..btn-group-lg</span> button
             </button>
             <button type="button" class="btn btn-default">2</button>
             <button type="button" class="btn btn-default">3</button>
@@ -68,6 +68,7 @@
         </div>
     </div>
     <br>
+    <p>.btn-toolbar</p>
     <div class="btn-toolbar">
         <div class="btn-group">
             <button type="button" class="btn btn-default">1</button>

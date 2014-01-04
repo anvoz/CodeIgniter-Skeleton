@@ -1,16 +1,17 @@
 <h2 id="pagination">Pagination</h2>
 
+<div>ul.pagination</div>
 <div>
     <ul class="pagination">
         <li>
             <a href="#">
-                <small>ul.pagination li</small>
+                <small>li</small>
                 a &laquo;
             </a>
         </li>
-        <li class="disabled"><a href="#">.disabled a</a></li>
+        <li class="disabled"><a href="#"><small>li.disabled</small> a</a></li>
         <li><a href="#">#2</a></li>
-        <li class="active"><a href="#">.active a</a></li>
+        <li class="active"><a href="#"><small>li.active</small> a</a></li>
         <li><a href="#">#4</a></li>
         <li><a href="#">#5</a></li>
         <li><a href="#">&raquo;</a></li>
@@ -40,25 +41,27 @@
         <li><a href="#">&raquo;</a></li>
     </ul>
 </div>
+
+<div>ul.pager</div>
 <div>
     <ul class="pager">
         <li>
             <a href="#">
-                <small>ul.pager li</small>
+                <small>li</small>
                 a Previous
             </a>
         </li>
-        <li class="disabled"><a href="#">li.disabled a Next</a></li>
+        <li class="disabled"><a href="#"><small>li.disabled</small> a Next</a></li>
     </ul>
 </div>
 <div>
     <ul class="pager">
         <li class="previous">
             <a href="#">
-                <small>ul.pager li.previous</small>
+                <small>li.previous</small>
                 a &larr; Older
             </a>
         </li>
-        <li class="next"><a href="#">li.next a Newer &rarr;</a></li>
+        <li class="next"><a href="#"><small>li.next</small> a Newer &rarr;</a></li>
     </ul>
 </div>

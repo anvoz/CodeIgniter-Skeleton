@@ -1,6 +1,6 @@
 <h2 id="breadcrumbs">Breadcrumbs</h2>
 
-ol.breadcrumb
+<p>ol.breadcrumb</p>
 <ol class="breadcrumb">
     <li><a href="#"><small>li</small> a</a></li>
     <li><a href="#">Link #2</a></li>
