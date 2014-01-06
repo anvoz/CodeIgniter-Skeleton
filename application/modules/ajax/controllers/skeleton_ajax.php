@@ -18,7 +18,7 @@ JS;
                 $this->response->script($script);
                 break;
             case 'form':
-                $target = $this->input->get_post('target');
+                $target_id = $this->input->get_post('target_id');
                 $title = $this->input->get_post('title');
                 $content = $this->input->get_post('content');
 
@@ -27,11 +27,7 @@ JS;
                 $html = "<p><strong>Title: </strong>{$title}</p><p><strong>Content: </strong>{$content}</p>";
                 $json_html = json_encode($html);
 
-                $script = <<< JS
-$(this).find('input[type=text], textarea').val('');
-$(this).parent().siblings('div').html({$json_html});
-JS;
-                $this->response->script($script);
+                $this->response->script("$('#{$target_id}').html({$json_html});");
                 break;
             case 'alert':
                 $this->response->alert('Alert title', 'Alert body');

@@ -1,21 +1,28 @@
+<?php
+$target_id = 'target-' . mt_rand(1000000, 9999999);
+?>
+
 <h2 id="ajax-form">Ajaxify form</h2>
 <p>Via <code>rel="async"</code> and <code>action="{$ajax_url}"</code></p>
 <div class="row">
     <div class="col-lg-6">
-        <form rel="async" action="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify'); ?>">
+        <form rel="async" action="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify'); ?>" autocomplete="off">
             <input type="hidden" name="type" value="form">
+            <input type="hidden" name="target_id" value="<?php echo $target_id; ?>">
             <div class="form-group">
                 <label>Title</label>
-                <input class="form-control" type="text" name="title" placeholder="Title">
+                <input class="form-control" type="text" name="title" placeholder="Title" value="Ajaxify form">
             </div>
             <div class="form-group">
                 <label>Content</label>
-                <textarea class="form-control" name="content"></textarea>
+                <textarea class="form-control" name="content">Via rel="async" and action="{$ajax_url}"</textarea>
             </div>
             <div class="form-group">
                 <p><button class="btn btn-primary" type="submit">Submit</button></p>
             </div>
         </form>
     </div>
-    <div class="col-lg-6"></div>
+    <div class="col-lg-6">
+        <div id="<?php echo $target_id; ?>"></div>
+    </div>
 </div>
