@@ -8,12 +8,8 @@ class Skeleton_ajax extends Ajax_Controller {
         {
             case 'a':
                 $script = <<< JS
-$(this).parent().toggleClass('text-right');
-if ($(this).parent().hasClass('text-right')) {
-    $(this).text('Left');
-} else {
-    $(this).text('Right');
-}
+var count = parseInt($(this).find('.badge').text());
+$(this).find('.badge').text(count + 1);
 JS;
                 $this->response->script($script);
                 break;
