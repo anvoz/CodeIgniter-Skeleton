@@ -6,9 +6,8 @@ $target_id = 'target-' . mt_rand(1000000, 9999999);
 <p>Via <code>rel="async"</code> and <code>action="{$ajax_url}"</code></p>
 <div class="row">
     <div class="col-lg-6">
-        <form rel="async" action="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify'); ?>" autocomplete="off">
+        <form rel="async" action="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify'); ?>" autocomplete="off" data-target="#<?php echo $target_id; ?>">
             <input type="hidden" name="type" value="form">
-            <input type="hidden" name="target_id" value="<?php echo $target_id; ?>">
             <div class="form-group">
                 <label>Title</label>
                 <input class="form-control" type="text" name="title" placeholder="Title" value="Ajaxify form">

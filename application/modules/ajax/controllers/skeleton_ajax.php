@@ -18,7 +18,6 @@ JS;
                 $this->response->script($script);
                 break;
             case 'form':
-                $target_id = $this->input->get_post('target_id');
                 $title = $this->input->get_post('title');
                 $content = $this->input->get_post('content');
 
@@ -27,7 +26,7 @@ JS;
                 $html = "<p><strong>Title: </strong>{$title}</p><p><strong>Content: </strong>{$content}</p>";
                 $json_html = json_encode($html);
 
-                $this->response->script("$('#{$target_id}').html({$json_html});");
+                $this->response->script("$($(this).data('target')).html({$json_html})");
                 break;
             case 'alert':
                 $this->response->alert('Alert title', 'Alert body');
