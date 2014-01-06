@@ -1,31 +1,35 @@
 <h2 id="ajax-dialog">Ajaxify dialog</h2>
 <div>
+    <h3>Alert dialog</h3>
     <p>
-        <code>$this->response->alert($title, $body)</code>
+        <code>[PHP] $this->response->alert($title, $body)</code>
         <a class="btn btn-primary" href="#"
                 rel="async"
                 ajaxify="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify?type=alert'); ?>">
-            Show alert dialog
+            Show
         </a>
     </p>
 </div>
 <div>
+    <h3>Confirm dialog</h3>
     <p>
-        <code>$this->response->confirm($title, $body)</code>
+        <div>Use <code>$(this).data("caller")</code> to get the reference of the clicked button.</div>
+        <code>[PHP] $this->response->confirm($title, $body)</code>
         <a class="btn btn-primary" href="#"
                 rel="async"
                 ajaxify="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify?type=confirm'); ?>">
-            Show confirm dialog
+            Show
         </a>
     </p>
 </div>
 <div>
+    <h3>Custom dialog</h3>
     <p>
-        <code>$this->response->dialog([ ... ])</code>
+        <code>[PHP] $this->response->dialog([ ... ])</code>
         <a class="btn btn-primary" href="#"
                 rel="async"
                 ajaxify="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify?type=dialog'); ?>">
-            Show custom dialog
+            Show
         </a>
     </p>
 </div>

@@ -25,17 +25,20 @@ JS;
                 $this->response->script("$($(this).data('target')).html({$json_html})");
                 break;
             case 'alert':
-                $this->response->alert('Alert title', 'Alert body');
+                $this->response->alert('$title', '$body');
                 break;
             case 'confirm':
-                if ($this->response->confirm('Confirm title', 'Confirm body'))
+                if ($this->response->confirm('$title', '$body'))
                 {
                     $this->response->script('$(this).data("caller").after("<div>Confirmed!</div>");');
                 }
                 break;
             case 'dialog':
                 $this->response->dialog(array(
-                    'body' => Modules::run('skeleton/_pagelet_ajax')
+                    'title' => '$title',
+                    'content' => '$content',
+                    'body' => '$body',
+                    'footer' => '$footer',
                 ));
                 break;
         }
