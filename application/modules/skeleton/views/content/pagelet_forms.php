@@ -1,5 +1,3 @@
-<h2 id="forms">Forms</h2>
-
 <p><b>Note:</b> every input block should be wrapped by <code>.form-group</code> for optimum spacing.</p>
 <p>form</p>
 <form>

@@ -1,5 +1,3 @@
-<h2 id="pagination">Pagination</h2>
-
 <div>ul.pagination</div>
 <div>
     <ul class="pagination">

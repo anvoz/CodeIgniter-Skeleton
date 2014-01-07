@@ -1,4 +1,3 @@
-<h2 id="ajax-photo-upload">Ajaxify photo upload</h2>
 <p>
     <a class="btn btn-primary" href="<?php echo site_url('photo/upload'); ?>"
             rel="async"

@@ -1,5 +1,3 @@
-<h2 id="typography">Typography</h2>
-
 <div class="row">
     <div class="col-lg-2"><h1>h1 <small>small</small></h1></div>
     <div class="col-lg-2"><h2>h2 <small>small</small></h2></div>

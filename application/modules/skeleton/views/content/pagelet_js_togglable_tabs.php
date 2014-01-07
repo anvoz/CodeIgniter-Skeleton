@@ -1,5 +1,3 @@
-<h2 id="js-togglable-tabs">Togglable tabs</h2>
-
 <div>
     <ul class="nav nav-tabs">
         <li class="active">

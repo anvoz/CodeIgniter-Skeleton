@@ -2,7 +2,6 @@
 $target_id = 'target-' . mt_rand(1000000, 9999999);
 ?>
 
-<h2 id="ajax-form">Ajaxify form</h2>
 <p>Via <code>rel="async"</code> and <code>action="{$ajax_url}"</code></p>
 <div class="row">
     <div class="col-lg-6">

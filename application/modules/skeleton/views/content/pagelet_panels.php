@@ -1,5 +1,3 @@
-<h2 id="panels">Panels</h2>
-
 <p>.panel.panel-default</p>
 <div class="panel panel-default">
     <div class="panel-heading">.panel-heading</div>

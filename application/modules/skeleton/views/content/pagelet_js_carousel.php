@@ -1,5 +1,3 @@
-<h2 id="js-carousel">Carousel</h2>
-
 <div>
     <div class="carousel slide" id="carousel">
         <ol class="carousel-indicators">

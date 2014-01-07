@@ -31,6 +31,7 @@
                 <?php if ( ! empty($items)): ?>
                     <div>
                     <?php foreach ($items as $sub_key => $label): ?>
+                        <h2 id="<?php echo $sub_key; ?>"><?php echo $label; ?></h2>
                         <?php echo $this->load->view('content/pagelet_' . str_replace('-', '_', $sub_key), TRUE); ?>
                     <?php endforeach; ?>
                     </div>

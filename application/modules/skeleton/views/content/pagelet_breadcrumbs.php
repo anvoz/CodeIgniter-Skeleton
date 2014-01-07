@@ -1,5 +1,3 @@
-<h2 id="breadcrumbs">Breadcrumbs</h2>
-
 <p>ol.breadcrumb</p>
 <ol class="breadcrumb">
     <li><a href="#"><small>li</small> a</a></li>

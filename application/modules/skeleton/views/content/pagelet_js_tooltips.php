@@ -1,5 +1,3 @@
-<h2 id="js-tooltips">Tooltips</h2>
-
 <div>
     <p>Usage: <code>$('[data-toggle="tooltip"]').tooltip()</code></p>
     <div class="text-center">

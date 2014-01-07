@@ -1,5 +1,3 @@
-<h2 id="navbar">Navbar</h2>
-
 <p>.navbar.navbar-default</p>
 <nav class="navbar navbar-default">
     <div class="navbar-header">

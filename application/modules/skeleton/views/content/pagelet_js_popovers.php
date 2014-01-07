@@ -1,5 +1,3 @@
-<h2 id="js-popovers">Popovers</h2>
-
 <div>
     <p>Usage: <code>$('[data-toggle="popover"]').popover()</code></p>
     <div class="text-center">

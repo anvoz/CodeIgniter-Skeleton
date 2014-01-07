@@ -1,5 +1,3 @@
-<h2 id="js-dropdowns">Dropdowns</h2>
-
 <div>
     <p>Via data attributes: <code>data-toggle="dropdown"</code></p>
     <div class="dropdown">

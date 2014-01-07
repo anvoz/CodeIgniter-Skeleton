@@ -1,5 +1,3 @@
-<h2 id="progress-bars">Progress bars</h2>
-
 <p><span class="text-muted">.progress</span> .progress-bar</p>
 <div class="progress">
     <div class="progress-bar" title=".progress-bar" style="width: 15%;"></div>

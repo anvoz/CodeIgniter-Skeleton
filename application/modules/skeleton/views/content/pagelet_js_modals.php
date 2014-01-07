@@ -1,5 +1,3 @@
-<h2 id="js-modals">Modals</h2>
-
 <div>
     <!-- Button trigger modal -->
     <p>

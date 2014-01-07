@@ -1,5 +1,3 @@
-<h2 id="buttons">Buttons</h2>
-
 <p>
     <button class="btn btn-default" type="button">button.btn.btn-default</button>
     <button class="btn btn-primary" type="button">..btn-primary</button>

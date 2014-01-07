@@ -2,7 +2,6 @@
 $first_button_id = 'button-' . mt_rand(1000000, 9999999);
 ?>
 
-<h2 id="ajax-link">Ajaxify link</h2>
 <p>
     Via <code>rel="async"</code> and <code>ajaxify="{$ajax_url}"</code>
     <a id="<?php echo $first_button_id; ?>" class="btn btn-primary" href="#"

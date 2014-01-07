@@ -1,5 +1,3 @@
-<h2 id="dropdowns">Dropdowns</h2>
-
 <div class="clearfix">
     <p><span class="text-muted">.dropdown</span> ul.dropdown-menu</p>
     <div class="dropdown">

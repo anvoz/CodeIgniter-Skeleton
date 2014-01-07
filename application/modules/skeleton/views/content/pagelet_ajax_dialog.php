@@ -1,4 +1,3 @@
-<h2 id="ajax-dialog">Ajaxify dialog</h2>
 <div>
     <h3>Alert dialog</h3>
     <p>

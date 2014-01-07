@@ -1,5 +1,3 @@
-<h2 id="theme-more">More...</h2>
-
 <div class="btn-group">
     <a href="#" class="btn btn-default disabled">Learn more</a>
     <a href="http://getbootstrap.com/css/#grid" target="_blank" class="btn btn-primary">Grid system</a>

@@ -1,5 +1,3 @@
-<h2 id="tables">Tables</h2>
-
 <div>table.table</div>
 <table class="table">
     <thead>

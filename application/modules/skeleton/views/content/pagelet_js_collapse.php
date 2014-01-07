@@ -1,5 +1,3 @@
-<h2 id="js-collapse">Collapse</h2>
-
 <div>
     <p>Via data attributes:</p>
     <div class="panel-group" id="accordion">
