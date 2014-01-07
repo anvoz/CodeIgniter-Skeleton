@@ -16,7 +16,7 @@
 </table>
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-6">
         <table class="table table-striped">
             <thead>
                 <tr><th>..table-striped</th><th>Header</th></tr>
@@ -26,7 +26,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
         <table class="table table-bordered">
             <thead>
                 <tr><th>..table-bordered</th><th>Header</th></tr>
@@ -36,7 +36,9 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-3">
+</div>
+<div class="row">
+    <div class="col-md-6">
         <table class="table table-hover">
             <thead>
                 <tr><th>..table-hover</th><th>Header</th></tr>
@@ -46,7 +48,7 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
         <table class="table table-condensed">
             <thead>
                 <tr><th>..table-condensed</th><th>Header</th></tr>
