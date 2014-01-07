@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col-lg-2"><h1>h1 <small>small</small></h1></div>
-    <div class="col-lg-2"><h2>h2 <small>small</small></h2></div>
-    <div class="col-lg-2"><h3>h3 <small>small</small></h3></div>
-    <div class="col-lg-2"><h4>h4 <small>small</small></h4></div>
-    <div class="col-lg-2"><h5>h5 <small>small</small></h5></div>
-    <div class="col-lg-2"><h6>h6 <small>small</small></h6></div>
+    <div class="col-md-2"><h1>h1 <small>small</small></h1></div>
+    <div class="col-md-2"><h2>h2 <small>small</small></h2></div>
+    <div class="col-md-2"><h3>h3 <small>small</small></h3></div>
+    <div class="col-md-2"><h4>h4 <small>small</small></h4></div>
+    <div class="col-md-2"><h5>h5 <small>small</small></h5></div>
+    <div class="col-md-2"><h6>h6 <small>small</small></h6></div>
 </div>
 
 <p>
@@ -108,7 +108,7 @@
     <br>
 </div>
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <p>ul.list-group</p>
         <ul class="list-group">
             <li class="list-group-item">li.list-group-item</li>
@@ -116,7 +116,7 @@
             <li class="list-group-item">List item</li>
         </ul>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <p>div.list-group</p>
         <div class="list-group">
             <a href="#" class="list-group-item active">a.list-group-item.active</a>
@@ -124,7 +124,7 @@
             <a href="#" class="list-group-item">Link #3</a>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <p>div.list-group</p>
         <div class="list-group">
             <a href="#" class="list-group-item active">

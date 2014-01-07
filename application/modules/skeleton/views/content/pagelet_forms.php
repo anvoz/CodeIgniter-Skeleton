@@ -81,20 +81,20 @@
 <p>form.form-horizontal</p>
 <form class="form-horizontal">
     <div class="form-group">
-        <label class="col-lg-2 control-label" for="example-text-input3">label.control-label</label>
-        <div class="col-lg-10">
+        <label class="col-md-2 control-label" for="example-text-input3">label.control-label</label>
+        <div class="col-md-10">
             <input type="text" class="form-control" id="example-text-input3" placeholder="input.form-control">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-lg-2 control-label">Static control</label>
-        <div class="col-lg-10">
+        <label class="col-md-2 control-label">Static control</label>
+        <div class="col-md-10">
             <p class="form-control-static">.form-control-static</p>
         </div>
     </div>
     <div class="form-group">
-        <label class="col-lg-2 control-label">select.form-control</label>
-        <div class="col-lg-5">
+        <label class="col-md-2 control-label">select.form-control</label>
+        <div class="col-md-5">
             <select class="form-control">
                 <option>option</option><option>Option #2</option><option>Option #3</option><option>Option #4</option><option>Option #5</option>
             </select>
@@ -103,7 +103,7 @@
                 <option>Disabled select</option>
             </select>
         </div>
-        <div class="col-lg-5">
+        <div class="col-md-5">
             select.form-control[multiple]
             <select class="form-control" multiple>
                 <option>Option #1</option><option>Option #2</option><option>Option #3</option><option>Option #4</option><option>Option #5</option>
@@ -111,7 +111,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             <div class="checkbox">
                 <label>
                     <input type="checkbox">
@@ -122,7 +122,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             <label class="checkbox-inline">
                 <input type="checkbox" value="option1">
                 <span class="text-muted">label.checkbox-inline</span>
@@ -137,7 +137,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             [data-toggle="buttons"] label.btn.btn-primary
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-primary">
@@ -153,7 +153,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             <div class="radio">
                 <label>
                     <input type="radio" name="optionsRadios" value="option1" checked>
@@ -164,7 +164,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             <label class="radio-inline">
                 <input type="radio" name="optionsRadios2" value="option1" checked>
                 <span class="text-muted">label.radio-inline</span>
@@ -179,7 +179,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             [data-toggle="buttons"] label.btn.btn-primary
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-primary">
@@ -195,7 +195,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
+        <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
