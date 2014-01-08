@@ -1,4 +1,4 @@
-<?php $this->load->library('ion_auth'); ?>
+<?php $this->load->library('authentication'); ?>
 
 <p>
     Some Ion auth's page functions were ported to display in dialog via ajax requests.<br>
@@ -19,7 +19,7 @@
     </div>
     <div class="collapse navbar-collapse navbar-ion-auth">
         <ul class="nav navbar-nav navbar-right">
-            <?php if ( ! $this->ion_auth->logged_in()): ?>
+            <?php if ( ! $this->authentication->logged_in()): ?>
                 <li>
                     <a href="<?php echo site_url('auth/login'); ?>"
                         rel="async" ajaxify="<?php echo site_url('ajax/auth_ajax/ion_auth_dialog/login'); ?>"
@@ -31,7 +31,7 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Logged in <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li <?php ( ! $this->ion_auth->is_admin()) && print('class="disabled"'); ?>>
+                        <li <?php ( ! $this->authentication->is_admin()) && print('class="disabled"'); ?>>
                             <a href="<?php echo site_url('auth'); ?>">Users</a>
                         </li>
                         <li>
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<?php $user = $this->ion_auth->user()->row(); ?>
+<?php $user = $this->authentication->user()->row(); ?>
 <?php if ( ! empty($user)): ?>
 <h3>Account Info</h3>
 <p>
