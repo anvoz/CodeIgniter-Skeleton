@@ -3,5 +3,5 @@
 </div>
 
 <div>
-    <?php echo $upload_control; ?>
+    <?php echo $pagelet_upload_control; ?>
 </div>

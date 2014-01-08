@@ -15,9 +15,6 @@ $config['photo'] = array(
     'min_width' => 1,
     'min_height' => 1,
 
-    // Set to false to disable rotating images based on EXIF meta data:
-    'orient_image' => TRUE,
-
     'image_versions' => array(
         '' => array(
             'max_width' => 1920,
