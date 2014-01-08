@@ -31,5 +31,8 @@
         "ajax-form": "Ajaxify form",
         "ajax-dialog": "Ajaxify dialog",
         "ajax-photo-upload": "Ajaxify photo upload"
+    },
+    "authentication": {
+        "ion-auth": "Ion auth"
     }
 }

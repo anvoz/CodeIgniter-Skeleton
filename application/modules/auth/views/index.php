@@ -1,9 +1,9 @@
 <h1><?php echo lang('index_heading');?></h1>
 <p><?php echo lang('index_subheading');?></p>
 
-<div id="infoMessage" class="<?php ( ! empty($message)) && print('alert alert-info'); ?>"><?php echo $message;?></div>
+<div id="infoMessage"><?php echo $message;?></div>
 
-<table class="table">
+<table cellpadding=0 cellspacing=10>
 	<tr>
 		<th><?php echo lang('index_fname_th');?></th>
 		<th><?php echo lang('index_lname_th');?></th>

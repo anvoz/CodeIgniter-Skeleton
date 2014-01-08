@@ -12,9 +12,6 @@ class MY_Controller extends MX_Controller {
         parent::__construct();
 
         $this->_ci =& get_instance();
-
-        // Set an alias of Authentication library
-        $this->_ci->auth =& $this->_ci->authentication;
     }
 
     /**

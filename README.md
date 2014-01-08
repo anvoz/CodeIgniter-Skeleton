@@ -18,9 +18,8 @@ CIS is also a great experience for CI-based developments to ajaxify modules. It 
 * [jQuery](https://github.com/jquery/jquery) 1.10.2 (last updated: Jul 3, 2013)
 * [Bootstrap](https://github.com/twbs/bootstrap) 3.0.3 (last updated: Dec 05, 2013)
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
- * Not include Mongodb model
+ * Not include Mongodb model, Bcrypt library and multi languages
  * Customized controller to use with HMVC and CIS Template library
- * Use as an independent alias `$this->auth`
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 8.8.7 (last updated: Oct 8, 2013)
  * Be able to load in an independent pagelet via `Modules::run('photo/_pagelet_upload')`
 
@@ -55,7 +54,7 @@ By default, you will be albe to check all features on the welcome page without d
 
 * Set your base URL in `application/config/config.php` file. Example: `$config['base_url'] = 'http://localhost/ciske/';`.
 * Set your assets URL in `application/config/assets.php` file. Example: `$config['assets_url'] = 'http://localhost/ciske/assets/';`.
-* Setup the `Ion Auth` library (if you don't want to use this library, remove it from `autoload` config):
+* Setup the `Ion Auth` library:
  * Run SQL script in `sql/ion_auth.sql` file (admin login account: `admin@admin.com` / `password`).
  * Set your database settings in `application/config/database.php` file.
  * Edit your encryption key in `application/config/config.php` file.
@@ -141,13 +140,3 @@ class Example_ajax extends Ajax_Controller {
 Use `alert`, `confirm` and `dialog` functions of the `Response` library to display dialog in client-side.
 
 Lengthy script should be packed in a Javascript file but its starting function should be called here.
-
-## Examples
-
-### Login form
-
-This is an example of using CIS to make a function that can handle both normal and ajax requests. It is also an example to help you distinguishing between page and pagelet to organize source code in the right way.
-
-By default, login form should be accessible everywhere via a dialog and should use ajax to show errors instead of reloading an entire page. But if there is something wrong, the form can also be displayed in a single page or using regular submit without any Javascript needed.
-
-Check the `login` function, which was located at `application/modules/auth/controllers/auth.php`, for more details.

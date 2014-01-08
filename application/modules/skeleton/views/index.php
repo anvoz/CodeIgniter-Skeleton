@@ -26,7 +26,7 @@
         <?php foreach ($skeleton_data as $key => $items): ?>
             <div>
                 <div class="page-header">
-                    <h1 id="<?php echo $key; ?>"><?php echo ucfirst($key); ?></h1>
+                    <h1 id="<?php echo $key; ?>"><?php echo ucfirst(str_replace('-', ' ', $key)); ?></h1>
                 </div>
                 <?php if ( ! empty($items)): ?>
                     <div>

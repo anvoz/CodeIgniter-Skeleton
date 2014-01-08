@@ -2,12 +2,21 @@
 
 class Auth_ajax extends Ajax_Controller {
 
-    function dialog_login()
+    /**
+     * Launch dialog that contains a specific Ion auth page content
+     */
+    function ion_auth_dialog($page)
     {
-        $this->response->dialog(array(
-            'title' => 'Login',
-            'body' => Modules::run('auth/_pagelet_login')
-        ));
+        if (in_array($page, array(
+            'login',
+            'change_password',
+            'forgot_password'
+        )))
+        {
+            $this->response->dialog(array(
+                'body' => Modules::run('auth/' . $page)
+            ));
+        }
         $this->response->send();
     }
 }

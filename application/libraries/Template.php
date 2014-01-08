@@ -119,6 +119,14 @@ class Template {
      */
     public function load_view($view, $data = array())
     {
+        // Not include master view on ajax request
+        // TODO: handle page title, js and css
+        if ($this->_ci->input->is_ajax_request())
+        {
+            $this->_ci->load->view($view, $data);
+            return;
+        }
+
         // Title
         if (empty($this->_title))
         {
