@@ -6,7 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">CodeIgniter Skeleton</a>
+            <a href="<?php echo site_url(); ?>" class="navbar-brand">CodeIgniter Skeleton</a>
         </div>
         <nav class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
