@@ -7,7 +7,12 @@ $config['description'] = '
     </a>
 </p>
 <p>Simple and Lightweight Auth System based on Redux Auth 2.</p>
-<p>Not include Mongodb model, Bcrypt library and multi languages.</p>
+<ul>
+    <li>Not included Mongodb model and Bcrypt library.</li>
+    <li>Only included English language.</li>
+    <li>Customized controller to use with HMVC and CIS Template library.</li>
+    <li>Used CIS Bootstrap form helpers for better form display.</li>
+</ul>
 ';
 
 $config['require'] = array(
