@@ -57,5 +57,5 @@ $config['skeleton'] = array(
     ),
 );
 
-/* End of file addons.php */
-/* Location: ./application/modules/addons/config/addons.php */
+/* End of file addon_ion_auth.php */
+/* Location: ./application/modules/addons/config/addon_ion_auth.php */
