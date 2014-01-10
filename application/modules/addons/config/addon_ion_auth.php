@@ -12,6 +12,7 @@ $config['description'] = '
     <li>Only included English language.</li>
     <li>Customized controller to use with HMVC and CIS Template library.</li>
     <li>Used CIS Bootstrap form helpers for better form display.</li>
+    <li>Already wrapped with Authentication library to be extended quickly.</li>
 </ul>
 ';
 
@@ -44,7 +45,7 @@ $config['files'] = array(
 
 $config['manual'] = array(
     'Run SQL script from <code>application/modules/addons/data/ion_auth/sql/ion_auth.sql</code> file.<br>
-    Or use Ion auth\'s db migration <code>application/modules/addons/data/ion_auth/migrations/001_install_ion_auth.php</code>',
+    Or use Ion auth\'s db migration <code>application/modules/addons/data/ion_auth/migrations/001_install_ion_auth.php</code>.',
     'Set your database settings in <code>application/config/database.php</code> file.',
     'Edit your encryption key in <code>application/config/config.php</code> file.',
     'Customize library config in <code>application/config/ion_auth.php</code> file.',
