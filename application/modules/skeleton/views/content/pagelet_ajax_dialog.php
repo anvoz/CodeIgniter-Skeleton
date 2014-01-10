@@ -4,7 +4,7 @@
         <code>[PHP] $this->response->alert($title, $body)</code>
         <a class="btn btn-primary" href="#"
                 rel="async"
-                ajaxify="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify?type=alert'); ?>">
+                ajaxify="<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=alert'); ?>">
             Show
         </a>
     </p>
@@ -16,7 +16,7 @@
         <code>[PHP] $this->response->confirm($title, $body)</code>
         <a class="btn btn-primary" href="#"
                 rel="async"
-                ajaxify="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify?type=confirm'); ?>">
+                ajaxify="<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=confirm'); ?>">
             Show
         </a>
     </p>
@@ -27,7 +27,7 @@
         <code>[PHP] $this->response->dialog([ ... ])</code>
         <a class="btn btn-primary" href="#"
                 rel="async"
-                ajaxify="<?php echo site_url('ajax/skeleton_ajax/test_ajaxify?type=dialog'); ?>">
+                ajaxify="<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=dialog'); ?>">
             Show
         </a>
     </p>

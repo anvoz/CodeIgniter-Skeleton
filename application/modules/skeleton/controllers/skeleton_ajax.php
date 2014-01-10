@@ -47,4 +47,4 @@ JS;
 }
 
 /* End of file skeleton_ajax.php */
-/* Location: ./application/modules/ajax/controllers/skeleton_ajax.php */
+/* Location: ./application/modules/skeleton/controllers/skeleton_ajax.php */
