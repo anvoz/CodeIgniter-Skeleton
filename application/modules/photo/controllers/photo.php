@@ -18,7 +18,7 @@ class Photo extends MY_Controller {
         $this->load->view('pagelet_upload_control');
 
         $fileupload_js = assets_url('js/jquery.fileupload.min.js');
-        $upload_url = site_url('ajax/photo_ajax/upload');
+        $upload_url = site_url('photo/photo_ajax/upload');
 
         $script = $this->load->view('script_upload', array(
             'fileupload_js' => $fileupload_js,

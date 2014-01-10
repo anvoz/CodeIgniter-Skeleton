@@ -25,4 +25,4 @@ class Photo_ajax extends Ajax_Controller {
 }
 
 /* End of file photo_ajax.php */
-/* Location: ./application/modules/ajax/controllers/photo_ajax.php */
+/* Location: ./application/modules/photo/controllers/photo_ajax.php */
