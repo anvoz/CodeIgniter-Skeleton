@@ -34,7 +34,8 @@ class Addons_ajax extends Ajax_Controller {
             // Add / remove skeleton
             if ( ! empty($addon['skeleton']))
             {
-                if ($skeleton_json = @file_get_contents('skeleton.json'))
+                $skeleton_json_path = APPPATH . 'modules/skeleton/skeleton.json';
+                if ($skeleton_json = @file_get_contents($skeleton_json_path))
                 {
                     $skeleton_data = json_decode($skeleton_json, TRUE);
                 }
@@ -58,7 +59,7 @@ class Addons_ajax extends Ajax_Controller {
                             break;
                     }
                     $skeleton_json = json_encode($skeleton_data);
-                    file_put_contents('skeleton.json', $skeleton_json);
+                    file_put_contents($skeleton_json_path, $skeleton_json);
                 }
             }
 

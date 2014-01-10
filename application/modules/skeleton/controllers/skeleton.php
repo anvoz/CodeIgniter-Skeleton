@@ -26,7 +26,7 @@ class Skeleton extends MY_Controller {
         $this->template->add_css('modules/skeleton.css');
 
         $skeleton_data = array();
-        if ($skeleton_json = @file_get_contents('skeleton.json'))
+        if ($skeleton_json = @file_get_contents(APPPATH . 'modules/skeleton/skeleton.json'))
         {
             $skeleton_data = json_decode($skeleton_json, TRUE);
         }
