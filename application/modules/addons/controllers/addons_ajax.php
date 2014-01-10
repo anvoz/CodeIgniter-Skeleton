@@ -45,8 +45,6 @@ class Addons_ajax extends Ajax_Controller {
                     {
                         case 'copy':
                             $skeleton_data = array_merge($skeleton_data, $addon['skeleton']);
-                            $skeleton_json = json_encode($skeleton_data);
-                            file_put_contents('skeleton.json', $skeleton_json);
                             break;
                         case 'delete':
                             $parent = key($addon['skeleton']);
