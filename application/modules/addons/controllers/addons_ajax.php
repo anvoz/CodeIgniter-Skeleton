@@ -41,18 +41,21 @@ class Addons_ajax extends Ajax_Controller {
                 }
                 if ( ! empty($skeleton_data))
                 {
+                    $key = key($addon['skeleton']);
                     switch ($action)
                     {
                         case 'copy':
-                            $skeleton_data = array_merge($skeleton_data, $addon['skeleton']);
+                            $skeleton_data[$key] = array_merge(
+                                $skeleton_data[$key],
+                                $addon['skeleton'][$key]
+                            );
                             break;
                         case 'delete':
-                            $parent = key($addon['skeleton']);
-                            $child = key($addon['skeleton'][$parent]);
-                            unset($skeleton_data[$parent][$child]);
-                            if (empty($skeleton_data[$parent]))
+                            $sub_key = key($addon['skeleton'][$key]);
+                            unset($skeleton_data[$key][$sub_key]);
+                            if (empty($skeleton_data[$key]))
                             {
-                                unset($skeleton_data[$parent]);
+                                unset($skeleton_data[$key]);
                             }
                             break;
                     }
