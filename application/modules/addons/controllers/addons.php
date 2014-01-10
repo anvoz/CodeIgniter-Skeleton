@@ -18,7 +18,8 @@ class Addons extends MY_Controller {
         foreach ($addons['list'] as $addon_key => $addon_name)
         {
             $addon = $this->load->config('addons/addon_' . $addon_key, TRUE, TRUE);
-            $data['pagelet_content'][$addon_key] = $this->load->view('addons/pagelet_' . $addon_key, array(
+            $data['pagelet_content'][$addon_key] = $this->load->view('addons/pagelet_addon', array(
+                'addon_key' => $addon_key,
                 'addon' => $addon,
                 'pagelet_copy_files' => (empty($addon['files'])) ? '' : Modules::run('addons/_pagelet_files', $addon['files']),
             ), TRUE);
