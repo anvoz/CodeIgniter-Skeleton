@@ -22,3 +22,15 @@
         >Delete</a>
     </p>
 <?php endif; ?>
+
+<?php if ( ! empty($addon['skeleton'])): ?>
+    <h3>Skeleton (only available after installed)</h3>
+
+    <p>
+        <a target="_blank" href="<?php echo site_url('#' . str_replace('_', '-', $addon_key)); ?>">
+            <?php echo site_url('#' . str_replace('_', '-', $addon_key)); ?>
+        </a>
+    </p>
+<?php endif; ?>
+
+<hr>
