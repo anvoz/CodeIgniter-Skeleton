@@ -20,6 +20,9 @@
         <a class="btn btn-danger" href="#"
             rel="async" ajaxify="<?php echo site_url('addons/addons_ajax/action/delete/' . $addon_key); ?>"
         >Delete</a>
+        <?php if ( ! empty($addon['require'])): ?>
+            <p><i>Don't forget to add / remove addon(s) in the Require section above.</i></p>
+        <?php endif; ?>
     </p>
 <?php endif; ?>
 
