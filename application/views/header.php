@@ -13,6 +13,9 @@
                 <li><a href="<?php echo site_url(); ?>">Home</a></li>
                 <li><a target="_blank" href="https://github.com/anvoz/CodeIgniter-Skeleton">Github</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('addons'); ?>">Add-ons <span class="badge">3</span></a></li>
+            </ul>
         </nav>
     </div>
 </header>
