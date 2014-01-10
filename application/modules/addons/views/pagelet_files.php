@@ -2,12 +2,11 @@
 <?php foreach ($files as $file => $file_data): ?>
     <li>
         <?php if ( ! empty($file_data['status'])): ?>
-            <div class="alert alert-success">
+            <span class="label label-success">OK</span>
         <?php elseif (isset($file_data['status'])): ?>
-            <div class="alert alert-danger">
+            <span class="label label-danger">Failed</span>
         <?php endif; ?>
         <?php echo $file . ' &rarr; ' . $file_data['dest'] . '/' . $file; ?>
-        <?php (isset($file_data['status'])) && print('</div>'); ?>
     </li>
 <?php endforeach; ?>
 </ul>
