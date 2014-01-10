@@ -24,4 +24,4 @@
 
 <?php echo form_close();?>
 
-<p><a href="auth/forgot_password" rel="async" ajaxify="<?php echo site_url('ajax/auth_ajax/ion_auth_dialog/forgot_password'); ?>"><?php echo lang('login_forgot_password');?></a></p>
+<p><a href="auth/forgot_password" rel="async" ajaxify="<?php echo site_url('auth/auth_ajax/ion_auth_dialog/forgot_password'); ?>"><?php echo lang('login_forgot_password');?></a></p>

@@ -27,4 +27,4 @@ class Auth_ajax extends Ajax_Controller {
 }
 
 /* End of file auth_ajax.php */
-/* Location: ./application/modules/ajax/controllers/auth_ajax.php */
+/* Location: ./application/modules/auth/controllers/auth_ajax.php */

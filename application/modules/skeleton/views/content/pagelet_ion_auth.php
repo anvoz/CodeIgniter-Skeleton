@@ -22,7 +22,7 @@
             <?php if ( ! $this->authentication->logged_in()): ?>
                 <li>
                     <a href="<?php echo site_url('auth/login'); ?>"
-                        rel="async" ajaxify="<?php echo site_url('ajax/auth_ajax/ion_auth_dialog/login'); ?>"
+                        rel="async" ajaxify="<?php echo site_url('auth/auth_ajax/ion_auth_dialog/login'); ?>"
                     >
                         Log In
                     </a>
@@ -36,7 +36,7 @@
                         </li>
                         <li>
                             <a href="<?php echo site_url('auth/change_password'); ?>"
-                                rel="async" ajaxify="<?php echo site_url('ajax/auth_ajax/ion_auth_dialog/change_password'); ?>"
+                                rel="async" ajaxify="<?php echo site_url('auth/auth_ajax/ion_auth_dialog/change_password'); ?>"
                             >
                                 Change password
                             </a>
