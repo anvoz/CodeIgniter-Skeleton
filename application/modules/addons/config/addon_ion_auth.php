@@ -1,12 +1,13 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $config['description'] = '
-<p>Simple and Lightweight Auth System based on Redux Auth 2</p>
 <p>
     <a target="_blank" href="https://github.com/benedmunds/CodeIgniter-Ion-Auth">
         https://github.com/benedmunds/CodeIgniter-Ion-Auth
     </a>
 </p>
+<p>Simple and Lightweight Auth System based on Redux Auth 2.</p>
+<p>Not include Mongodb model, Bcrypt library and multi languages.</p>
 ';
 
 $config['require'] = array(
@@ -34,6 +35,14 @@ $config['files'] = array(
     'views/login.php' => array('dest' => 'application/modules/auth/views'),
     'views/reset_password.php' => array('dest' => 'application/modules/auth/views'),
     'pagelet_ion_auth.php' => array('dest' => 'application/modules/skeleton/views/content'),
+);
+
+$config['manual'] = array(
+    'Run SQL script from <code>application/modules/addons/data/ion_auth/sql/ion_auth.sql</code> file.<br>
+    Or use Ion auth\'s db migration <code>application/modules/addons/data/ion_auth/migrations/001_install_ion_auth.php</code>',
+    'Set your database settings in <code>application/config/database.php</code> file.',
+    'Edit your encryption key in <code>application/config/config.php</code> file.',
+    'Customize library config in <code>application/config/ion_auth.php</code> file.',
 );
 
 $config['skeleton'] = array(

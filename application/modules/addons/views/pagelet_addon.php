@@ -2,7 +2,7 @@
 
 <h3>Installation</h3>
 <?php if ( ! empty($addon['require'])): ?>
-    <h4>Require (manual copy / delete)</h4>
+    <h4>Require (manually copy / delete)</h4>
     <ul>
         <?php foreach ($addon['require'] as $require): ?>
             <li><a href="#<?php echo $require; ?>">#<?php echo $require; ?></a></li>
@@ -21,6 +21,15 @@
             rel="async" ajaxify="<?php echo site_url('addons/addons_ajax/action/delete/' . $addon_key); ?>"
         >Delete</a>
     </p>
+<?php endif; ?>
+
+<?php if ( ! empty($addon['manual'])): ?>
+    <h4>Manual</h4>
+    <ul>
+        <?php foreach ($addon['manual'] as $manual): ?>
+            <li><?php echo $manual; ?></li>
+        <?php endforeach; ?>
+    </ul>
 <?php endif; ?>
 
 <?php if ( ! empty($addon['skeleton'])): ?>
