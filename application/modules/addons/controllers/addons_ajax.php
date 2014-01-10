@@ -7,6 +7,7 @@ class Addons_ajax extends Ajax_Controller {
         $addon = $this->load->config('addons/addon_' . $addon_key, TRUE, TRUE);
         if ( ! empty($addon['files']))
         {
+            // Copy / delete files
             foreach ($addon['files'] as $file => &$file_data)
             {
                 $status = FALSE;
@@ -30,6 +31,38 @@ class Addons_ajax extends Ajax_Controller {
                 $file_data['status'] = $status;
             }
 
+            // Add / remove skeleton
+            if ( ! empty($addon['skeleton']))
+            {
+                if ($skeleton_json = @file_get_contents('skeleton.json'))
+                {
+                    $skeleton_data = json_decode($skeleton_json, TRUE);
+                }
+                if ( ! empty($skeleton_data))
+                {
+                    switch ($action)
+                    {
+                        case 'copy':
+                            $skeleton_data = array_merge($skeleton_data, $addon['skeleton']);
+                            $skeleton_json = json_encode($skeleton_data);
+                            file_put_contents('skeleton.json', $skeleton_json);
+                            break;
+                        case 'delete':
+                            $parent = key($addon['skeleton']);
+                            $child = key($addon['skeleton'][$parent]);
+                            unset($skeleton_data[$parent][$child]);
+                            if (empty($skeleton_data[$parent]))
+                            {
+                                unset($skeleton_data[$parent]);
+                            }
+                            break;
+                    }
+                    $skeleton_json = json_encode($skeleton_data);
+                    file_put_contents('skeleton.json', $skeleton_json);
+                }
+            }
+
+            // Set dialog title
             switch ($action)
             {
                 case 'copy':
