@@ -1,64 +1,81 @@
 CodeIgniter-Skeleton
 ====================
 
-CodeIgniter Skeleton (CIS) is a decent starting point for most web apps. It provides you with additional back-end stuffs that were missing from the framework itself (HMVC, template control, authentication...), common front-end plugins (jQuery, Bootstrap...) and well-organized code structures.
-
-CIS is also a great experience for CI-based developments to ajaxify modules. It mainly focuses on defining elegant ways to make ajaxified components rapidly. Its core libraries, which are a tight connection between back-end and front-end, are based on 3 principles:
-
-1. A single web page should be broken down into small pieces which are called pagelets.
-2. A pagelet is a set of self-contained MVC and Javascript functions that should be loaded independently via normal page render or ajax request render.
-3. An ajax response handler should be defined or be registered right on the server-side to be managed easily.
-
-![CIS Screenshot](https://f.cloud.github.com/assets/4688035/1290373/d7c0997a-302f-11e3-8901-b32ae3209884.png)
+CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
 
 # Include
+
+## Core
 
 * [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.1.4 (last updated: Jul 8, 2013)
 * [Modular Extensions - HMVC](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 5.4 (last updated: Jul 31, 2013)
 * [jQuery](https://github.com/jquery/jquery) 1.10.2 (last updated: Jul 3, 2013)
 * [Bootstrap](https://github.com/twbs/bootstrap) 3.0.3 (last updated: Dec 05, 2013)
-* [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
- * Not include Mongodb model, Bcrypt library and multi languages
- * Customized controller to use with HMVC and CIS Template library
-* [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 8.8.7 (last updated: Oct 8, 2013)
- * Be able to load in an independent pagelet via `Modules::run('photo/_pagelet_upload')`
+* Template library: handle masterview and views within masterview
+* Ajax request & response library: provide rapid ways to ajaxify everything
 
-## Assets
- * Use `assets_url()` helper function to get URL of Javascript, CSS or image resource
- * Folder structure:
+## Add-ons
+
+Add-ons are custom builds of some useful libraries and plugins. They are **not included** in the project but already have a quick mechanic to install by (at least) simply clicking on the `Copy` button in Add-ons page.
+
+* Bootstrap form helpers: generate HTML form fields and buttons with Bootstrap CSS style
+* [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
+* [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.2 (last updated: Dec 13, 2013)
+
+# Structure
+
+## Application
 
 ```
-assets/
-    css/
-        modules/
-            {$module}.css               // Extra CSS for a specific module
-        bootstrap.min.css               // Bootstrap core CSS
-        main.css                        // CSS for all pages
-    js/
-        modules/
-            {$module}.js                // Extra JS for a specific module
-        jquery-1.10.2.min.js            // jQuery core JS
-        html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
-        jquery.fileupload.js            // jQuery File Upload plugin (blueimp),
-                                        // including jQuery UI Widget and jQuery Iframe Transport
-        bootstrap.min.js                // Bootstrap core JS
-        main.js                         // JS for all pages
-    img/
+config/
+    assets.php                      // Config base URL for assets
+helper/
+    MY_url_helper.php               // Contain assets_url() function
+library/
+    Dialog.php                      // Generate dialog HTML
+    Response.php                    // Handle response for ajax request
+    Template.php                    // Handle masterview and views within masterview
+modules/
+    addons/                         // Add-ons management
+    skeleton/                       // Showcase of all included components
+third_party/
+    MX/                             // Modular Extensions - HMVC
+views/
+    layout/
+        default.php                 // Header + full width container
+        pagelet.php                 // Header + half width container
+    base_view.php                   // Masterview
+    dialog.php                      // Template for modal dialog
+    header.php                      // Page header
+```
+
+## Assets
+
+Use `MY_url_helper` `assets_url()` to get URL of Javascript, CSS or image resource
+
+```
+css/
+    modules/
+        {$module}.css               // Extra CSS for a specific module
+    bootstrap.min.css               // Bootstrap core CSS
+    main.css                        // CSS for all pages
+js/
+    modules/
+        {$module}.js                // Extra JS for a specific module
+    jquery-1.10.2.min.js            // jQuery core JS
+    html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
+    bootstrap.min.js                // Bootstrap core JS
+    main.js                         // JS for all pages
 ```
 
 # Usage
 
 ## Setup
 
-By default, you will be albe to check all features on the welcome page without doing any of the following instructions. Just unzip the package and put the source code in your server.
+By default, you will be albe to check all features on the home page without doing any of the following instructions. Just unzip the package and put the source code in your server.
 
 * Set your base URL in `application/config/config.php` file. Example: `$config['base_url'] = 'http://localhost/ciske/';`.
 * Set your assets URL in `application/config/assets.php` file. Example: `$config['assets_url'] = 'http://localhost/ciske/assets/';`.
-* Setup the `Ion Auth` library:
- * Run SQL script in `sql/ion_auth.sql` file (admin login account: `admin@admin.com` / `password`).
- * Set your database settings in `application/config/database.php` file.
- * Edit your encryption key in `application/config/config.php` file.
- * Customize the library config in `application/config/ion_auth.php` file.
 
 [H5BP's Server Configs](https://github.com/h5bp/server-configs): Best-practice server configurations to help improve site performance.
 
@@ -66,48 +83,52 @@ By default, you will be albe to check all features on the welcome page without d
 
 ## Guidelines
 
-### Render a page
+### Rendering page (with base view)
+
+Base view (masterview) is a well-designed HTML page based on `Bootstrap` and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template.
 ```
+[PHP]
 class Welcome extends MY_Controller {
     // URL: {$site_url}/welcome/example
     public function example()
     {
         $this->load->library('template');
         // The below function is as same as $this->load->view('welcome/example')
-        // but its output will be placed inside a base view (masterview)
+        // but its output will be placed inside a base view
         $this->template->load_view('welcome/example');
     }
 }
 ```
-Base view is located at `application/views/base_view.php`. It is a well-designed HTML page with an empty body that is based on `Bootstrap` and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template.
-
 Use other methods of the `Template` library to customize base view: `set_layout`, `set_title`, `set_description`, `add_metadata`, `add_js`, `add_css`.
 
-### Render a pagelet
+### Rendering pagelet
+
+A single web page should be broken down into small pieces which are called pagelets. Pagelet is a set of self-contained MVC and Javascript functions that should be loaded independently via both normal page render and ajax request render.
 ```
+[PHP]
 // Must extend MY_Controller to use HMVC Modular Extensions
 class Welcome extends MY_Controller {
-    // Pagelet should have prefix _pagelet_
+    // Pagelet should have _pagelet_ prefix
     public function _pagelet_example()
     {
         $this->load->view('welcome/pagelet_example');
     }
 }
 ```
-Use `Modules::run('welcome/_pagelet_example')` to get the pagelet HTML output.
+Use `Modules::run('welcome/_pagelet_example')` to get pagelet HTML output.
 
-### Write Javascript inside the page's body
+### Writing Javascript inside the page body
 ```
+[PHP]
 $this->_load_script('$(function() {
     console.log("The DOM is loaded.");
 });');
 ```
-To minify blocking time while the browser is executing the script, the script will be queued and only be executed after the page is completely rendered.
+To minify blocking time while the browser is executing Javascript, the script will be queued and only be executed after the page is completely rendered.
 
-Lengthy script should be packed in a Javascript file but its starting function should be called here.
-
-### Execute functions after all of the required Javascript files were loaded
+### Executing function after all of the required Javascript files were loaded
 ```
+[JS]
 CIS.Script.require('{$js_file_path}', function() {
     console.log("Plugins are loaded.");
     $(function() {
@@ -116,27 +137,26 @@ CIS.Script.require('{$js_file_path}', function() {
 });
 ```
 
-### Ajaxify request
+### Ajaxifying request
 Via links: `<a href="#" rel="async" ajaxify="{$ajax_url}">...</a>`
 
 Via forms: `<form rel="async" action="{$ajax_url}">...</form>`
 
 Via Javascript function: `CIS.Ajax.request('{$ajax_url}'[, settings])`
 
-### Ajax response handler
+### Handling response
 ```
+[PHP]
 // Should extend Ajax_Controller to use the Response library
-class Example_ajax extends Ajax_Controller {
-    // URL: {$site_url}/ajax/example_ajax/example
+class Welcome_ajax extends Ajax_Controller {
+    // URL: {$site_url}/welcome/welcome_ajax/example
     function example()
     {
-        // The request must be called via rel="async" or CIS.Ajax.request function
-        // to be able to execute the script after the request was successful
-        $this->response->script('console.log("Request completed.");');
+        // The request must be called via rel="async" or CIS.Ajax.request()
+        // to be able to execute the response script
+        $this->response->script('console.log("Responded.");');
         $this->response->send();
     }
 }
 ```
 Use `alert`, `confirm` and `dialog` functions of the `Response` library to display dialog in client-side.
-
-Lengthy script should be packed in a Javascript file but its starting function should be called here.
