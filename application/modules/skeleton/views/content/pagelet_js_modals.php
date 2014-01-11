@@ -17,15 +17,17 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    .modal .modal-dialog .modal-content<br>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><small>.modal .modal-dialog .modal-content .modal-header</small> h4.modal-title</h4>
+                    <h4 class="modal-title"><span class="text-muted">&gt; .modal-header</span> h4.modal-title</h4>
                 </div>
                 <div class="modal-body">
-                    <small>.modal-content</small> .modal-body
+                    <span class="text-muted">&gt; .modal-content</span> .modal-body
                 </div>
                 <div class="modal-footer">
+                    &gt; .modal-footer
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"><small>.modal-content .modal-footer</small> .btn</button>
+                    <button type="button" class="btn btn-primary">Button</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
