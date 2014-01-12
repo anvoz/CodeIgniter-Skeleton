@@ -1,4 +1,4 @@
-CodeIgniter-Skeleton
+CodeIgniter Skeleton 2.0.0
 ====================
 
 CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
@@ -160,3 +160,9 @@ class Welcome_ajax extends Ajax_Controller {
 }
 ```
 Use `alert`, `confirm` and `dialog` functions of the `Response` library to display dialog in client-side.
+
+# License
+
+[CodeIgniter License Agreement](http://ellislab.com/codeigniter/user-guide/license.html)
+
+Everything else is released under the [MIT License](http://opensource.org/licenses/MIT).
