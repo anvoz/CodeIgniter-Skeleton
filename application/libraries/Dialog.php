@@ -2,7 +2,7 @@
 
 /**
  * Dialog Library
- * Generate Dialog HTML
+ * Generate HTML for Bootstrap's Modal dialog
  *
  * https://github.com/anvoz/CodeIgniter-Skeleton
  *

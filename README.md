@@ -32,7 +32,7 @@ config/
 helper/
     MY_url_helper.php               // Contain assets_url() function
 library/
-    Dialog.php                      // Generate dialog HTML
+    Dialog.php                      // Generate HTML for Bootstrap's Modal dialog
     Response.php                    // Handle response for ajax request
     Template.php                    // Handle masterview and views within masterview
 modules/
@@ -45,7 +45,7 @@ views/
         default.php                 // Header + full width container
         pagelet.php                 // Header + half width container
     base_view.php                   // Masterview
-    dialog.php                      // Template for modal dialog
+    dialog.php                      // HTML template for Bootstrap's Modal dialog
     header.php                      // Page header
 ```
 

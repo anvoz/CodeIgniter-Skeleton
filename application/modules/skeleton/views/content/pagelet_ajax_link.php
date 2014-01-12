@@ -11,7 +11,6 @@ $first_button_id = 'button-' . mt_rand(1000000, 9999999);
     </a>
 </p>
 <p>
-    <!-- TODO: correct default context -->
     Via <code>CIS.Ajax.request('{$ajax_url}', { context: {$this_button} })</code>
     <a class="btn btn-primary" href="#"
             onclick="CIS.Ajax.request('<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=a'); ?>', { context: $(this) }); return false;">
