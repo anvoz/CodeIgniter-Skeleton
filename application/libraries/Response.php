@@ -2,8 +2,8 @@
 
 /**
  * Response Library
- * Handle ajax request of the CIS.Ajax.request() Javascript function from client
- * Register Javascript from server which will be executed after the request was successful
+ * Handle response for ajax request which is sent
+ * by the CIS.Ajax.request() Javascript function
  *
  * https://github.com/anvoz/CodeIgniter-Skeleton
  *
@@ -173,7 +173,7 @@ JS;
     }
 
     /**
-     * Send response to CIS.Ajax.response()
+     * Send response to CIS.Ajax.response() Javascript function
      *
      * @access  public
      * @return  void

@@ -31,7 +31,7 @@
         <!-- / -->
 
         <script src="<?php echo assets_url('js/jquery-1.10.2.min.js'); ?>"></script>
-        <script src="<?php echo assets_url('js/plugins.js'); ?>"></script>
+        <script src="<?php echo assets_url('js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo assets_url('js/main.js'); ?>"></script>
         <!-- Extra javascript -->
         <?php echo $js; ?>
@@ -44,7 +44,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','<?php echo $ga_id; ?>');ga('send','pageview');
         </script>
         <?php endif; ?><!-- / -->
     </body>

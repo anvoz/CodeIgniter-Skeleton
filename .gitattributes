@@ -8,6 +8,10 @@
 *.html  text
 *.txt   text
 
+# Avoid unreadable diffs
+# for generated text files (e.g. minified JS)
+*.min.* binary
+
 # Binary files:
 *.ico   binary
 *.gif   binary

@@ -1,0 +1,36 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+$config['description'] = '
+<p>
+    <a target="_blank" href="https://github.com/blueimp/jQuery-File-Upload">
+        https://github.com/blueimp/jQuery-File-Upload
+    </a>
+</p>
+<p>File Upload widget with multiple file selection, drag&amp;drop support, progress bar, validation and preview images, audio and video for jQuery. Supports cross-domain, chunked and resumable file uploads. Works with any server-side platform (Google App Engine, PHP, Python, Ruby on Rails, Java, etc.) that supports standard HTML form file uploads.</p>
+<ul>
+    <li>Only included the basic plugin with PHP upload handler.</li>
+    <li>Packed into a photo upload pagelet.</li>
+</ul>
+';
+
+$config['files'] = array(
+    'config/upload.php' => array('dest' => 'application/config'),
+    'controllers/photo.php' => array('dest' => 'application/modules/photo/controllers'),
+    'controllers/photo_ajax.php' => array('dest' => 'application/modules/photo/controllers'),
+    'libraries/jQuery_file_upload/Uploadhandler.php' => array('dest' => 'application/libraries/jQuery_file_upload'),
+    'libraries/Uploader.php' => array('dest' => 'application/libraries'),
+    'views/pagelet_upload_control.php' => array('dest' => 'application/modules/photo/views'),
+    'views/script_upload.php' => array('dest' => 'application/modules/photo/views'),
+    'views/upload.php' => array('dest' => 'application/modules/photo/views'),
+    'jquery.fileupload.min.js' => array('dest' => 'assets/js'),
+    'pagelet_jquery_file_upload.php' => array('dest' => 'application/modules/skeleton/views/content'),
+);
+
+$config['skeleton'] = array(
+    'ajax' => array(
+        'jquery-file-upload' => 'jQuery file upload',
+    ),
+);
+
+/* End of file addon_jquery_file_upload.php */
+/* Location: ./application/modules/addons/config/addon_jquery_file_upload.php */

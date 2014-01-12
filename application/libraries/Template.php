@@ -2,7 +2,7 @@
 
 /**
  * Template Library
- * Render base view including metadata, Javascript and CSS files
+ * Handle masterview and views within masterview
  *
  * https://github.com/anvoz/CodeIgniter-Skeleton
  *
@@ -119,6 +119,13 @@ class Template {
      */
     public function load_view($view, $data = array())
     {
+        // Not include master view on ajax request
+        if ($this->_ci->input->is_ajax_request())
+        {
+            $this->_ci->load->view($view, $data);
+            return;
+        }
+
         // Title
         if (empty($this->_title))
         {
