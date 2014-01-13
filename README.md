@@ -3,7 +3,7 @@ CodeIgniter Skeleton 2.0.0
 
 CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
 
-![cis](https://f.cloud.github.com/assets/4688035/1897865/5e96b77e-7c00-11e3-8413-f4210e7aca5f.png)
+![cis](https://f.cloud.github.com/assets/4688035/1898027/7e70f520-7c08-11e3-93c7-71f4b5d8fa7c.png)
 
 # Include
 
