@@ -3,6 +3,8 @@ CodeIgniter Skeleton 2.0.0
 
 CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
 
+![cis](https://f.cloud.github.com/assets/4688035/1897865/5e96b77e-7c00-11e3-8413-f4210e7aca5f.png)
+
 # Include
 
 ## Core
@@ -22,7 +24,7 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.2 (last updated: Dec 13, 2013)
 
-# Structure
+# Directory Structure
 
 ## Application
 
