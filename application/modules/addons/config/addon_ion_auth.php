@@ -47,7 +47,9 @@ $config['files'] = array(
 
 $config['manual'] = array(
     'Run SQL script from <code>application/modules/addons/data/ion_auth/sql/ion_auth.sql</code> file.<br>
-    Or use Ion auth\'s db migration <code>application/modules/addons/data/ion_auth/migrations/001_install_ion_auth.php</code>.',
+    Or use Ion auth\'s db migration <code>application/modules/addons/data/ion_auth/migrations/001_install_ion_auth.php</code>.<br>
+    <b>Note:</b> These files are not copied out automatically. If your choice is using migration, you will have to copy the migration file yourself
+    and do some extra steps as described <a target="_blank" href="http://ellislab.com/codeigniter/user-guide/libraries/migration.html">here</a>.',
     'Set your database settings in <code>application/config/database.php</code> file.',
     'Edit your encryption key in <code>application/config/config.php</code> file.',
     'Customize library config in <code>application/config/ion_auth.php</code> file.',
