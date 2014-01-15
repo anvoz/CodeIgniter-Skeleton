@@ -46,6 +46,8 @@ $config['files'] = array(
 );
 
 $config['manual'] = array(
+    'Set your assets URL in <code>application/config/assets.php</code> file.<br>
+    Example: <code>$config[\'assets_url\'] = \'http://localhost/ciske/assets/\';</code>.',
     'Run SQL script from <code>application/modules/addons/data/ion_auth/sql/ion_auth.sql</code> file.<br>
     Or use Ion auth\'s db migration <code>application/modules/addons/data/ion_auth/migrations/001_install_ion_auth.php</code>.<br>
     <b>Note:</b> These files are not copied out automatically. If your choice is using migration, you will have to copy the migration file yourself
