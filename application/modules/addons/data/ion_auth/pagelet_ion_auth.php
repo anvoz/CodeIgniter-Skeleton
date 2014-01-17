@@ -1,4 +1,14 @@
-<?php $this->load->library('authentication'); ?>
+<?php
+/*
+ * This view is called by the skeleton controller
+ * which is used to generate a simple and isolated showcase for an add-on.
+ * It is why some stuffs have to be loaded or be defined directly in the view here.
+ *
+ * In this case, if you want to use Ion auth library for your project,
+ * the Authentication library should be loaded in MY_Controller or autoload config.
+ */
+$this->load->library('authentication');
+?>
 
 <p>
     Some Ion auth's page functions were ported to display in dialog via ajax requests.<br>
