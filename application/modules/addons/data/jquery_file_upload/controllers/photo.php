@@ -29,4 +29,4 @@ class Photo extends MY_Controller {
 }
 
 /* End of file photo.php */
-/* Location: ./application/controllers/photo.php */
+/* Location: ./application/modules/photo/controllers/photo.php */
