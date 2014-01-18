@@ -10,10 +10,11 @@
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
 
+        // Ajaxify links
         $(document).on('click', 'a[rel]', function(e) {
             var $a = $(this),
                 rel = $a.attr('rel'),
-                url = $a.attr('ajaxify');
+                url = $a.attr('ajaxify') || $a.attr('href');
 
             if (typeof url !== 'undefined') {
                 switch (rel) {
@@ -25,6 +26,7 @@
             }
             e.preventDefault();
         });
+        // Ajaxify forms
         $(document).on('submit', 'form[rel]', function(e) {
             var $form = $(this),
                 rel = $form.attr('rel'),
