@@ -7,6 +7,12 @@
         CIS = window.CIS = window.CIS || {};
 
     CIS.Ajax = {
+        /*
+         * Hold the last context that was set by the request.
+         * In most case, it will refer to a DOM element that trigger the request.
+         * Best use for debugging a response from CIS.Ajax.request function.
+         */
+        lastContext: undefined,
         /**
          * Perform an Ajax request
          * The response will be handled by CI.Ajax.response function
@@ -36,9 +42,13 @@
         response: function(data) {
             var data = data || {},
                 context = this;
+            CIS.Ajax.lastContext = context;
+
             if (typeof data.scripts === 'undefined') {
                 return;
             }
+
+            // Execute all scripts from the response
             for (var i = 0, length = data.scripts.length; i < length; i++) {
                 try {
                     (new Function(data.scripts[i])).call(context);
