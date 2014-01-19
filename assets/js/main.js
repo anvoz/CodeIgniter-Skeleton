@@ -6,79 +6,6 @@
         $ = window.$,
         CIS = window.CIS = window.CIS || {};
 
-    $(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-        $('[data-toggle="popover"]').popover();
-
-        // Ajaxify links
-        $(document).on('click', 'a[rel]', function(e) {
-            var $a = $(this),
-                rel = $a.attr('rel'),
-                url = $a.attr('ajaxify');
-
-            if (typeof url === 'undefined') {
-                e.preventDefault();
-                return;
-            }
-
-            switch (rel) {
-                case 'async':
-                    CIS.Ajax.request(url, {
-                        context: this,
-                        beforeSend: function() {
-                            if ($a.data('disabled')) {
-                                return false;
-                            }
-                            // Disable this DOM element
-                            // before performing an Ajax request
-                            $a.data('disabled', true).addClass('disabled');
-                        },
-                        complete: function() {
-                            // Enable when the request finished
-                            $a.data('disabled', false).removeClass('disabled');
-                        }
-                    });
-                    break;
-            }
-            return false;
-        });
-        // Ajaxify forms
-        $(document).on('submit', 'form[rel]', function(e) {
-            var $form = $(this),
-                rel = $form.attr('rel'),
-                url = $form.attr('action');
-
-            if (typeof url === 'undefined') {
-                e.preventDefault();
-                return;
-            }
-
-            switch (rel) {
-                case 'async':
-                    CIS.Ajax.request(url, {
-                        type: 'POST',
-                        data: $form.serializeArray(),
-                        context: this,
-                        beforeSend: function() {
-                            if ($form.data('disabled')) {
-                                return false;
-                            }
-                            // Disable this form
-                            $form.data('disabled', true);
-                            // Disable all submit buttons of this form
-                            $form.find('[type="submit"]').addClass('disabled');
-                        },
-                        complete: function() {
-                            $form.data('disabled', false);
-                            $form.find('[type="submit"]').removeClass('disabled');
-                        }
-                    });
-                    break;
-            }
-            e.preventDefault();
-        });
-    });
-
     CIS.Ajax = {
         /**
          * Perform an Ajax request
@@ -179,6 +106,79 @@
             }
         }
     }, CIS.Script);
+
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+
+        // Ajaxify links
+        $(document).on('click', 'a[rel]', function(e) {
+            var $a = $(this),
+                rel = $a.attr('rel'),
+                url = $a.attr('ajaxify');
+
+            if (typeof url === 'undefined') {
+                e.preventDefault();
+                return;
+            }
+
+            switch (rel) {
+                case 'async':
+                    CIS.Ajax.request(url, {
+                        context: this,
+                        beforeSend: function() {
+                            if ($a.data('disabled')) {
+                                return false;
+                            }
+                            // Disable this DOM element
+                            // before performing an Ajax request
+                            $a.data('disabled', true).addClass('disabled');
+                        },
+                        complete: function() {
+                            // Enable when the request finished
+                            $a.data('disabled', false).removeClass('disabled');
+                        }
+                    });
+                    break;
+            }
+            return false;
+        });
+        // Ajaxify forms
+        $(document).on('submit', 'form[rel]', function(e) {
+            var $form = $(this),
+                rel = $form.attr('rel'),
+                url = $form.attr('action');
+
+            if (typeof url === 'undefined') {
+                e.preventDefault();
+                return;
+            }
+
+            switch (rel) {
+                case 'async':
+                    CIS.Ajax.request(url, {
+                        type: 'POST',
+                        data: $form.serializeArray(),
+                        context: this,
+                        beforeSend: function() {
+                            if ($form.data('disabled')) {
+                                return false;
+                            }
+                            // Disable this form
+                            $form.data('disabled', true);
+                            // Disable all submit buttons of this form
+                            $form.find('[type="submit"]').addClass('disabled');
+                        },
+                        complete: function() {
+                            $form.data('disabled', false);
+                            $form.find('[type="submit"]').removeClass('disabled');
+                        }
+                    });
+                    break;
+            }
+            e.preventDefault();
+        });
+    });
 
     // Execute queued scripts
     (function(queue) {
