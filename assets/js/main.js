@@ -14,17 +14,33 @@
         $(document).on('click', 'a[rel]', function(e) {
             var $a = $(this),
                 rel = $a.attr('rel'),
-                url = $a.attr('ajaxify') || $a.attr('href');
+                url = $a.attr('ajaxify');
 
-            if (typeof url !== 'undefined') {
-                switch (rel) {
-                    case 'async':
-                        CIS.Ajax.request.call(this, url);
-                        break;
-                }
-                return false;
+            if (typeof url === 'undefined') {
+                e.preventDefault();
+                return;
             }
-            e.preventDefault();
+
+            switch (rel) {
+                case 'async':
+                    CIS.Ajax.request(url, {
+                        context: this,
+                        beforeSend: function() {
+                            if ($a.data('disabled')) {
+                                return false;
+                            }
+                            // Disable this DOM element
+                            // before performing an Ajax request
+                            $a.data('disabled', true).addClass('disabled');
+                        },
+                        complete: function() {
+                            // Enable when the request finished
+                            $a.data('disabled', false).removeClass('disabled');
+                        }
+                    });
+                    break;
+            }
+            return false;
         });
         // Ajaxify forms
         $(document).on('submit', 'form[rel]', function(e) {
@@ -32,21 +48,44 @@
                 rel = $form.attr('rel'),
                 url = $form.attr('action');
 
-            if (typeof url !== 'undefined') {
-                switch (rel) {
-                    case 'async':
-                        CIS.Ajax.request.call(this, url, {
-                            type: 'POST',
-                            data: $form.serializeArray()
-                        });
-                        break;
-                }
+            if (typeof url === 'undefined') {
+                e.preventDefault();
+                return;
+            }
+
+            switch (rel) {
+                case 'async':
+                    CIS.Ajax.request(url, {
+                        type: 'POST',
+                        data: $form.serializeArray(),
+                        context: this,
+                        beforeSend: function() {
+                            if ($form.data('disabled')) {
+                                return false;
+                            }
+                            // Disable this form
+                            $form.data('disabled', true);
+                            // Disable all submit buttons of this form
+                            $form.find('[type="submit"]').addClass('disabled');
+                        },
+                        complete: function() {
+                            $form.data('disabled', false);
+                            $form.find('[type="submit"]').removeClass('disabled');
+                        }
+                    });
+                    break;
             }
             e.preventDefault();
         });
     });
 
     CIS.Ajax = {
+        /**
+         * Perform an Ajax request
+         * The response will be handled by CI.Ajax.response function
+         * url: the URL to which the request is sent
+         * settings: settings for $.ajax() function (optional)
+         */
         request: function(url, settings) {
             settings = settings || {};
             var context = settings.context || this;
@@ -62,16 +101,22 @@
             }, settings);
             $.ajax(url, settings);
         },
+        /**
+         * Handle JSON data responded from CI.Ajax.request function
+         * data: JSON data
+         *      contains array of scripts to be executed
+         */
         response: function(data) {
             var data = data || {},
                 context = this;
-            if (typeof data.scripts !== 'undefined') {
-                for (var i = 0, length = data.scripts.length; i < length; i++) {
-                    try {
-                        (new Function(data.scripts[i])).call(context);
-                    } catch(ex) {
-                        console.log(ex);
-                    }
+            if (typeof data.scripts === 'undefined') {
+                return;
+            }
+            for (var i = 0, length = data.scripts.length; i < length; i++) {
+                try {
+                    (new Function(data.scripts[i])).call(context);
+                } catch(ex) {
+                    console.log(ex);
                 }
             }
         }
