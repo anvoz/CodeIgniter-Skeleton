@@ -11,7 +11,7 @@
 >
     <testsuites>
         <testsuite name="CodeIgniter Skeleton Test Suite">
-            <directory suffix="test.php">./cis/skeleton</directory>
+            <directory suffix="test.php">./cis</directory>
         </testsuite>
     </testsuites>
 </phpunit>
