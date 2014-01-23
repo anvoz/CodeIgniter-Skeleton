@@ -9,7 +9,4 @@ branches:
   only:
     - cis-phpunit
 
-before_install:
-  - sudo pear install bovigo/vfsStream-beta
-
 script: phpunit --coverage-text --configuration tests/phpunit.xml
