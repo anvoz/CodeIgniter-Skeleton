@@ -9,4 +9,7 @@ branches:
   only:
     - cis-phpunit
 
+before_script:
+  - composer install --dev --no-progress
+
 script: phpunit --coverage-text --configuration tests/phpunit.xml
