@@ -1,8 +1,15 @@
 language: php
 
 php:
-  - "5.3"
-  - "5.4"
-  - "5.5"
+  - 5.3
+  - 5.4
+  - 5.5
+
+branches:
+  only:
+    - cis-phpunit
+
+before_install:
+  - sudo pear install bovigo/vfsStream-beta
 
 script: phpunit --coverage-text --configuration tests/phpunit.xml
