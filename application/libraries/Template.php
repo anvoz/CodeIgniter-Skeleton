@@ -14,19 +14,19 @@ class Template {
 
     private $_ci;
 
-    private $_brand_name = 'CodeIgniter Skeleton';
-    private $_title_separator = ' - ';
-    private $_ga_id = FALSE; // UA-XXXXX-X
+    protected $brand_name = 'CodeIgniter Skeleton';
+    protected $title_separator = ' - ';
+    protected $ga_id = FALSE; // UA-XXXXX-X
 
-    private $_layout = 'default';
+    protected $layout = 'default';
 
-    private $_title = FALSE;
-    private $_description = FALSE;
+    protected $title = FALSE;
+    protected $description = FALSE;
 
-    private $_metadata = array();
+    protected $metadata = array();
 
-    private $_js = array();
-    private $_css = array();
+    protected $js = array();
+    protected $css = array();
 
     function __construct()
     {
@@ -42,7 +42,7 @@ class Template {
      */
     public function set_layout($layout)
     {
-        $this->_layout = $layout;
+        $this->layout = $layout;
     }
 
     /**
@@ -54,7 +54,7 @@ class Template {
      */
     public function set_title($title)
     {
-        $this->_title = $title;
+        $this->title = $title;
     }
 
     /**
@@ -66,7 +66,7 @@ class Template {
      */
     public function set_description($description)
     {
-        $this->_description = $description;
+        $this->description = $description;
     }
 
     /**
@@ -82,7 +82,7 @@ class Template {
         $name = htmlspecialchars(strip_tags($name));
         $content = htmlspecialchars(strip_tags($content));
 
-        $this->_metadata[$name] = $content;
+        $this->metadata[$name] = $content;
     }
 
     /**
@@ -94,7 +94,7 @@ class Template {
      */
     public function add_js($js)
     {
-        $this->_js[$js] = $js;
+        $this->js[$js] = $js;
     }
 
     /**
@@ -106,7 +106,7 @@ class Template {
      */
     public function add_css($css)
     {
-        $this->_css[$css] = $css;
+        $this->css[$css] = $css;
     }
 
     /**
@@ -115,9 +115,10 @@ class Template {
      * @access  public
      * @param   string  $view
      * @param   mixed   $data
+     * @param   boolean $return
      * @return  void
      */
-    public function load_view($view, $data = array())
+    public function load_view($view, $data = array(), $return = FALSE)
     {
         // Not include master view on ajax request
         if ($this->_ci->input->is_ajax_request())
@@ -127,21 +128,21 @@ class Template {
         }
 
         // Title
-        if (empty($this->_title))
+        if (empty($this->title))
         {
-            $title = $this->_brand_name;
+            $title = $this->brand_name;
         }
         else
         {
-            $title = $this->_title . $this->_title_separator . $this->_brand_name;
+            $title = $this->title . $this->title_separator . $this->brand_name;
         }
 
         // Description
-        $description = $this->_description;
+        $description = $this->description;
 
         // Metadata
         $metadata = array();
-        foreach ($this->_metadata as $name => $content)
+        foreach ($this->metadata as $name => $content)
         {
             if (strpos($name, 'og:') === 0)
             {
@@ -156,7 +157,7 @@ class Template {
 
         // Javascript
         $js = array();
-        foreach ($this->_js as $js_file)
+        foreach ($this->js as $js_file)
         {
             $js[] = '<script src="' . assets_url('js/' . $js_file) . '"></script>';
         }
@@ -164,7 +165,7 @@ class Template {
 
         // CSS
         $css = array();
-        foreach ($this->_css as $css_file)
+        foreach ($this->css as $css_file)
         {
             $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
         }
@@ -173,20 +174,20 @@ class Template {
         $header = $this->_ci->load->view('header', array(), TRUE);
         $main_content = $this->_ci->load->view($view, $data, TRUE);
 
-        $body = $this->_ci->load->view('layout/' . $this->_layout, array(
+        $body = $this->_ci->load->view('layout/' . $this->layout, array(
             'header' => $header,
             'main_content' => $main_content,
         ), TRUE);
 
-        $this->_ci->load->view('base_view', array(
+        return $this->_ci->load->view('base_view', array(
             'title' => $title,
             'description' => $description,
             'metadata' => $metadata,
             'js' => $js,
             'css' => $css,
             'body' => $body,
-            'ga_id' => $this->_ga_id,
-        ));
+            'ga_id' => $this->ga_id,
+        ), $return);
     }
 }
 
