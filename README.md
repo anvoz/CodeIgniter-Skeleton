@@ -66,9 +66,9 @@ css/
 js/
     modules/
         {$module}.js                // Extra JS for a specific module
-    jquery-1.10.2.min.js            // jQuery core JS
-    html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
     bootstrap.min.js                // Bootstrap core JS
+    html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
+    jquery-1.10.2.min.js            // jQuery core JS
     main.js                         // JS for all pages
 ```
 
