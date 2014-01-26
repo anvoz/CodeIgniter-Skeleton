@@ -14,7 +14,7 @@ The test suites only cover all components that were created by this project, not
 
 ### Requirements:
 
-PHP Unit >= 3.5.6
+PHPUnit >= 3.5.6
 ```
 pear channel-discover pear.phpunit.de
 pear channel-discover pear.symfony.com
