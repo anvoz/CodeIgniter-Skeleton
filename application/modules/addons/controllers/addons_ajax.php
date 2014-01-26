@@ -12,44 +12,7 @@ class Addons_ajax extends Ajax_Controller {
             // Copy / delete files
             foreach ($addon['files'] as $file => &$file_data)
             {
-                $status = FALSE;
-
-                $file_parts = explode('/', $file);
-                $file_name = (count($file_parts) > 1) ?
-                    end($file_parts) : $file_parts[0];
-
-                $file_dest_path = $file_data['dest'] . '/' . $file_name;
-
-                switch ($action)
-                {
-                    case 'copy':
-                        // Make dir if not existed
-                        if ( ! file_exists($file_data['dest']))
-                        {
-                            mkdir($file_data['dest'], 0777, TRUE);
-                        }
-                        // Not overwrite existed file
-                        if ( ! file_exists($file_dest_path))
-                        {
-                            $status = copy(
-                                APPPATH . 'modules/addons/data/' . $addon_key . '/' . $file,
-                                $file_dest_path
-                            );
-                        }
-                        break;
-                    case 'delete':
-                        if ($status = @unlink($file_dest_path))
-                        {
-                            // Delete empty directories
-                            $delete_path = rtrim($file_data['dest'], '/');
-                            while (@rmdir($delete_path))
-                            {
-                                $delete_path = substr($delete_path, 0, strrpos($delete_path, '/'));
-                            }
-                        }
-                        break;
-                }
-                $file_data['status'] = $status;
+                $file_data['status'] = $this->_file_action($action, $addon_key . '/' . $file, $file_data);
             }
 
             // Add / remove skeleton
@@ -62,24 +25,7 @@ class Addons_ajax extends Ajax_Controller {
                 }
                 if ( ! empty($skeleton_data))
                 {
-                    $key = key($addon['skeleton']);
-                    switch ($action)
-                    {
-                        case 'copy':
-                            $skeleton_data[$key] = array_merge(
-                                (isset($skeleton_data[$key])) ? $skeleton_data[$key] : array(),
-                                $addon['skeleton'][$key]
-                            );
-                            break;
-                        case 'delete':
-                            $sub_key = key($addon['skeleton'][$key]);
-                            unset($skeleton_data[$key][$sub_key]);
-                            if (empty($skeleton_data[$key]))
-                            {
-                                unset($skeleton_data[$key]);
-                            }
-                            break;
-                    }
+                    $skeleton_data = $this->_skeleton_action($action, $addon['skeleton'], $skeleton_data);
                     $skeleton_json = json_encode($skeleton_data);
                     write_file($skeleton_json_path, $skeleton_json);
                 }
@@ -101,6 +47,72 @@ class Addons_ajax extends Ajax_Controller {
             );
         }
         $this->response->send();
+    }
+
+    function _file_action($action, $file, $file_data)
+    {
+        $status = FALSE;
+
+        $file_parts = explode('/', $file);
+        $file_name = (count($file_parts) > 1) ?
+            end($file_parts) : $file_parts[0];
+
+        $file_dest_path = $file_data['dest'] . '/' . $file_name;
+
+        switch ($action)
+        {
+            case 'copy':
+                // Make dir if not existed
+                if ( ! file_exists($file_data['dest']))
+                {
+                    mkdir($file_data['dest'], 0777, TRUE);
+                }
+                // Not overwrite existed file
+                if ( ! file_exists($file_dest_path))
+                {
+                    $status = copy(
+                        APPPATH . 'modules/addons/data/' . $file,
+                        $file_dest_path
+                    );
+                }
+                break;
+            case 'delete':
+                if ($status = @unlink($file_dest_path))
+                {
+                    // Delete empty directories
+                    $delete_path = rtrim($file_data['dest'], '/');
+                    while (@rmdir($delete_path))
+                    {
+                        $delete_path = substr($delete_path, 0, strrpos($delete_path, '/'));
+                    }
+                }
+                break;
+        }
+
+        return $status;
+    }
+
+    function _skeleton_action($action, $skeleton, $skeleton_data)
+    {
+        $key = key($skeleton);
+        switch ($action)
+        {
+            case 'copy':
+                $skeleton_data[$key] = array_merge(
+                    (isset($skeleton_data[$key])) ? $skeleton_data[$key] : array(),
+                    $skeleton[$key]
+                );
+                break;
+            case 'delete':
+                $sub_key = key($skeleton[$key]);
+                unset($skeleton_data[$key][$sub_key]);
+                if (empty($skeleton_data[$key]))
+                {
+                    unset($skeleton_data[$key]);
+                }
+                break;
+        }
+        return $skeleton_data;
     }
 }
 
