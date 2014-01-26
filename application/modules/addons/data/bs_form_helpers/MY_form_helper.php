@@ -64,7 +64,7 @@ if ( ! function_exists('bs_form_reset'))
 {
     function bs_form_reset($data = '', $value = '', $extra = '')
     {
-        $extra = _insert_form_attribute_value($data, $extra, 'class', 'btn btn-primary');
+        $extra = _insert_form_attribute_value($data, $extra, 'class', 'btn btn-default');
         return form_reset($data, $value, $extra);
     }
 }
