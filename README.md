@@ -1,4 +1,4 @@
-CodeIgniter Skeleton 2.0.0
+CodeIgniter Skeleton 2.1.0 [![Build Status](https://travis-ci.org/anvoz/CodeIgniter-Skeleton.png)](https://travis-ci.org/anvoz/CodeIgniter-Skeleton)
 ====================
 
 CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
