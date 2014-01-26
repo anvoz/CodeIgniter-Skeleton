@@ -31,6 +31,8 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 ```
 config/
     assets.php                      // Config base URL for assets
+core/
+    MY_Controller.php               // MY_Controller & Ajax_Controller
 helper/
     MY_url_helper.php               // Contain assets_url() function
 library/
