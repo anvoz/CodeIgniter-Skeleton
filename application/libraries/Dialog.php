@@ -3,11 +3,6 @@
 /**
  * Dialog Library
  * Generate HTML for Bootstrap's Modal dialog
- *
- * https://github.com/anvoz/CodeIgniter-Skeleton
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
  */
 
 class Dialog {

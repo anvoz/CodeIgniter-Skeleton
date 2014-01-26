@@ -4,11 +4,6 @@
  * Response Library
  * Handle response for ajax request which is sent
  * by the CIS.Ajax.request() Javascript function
- *
- * https://github.com/anvoz/CodeIgniter-Skeleton
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
  */
 
 class Response {

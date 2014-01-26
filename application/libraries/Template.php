@@ -3,11 +3,6 @@
 /**
  * Template Library
  * Handle masterview and views within masterview
- *
- * https://github.com/anvoz/CodeIgniter-Skeleton
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
  */
 
 class Template {
