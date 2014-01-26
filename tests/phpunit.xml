@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="./bootstrap.php"
+    colors="false"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    stopOnError="false"
+    stopOnFailure="false"
+    stopOnIncomplete="false"
+    stopOnSkipped="false"
+>
+    <testsuites>
+        <testsuite name="CodeIgniter Skeleton Test Suite">
+            <directory suffix="test.php">./cis</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -13,7 +13,7 @@
 class Dialog {
 
     private $_ci;
-    private $_data;
+    protected $data;
 
     function __construct()
     {
@@ -29,7 +29,7 @@ class Dialog {
      */
     public function set_id($id) 
     {
-        $this->_data['id'] = $id;
+        $this->data['id'] = $id;
     }
 
     /**
@@ -41,7 +41,7 @@ class Dialog {
      */
     public function set_title($title) 
     {
-        $this->_data['title'] = $title;
+        $this->data['title'] = $title;
     }
 
     /**
@@ -53,7 +53,7 @@ class Dialog {
      */
     public function set_body($body) 
     {
-        $this->_data['body'] = $body;
+        $this->data['body'] = $body;
     }
 
     /**
@@ -65,7 +65,7 @@ class Dialog {
      */
     public function set_content($content) 
     {
-        $this->_data['content'] = $content;
+        $this->data['content'] = $content;
     }
 
     /**
@@ -97,7 +97,7 @@ class Dialog {
 
         if ( ! empty($button))
         {
-            $this->_data['buttons'][] = $button;
+            $this->data['buttons'][] = $button;
         }
     }
 
@@ -110,7 +110,7 @@ class Dialog {
      */
     public function set_footer($footer) 
     {
-        $this->_data['footer'] = $footer;
+        $this->data['footer'] = $footer;
     }
 
     /**
@@ -121,11 +121,11 @@ class Dialog {
      */
     public function html()
     {
-        if (empty($this->_data['id']))
+        if (empty($this->data['id']))
         {
-            $this->_data['id'] = 'dialog-' . mt_rand(1000000, 9999999);
+            $this->data['id'] = 'dialog-' . mt_rand(1000000, 9999999);
         }
-        return $this->_ci->load->view('dialog', $this->_data, TRUE);
+        return $this->_ci->load->view('dialog', $this->data, TRUE);
     }
 }
 

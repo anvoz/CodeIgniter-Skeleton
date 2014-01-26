@@ -14,7 +14,7 @@
 class Response {
 
     private $_ci;
-    private $_data;
+    protected $data;
 
     function __construct()
     {
@@ -30,7 +30,7 @@ class Response {
      */
     public function script($script)
     {
-        $this->_data['scripts'][] = $script;
+        $this->data['scripts'][] = $script;
     }
 
     /**
@@ -176,17 +176,26 @@ JS;
      * Send response to CIS.Ajax.response() Javascript function
      *
      * @access  public
+     * @param   boolean $data
      * @return  void
      */
-    public function send()
+    public function send($return = FALSE)
     {
-        if ( ! empty($this->_data))
+        if ( ! empty($this->data))
         {
             if ($this->_ci->input->is_ajax_request())
             {
-                echo json_encode($this->_data);
+                $json_data = json_encode($this->data);
+                if ($return)
+                {
+                    return $json_data;
+                }
+                else
+                {
+                    echo $json_data;
+                    exit;
+                }
             }
-            exit;
         }
     }
 }
