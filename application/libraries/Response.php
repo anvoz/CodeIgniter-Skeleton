@@ -141,6 +141,11 @@ class Response {
             $this->_ci->dialog->set_footer($data['footer']);
         }
 
+        if ( ! empty($data['size']))
+        {
+            $this->_ci->dialog->set_size($data['size']);
+        }
+
         $html = $this->_ci->dialog->html();
         $json_html = json_encode($html);
 

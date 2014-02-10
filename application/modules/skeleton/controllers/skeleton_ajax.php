@@ -41,6 +41,24 @@ JS;
                     'footer' => '$footer',
                 ));
                 break;
+            case 'dialog_small':
+                $this->response->dialog(array(
+                    'title' => '$title',
+                    'content' => '$content',
+                    'body' => '$body',
+                    'footer' => '$footer',
+                    'size' => 'small',
+                ));
+                break;
+            case 'dialog_large':
+                $this->response->dialog(array(
+                    'title' => '$title',
+                    'content' => '$content',
+                    'body' => '$body',
+                    'footer' => '$footer',
+                    'size' => 'large',
+                ));
+                break;
         }
         $this->response->send();
     }

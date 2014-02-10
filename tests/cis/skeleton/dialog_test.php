@@ -67,6 +67,14 @@ class Dialog_test extends CI_TestCase {
         $this->assertEquals($dialog_footer, $this->dialog->footer);
     }
 
+    public function test_set_size()
+    {
+        $this->dialog->set_size('small');
+        $this->assertEquals('modal-sm', $this->dialog->size);
+        $this->dialog->set_size('large');
+        $this->assertEquals('modal-lg', $this->dialog->size);
+    }
+
     public function test_html()
     {
         // Clone dialog template file
@@ -82,6 +90,7 @@ class Dialog_test extends CI_TestCase {
             'body' => '{$body}',
             'content' => '{$content}',
             'footer' => '{$footer}',
+            'size' => 'small',
         );
 
         // Generate dialog HTML
@@ -92,6 +101,7 @@ class Dialog_test extends CI_TestCase {
         $html = $this->dialog->html();
 
         // The generated dialog HTML should contain all dialog data
+        $dialog_data['size'] = '"modal-dialog modal-sm"';
         foreach ($dialog_data as $value)
         {
             $this->assertTrue(strpos($html, $value) !== FALSE);

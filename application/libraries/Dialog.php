@@ -109,6 +109,26 @@ class Dialog {
     }
 
     /**
+     * Set dialog size
+     *
+     * @access  public
+     * @param   string  $size
+     * @return  void
+     */
+    public function set_size($size)
+    {
+        switch ($size)
+        {
+            case 'small':
+                $this->data['size'] = 'modal-sm';
+                break;
+            case 'large':
+                $this->data['size'] = 'modal-lg';
+                break;
+        }
+    }
+
+    /**
      * Get dialog HTML
      *
      * @access  public

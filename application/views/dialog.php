@@ -1,5 +1,5 @@
 <div class="modal fade" id="<?php echo $id; ?>">
-    <div class="modal-dialog">
+    <div class="modal-dialog<?php ( ! empty($size)) && print(' ' . $size); ?>">
         <div class="modal-content">
             <?php if ( ! empty($title)): ?>
                 <div class="modal-header">

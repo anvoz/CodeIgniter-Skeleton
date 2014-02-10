@@ -30,5 +30,15 @@
                 ajaxify="<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=dialog'); ?>">
             Show
         </a>
+        <a class="btn btn-primary" href="#"
+                rel="async"
+                ajaxify="<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=dialog_large'); ?>">
+            Large modal
+        </a>
+        <a class="btn btn-primary" href="#"
+                rel="async"
+                ajaxify="<?php echo site_url('skeleton/skeleton_ajax/test_ajaxify?type=dialog_small'); ?>">
+            Small modal
+        </a>
     </p>
 </div>
