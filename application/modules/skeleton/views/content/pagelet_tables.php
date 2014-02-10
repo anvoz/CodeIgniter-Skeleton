@@ -64,30 +64,35 @@
     div.table-responsive
     <table class="table">
         <thead>
-            <tr><th>Header</th><th>Header</th><th>Header</th><th>Header</th></tr>
+            <tr><th>Header</th><th>Header</th><th>Header</th><th>Header</th><th>Header</th></tr>
         </thead>
         <tbody>
             <tr>
                 <td class="active">td.active</td>
                 <td class="success">td.success</td>
+                <td class="info">td.info</td>
                 <td class="warning">td.warning</td>
                 <td class="danger">td.danger</td>
             </tr>
             <tr class="active">
                 <td><span class="text-muted">tr.active</span> td</td>
-                <td colspan="3">Applies the hover color to a particular row or cell</td>
+                <td colspan="4">Applies the hover color to a particular row or cell</td>
             </tr>
             <tr class="success">
                 <td><span class="text-muted">tr.success</span> td</td>
-                <td colspan="3">Indicates a successful or positive action</td>
+                <td colspan="4">Indicates a successful or positive action</td>
             </tr>
             <tr class="warning">
                 <td><span class="text-muted">tr.warning</span> td</td>
-                <td colspan="3">Indicates a warning that might need attention</td>
+                <td colspan="4">Indicates a warning that might need attention</td>
+            </tr>
+            <tr class="info">
+                <td><span class="text-muted">tr.info</span> td</td>
+                <td colspan="4">Indicates a neutral informative change or action</td>
             </tr>
             <tr class="danger">
                 <td><span class="text-muted">tr.danger</span> td</td>
-                <td colspan="3">Indicates a dangerous or potentially negative action</td>
+                <td colspan="4">Indicates a dangerous or potentially negative action</td>
             </tr>
         </tbody>
     </table>

@@ -92,9 +92,9 @@
         </div>
         <div class="btn-group dropup">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                (.pull-right) <span class="caret"></span>
+                (.dropdown-menu-right) <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu pull-right">
+            <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="#">Link #1</a></li>
                 <li><a href="#">Link #2</a></li>
             </ul>

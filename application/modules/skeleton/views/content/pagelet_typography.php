@@ -16,6 +16,7 @@
     <abbr title="abbreviation">abbr</abbr>
     <abbr title="abbreviation.initialism" class="initialism">.initialism</abbr>
     <code>code</code>
+    <kbd>kbd</kbd>
 </p>
 
 <p>
@@ -25,6 +26,14 @@
     <span class="text-info">.text-info</span>
     <span class="text-warning">.text-warning</span>
     <span class="text-danger">.text-danger</span>
+</p>
+
+<p>
+    <span class="bg-primary">.bg-primary</span>
+    <span class="bg-success">.bg-success</span>
+    <span class="bg-info">.bg-info</span>
+    <span class="bg-warning">.bg-warning</span>
+    <span class="bg-danger">.bg-danger</span>
 </p>
 
 <p>
@@ -72,16 +81,16 @@
 <p class="text-left">.text-left</p>
 <p class="text-center">.text-center</p>
 <p class="text-right">.text-right</p>
-
+<p class="text-justify">.text-justify</p>
 
 <blockquote>
     <p>blockquote p</p>
-    <small>small <cite title="Cite">cite</cite></small>
+    <footer>footer <cite title="Cite">cite</cite></footer>
 </blockquote>
 <div class="clearfix">
-    <blockquote class="pull-right">
-        <p>blockquote.pull-right p</p>
-        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+    <blockquote class="blockquote-reverse">
+        <p>blockquote.blockquote-reverse p</p>
+        <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
 </div>
 
@@ -120,8 +129,10 @@
         <p>div.list-group</p>
         <div class="list-group">
             <a href="#" class="list-group-item active">a.list-group-item.active</a>
-            <a href="#" class="list-group-item">Link #2</a>
-            <a href="#" class="list-group-item">Link #3</a>
+            <a href="#" class="list-group-item list-group-item-success">..list-group-item-success</a>
+            <a href="#" class="list-group-item list-group-item-info">..list-group-item-info</a>
+            <a href="#" class="list-group-item list-group-item-danger">..list-group-item-danger</a>
+            <a href="#" class="list-group-item">Link #5</a>
         </div>
     </div>
     <div class="col-lg-4 col-md-12">
