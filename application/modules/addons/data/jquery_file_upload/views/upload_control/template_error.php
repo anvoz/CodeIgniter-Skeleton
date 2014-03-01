@@ -1,0 +1,1 @@
+<div class="alert alert-danger">{{name}}: {{error}}</div>
