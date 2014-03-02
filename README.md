@@ -1,13 +1,15 @@
-CodeIgniter Skeleton 2.1.0 [![Build Status](https://travis-ci.org/anvoz/CodeIgniter-Skeleton.png)](https://travis-ci.org/anvoz/CodeIgniter-Skeleton)
+CodeIgniter Skeleton [![Build Status](https://travis-ci.org/anvoz/CodeIgniter-Skeleton.png?branch=master)](https://travis-ci.org/anvoz/CodeIgniter-Skeleton)
 ====================
 
 CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
 
+[Public board on Trello](https://trello.com/b/gOUmrT5J/codeigniter-skeleton)
+
 ![cis](https://f.cloud.github.com/assets/4688035/1898027/7e70f520-7c08-11e3-93c7-71f4b5d8fa7c.png)
 
-# Include
+## Include
 
-## Core
+### Core
 
 * [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.1.4 (last updated: Jul 8, 2013)
 * [Modular Extensions - HMVC](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 5.4 (last updated: Jul 31, 2013)
@@ -16,7 +18,7 @@ CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps
 * Template library: handle masterview and views within masterview
 * Ajax request & response library: provide rapid ways to ajaxify everything
 
-## Add-ons
+### Add-ons
 
 Add-ons are custom builds of some useful libraries and plugins. They are **not included** in the project but already have a quick mechanic to install by (at least) simply clicking on the `Copy` button in Add-ons page.
 
@@ -24,9 +26,9 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.2 (last updated: Dec 13, 2013)
 
-# Directory Structure
+## Directory Structure
 
-## Application
+### Application
 
 ```
 config/
@@ -53,7 +55,7 @@ views/
     header.php                      // Page header
 ```
 
-## Assets
+### Assets
 
 Use `MY_url_helper` `assets_url()` to get URL of Javascript, CSS or image resource
 
@@ -68,13 +70,13 @@ js/
         {$module}.js                // Extra JS for a specific module
     bootstrap.min.js                // Bootstrap core JS
     html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
-    jquery-1.10.2.min.js            // jQuery core JS
+    jquery.min.js                   // jQuery core JS
     main.js                         // JS for all pages
 ```
 
-# Usage
+## Usage
 
-## Setup
+### Setup
 
 By default, you will be albe to check all features on the home page without doing any of the following instructions. Just unzip the package and put the source code in your server.
 
@@ -85,11 +87,11 @@ By default, you will be albe to check all features on the home page without doin
 
 [CodeIgniter Nginx Rewrite Rules](https://github.com/anvoz/CodeIgniter-Skeleton/wiki/CodeIgniter-Nginx-Rewrite-Rules)
 
-## Guidelines
+### Guidelines
 
-### Rendering page (with base view)
+#### Rendering page (with base view)
 
-Base view (masterview) is a well-designed HTML page based on `Bootstrap` and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template.
+Base view (masterview) is a well-designed HTML page based on [Bootstrap](https://github.com/twbs/bootstrap) and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template.
 ```
 [PHP]
 class Welcome extends MY_Controller {
@@ -105,7 +107,7 @@ class Welcome extends MY_Controller {
 ```
 Use other methods of the `Template` library to customize base view: `set_layout`, `set_title`, `set_description`, `add_metadata`, `add_js`, `add_css`.
 
-### Rendering pagelet
+#### Rendering pagelet
 
 A single web page should be broken down into small pieces which are called pagelets. Pagelet is a set of self-contained MVC and Javascript functions that should be loaded independently via both normal page render and ajax request render.
 ```
@@ -121,7 +123,7 @@ class Welcome extends MY_Controller {
 ```
 Use `Modules::run('welcome/_pagelet_example')` to get pagelet HTML output.
 
-### Writing Javascript inside the page body
+#### Writing Javascript inside the page body
 ```
 [PHP]
 $this->_load_script('$(function() {
@@ -130,7 +132,7 @@ $this->_load_script('$(function() {
 ```
 To minify blocking time while the browser is executing Javascript, the script will be queued and only be executed after the page is completely rendered.
 
-### Executing function after all of the required Javascript files were loaded
+#### Executing function after all of the required Javascript files were loaded
 ```
 [JS]
 CIS.Script.require('{$js_file_path}', function() {
@@ -141,14 +143,14 @@ CIS.Script.require('{$js_file_path}', function() {
 });
 ```
 
-### Ajaxifying request
+#### Ajaxifying request
 Via links: `<a href="#" rel="async" ajaxify="{$ajax_url}">...</a>`
 
 Via forms: `<form rel="async" action="{$ajax_url}">...</form>`
 
 Via Javascript function: `CIS.Ajax.request('{$ajax_url}'[, settings])`
 
-### Handling response
+#### Handling ajax response
 ```
 [PHP]
 // Should extend Ajax_Controller to use the Response library
@@ -165,8 +167,8 @@ class Welcome_ajax extends Ajax_Controller {
 ```
 Use `alert`, `confirm` and `dialog` functions of the `Response` library to display dialog in client-side.
 
-# License
+## License
 
-[CodeIgniter License Agreement](http://ellislab.com/codeigniter/user-guide/license.html)
+Copyright An Vo [@an_voz](https://twitter.com/an_voz), 2013-2014.
 
-Everything else is released under the [MIT License](http://opensource.org/licenses/MIT).
+[CodeIgniter License Agreement](http://ellislab.com/codeigniter/user-guide/license.html), everything else is released under the [MIT License](http://opensource.org/licenses/MIT).
