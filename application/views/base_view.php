@@ -30,7 +30,7 @@
         <?php echo $body; ?>
         <!-- / -->
 
-        <script src="<?php echo assets_url('js/jquery-1.11.0.min.js'); ?>"></script>
+        <script src="<?php echo assets_url('js/jquery.min.js'); ?>"></script>
         <script src="<?php echo assets_url('js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo assets_url('js/main.js'); ?>"></script>
         <!-- Extra javascript -->
