@@ -77,7 +77,7 @@
         </ul>
     </div>
 <?php endif; ?>
-<div>
+</div>
 
 <?php if ( ! empty($addon['skeleton'])): ?>
     <h3>Skeleton (only available after installed)</h3>
