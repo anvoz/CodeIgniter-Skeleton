@@ -23,10 +23,10 @@ class Photo extends MY_Controller {
      *      form_data: Additional form data to be sent along with the files
      *      success_callback: Callback for successful upload files
      *
-     *      wrapper_selector: Use to find the closest wrapper of the whole upload control
-     *      progress_selector: Use to locate progress bar inside the upload control
-     *      holder_selector: Use to locate the holder (inside the upload control) where all upload results will be added to
-     *      image_holder_selector: Use to locate a fixed place for a single uploaded image
+     *      parent: Use to find the closest wrapper of the whole upload control
+     *      progress_target: Use to locate progress bar inside the upload control
+     *      holder_target: Use to locate the holder (inside the upload control) where all upload results will be added to
+     *      image_holder_target: Use to locate a fixed place for a single uploaded image
      *
      *      progress_template: Progress bar template
      *      holder_template: Holder template
@@ -43,10 +43,10 @@ class Photo extends MY_Controller {
             'form_data' => array(),
             'success_callback' => 'false',
 
-            'wrapper_selector' => '.js-control',
-            'progress_selector' => '.progress',
-            'holder_selector' => '.holder',
-            'image_holder_selector' => FALSE,
+            'parent' => '.upload-control',
+            'progress_target' => '.progress',
+            'holder_target' => '.holder',
+            'image_holder_target' => FALSE,
         );
         $options = array_merge($default_options, $options);
 

@@ -32,9 +32,9 @@ class Photo_ajax extends Ajax_Controller {
             }',
 
             // Use a larger wrapper
-            'wrapper_selector' => '.js-custom-control',
+            'parent' => '.js-custom-control',
             // A fixed holder for uploaded photo
-            'image_holder_selector' => '#image-holder',
+            'image_holder_target' => '#image-holder',
 
             // Customize uploaded photo template
             'item_template' => '

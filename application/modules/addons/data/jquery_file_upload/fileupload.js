@@ -52,15 +52,15 @@
          * Get a specific control inside a wrapper
          */
         getControl: function($e, name) {
-            var $wrapper = $e.closest($e.data('wrapper-selector')),
-                $control = $wrapper.find($e.data(name + '-selector'));
+            var $parent = $e.closest($e.data('parent')),
+                $control = $parent.find($e.data(name + '-target'));
 
             if ($control.length === 0 &&
                 $.inArray(name, ['progress', 'holder']) != -1
             ) {
                 // Create the control if it does not exist
                 $control = $(CIS.FileUpload.getTemplate($e, name));
-                $control.appendTo($wrapper);
+                $control.appendTo($parent);
             }
             return $control;
         },
@@ -68,8 +68,8 @@
          * Get HTML template
          */
         getTemplate: function($e, name, data) {
-            var $wrapper = $e.closest($e.data('wrapper-selector')),
-                html = $wrapper.find('.js-' + name + '-template').html();
+            var $parent = $e.closest($e.data('parent')),
+                html = $parent.find('.js-' + name + '-template').html();
 
             if (typeof data !== 'undefined') {
                 // Compile template
@@ -115,10 +115,10 @@
                     $.each(data.result.files, function (index, file) {
                         if (file.url) {
                             // Upload successful
-                            var imageHolderSelector = $this.data('image-holder-selector');
-                            if (imageHolderSelector !== undefined) {
+                            var imageHolderTarget = $this.data('image-holder-target');
+                            if (imageHolderTarget !== undefined) {
                                 // Replace the holder with the newly uploaded item
-                                $(imageHolderSelector).replaceWith(CIS.FileUpload.getTemplate($this, 'item', file));
+                                $(imageHolderTarget).replaceWith(CIS.FileUpload.getTemplate($this, 'item', file));
                             } else {
                                 if (typeof $this.attr('multiple') !== 'undefined') {
                                     // Holder contains all uploaded items
