@@ -167,10 +167,12 @@ class Template {
         $css = implode('', $css);
 
         $header = $this->_ci->load->view('header', array(), TRUE);
+        $footer = $this->_ci->load->view('footer', array(), TRUE);
         $main_content = $this->_ci->load->view($view, $data, TRUE);
 
         $body = $this->_ci->load->view('layout/' . $this->layout, array(
             'header' => $header,
+            'footer' => $footer,
             'main_content' => $main_content,
         ), TRUE);
 

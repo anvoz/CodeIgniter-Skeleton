@@ -94,6 +94,10 @@ class Template_test extends CI_TestCase {
         $header_view = 'header.php';
         $header_content = '{$header}';
         $this->ci_vfs_create($header_view, $header_content, $this->ci_app_root, 'views');
+        // Footer view
+        $footer_view = 'footer.php';
+        $footer_content = '{$footer}';
+        $this->ci_vfs_create($footer_view, $footer_content, $this->ci_app_root, 'views');
         // Main view
         $main_content_view = 'main_content.php';
         $foo = 'foo';
@@ -168,6 +172,7 @@ class Template_test extends CI_TestCase {
             $body = $matches[1];
         }
         $this->assertTrue(strpos($body, $header_content) !== FALSE);
+        $this->assertTrue(strpos($body, $footer_content) !== FALSE);
         $this->assertTrue(strpos($body, $main_content . $bar) !== FALSE);
         foreach ($js_files as $js_file)
         {

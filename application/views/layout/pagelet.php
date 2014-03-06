@@ -7,3 +7,5 @@
         </div>
     </div>
 </div><!-- /.container -->
+
+<?php echo $footer; ?>
