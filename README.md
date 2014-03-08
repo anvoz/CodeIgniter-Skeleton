@@ -25,6 +25,7 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 * Bootstrap form helpers: generate HTML form fields and buttons with Bootstrap CSS style
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.2 (last updated: Dec 13, 2013)
+* [validate.js](https://github.com/rickharrison/validate.js) 1.3.1 (last updated: Dec 30, 2013)
 
 ## Directory Structure
 
