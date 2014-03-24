@@ -1,6 +1,6 @@
 <section class="todo-control">
     <header>
-        <?php echo form_open('todo_ajax/create', 'rel="async" class="form-horizontal"'); ?>
+        <?php echo form_open('todo/todo_ajax/create', 'rel="async" class="form-horizontal" autocomplete="off"'); ?>
             <div class="form-group">
                 <div class="col-xs-1">
                     <a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/toggle_all'); ?>">
@@ -14,7 +14,7 @@
         <?php echo form_close(); ?>
     </header><hr>
 
-    <section class="todo-list">
+    <section class="todo-list" data-filter="all">
         <?php foreach ($items as $item): ?>
             <?php echo Modules::run('todo/_pagelet_item', $item); ?>
         <?php endforeach; ?>
@@ -24,21 +24,15 @@
         <div class="pull-left">
             <strong class="todo-count"><?php echo $items_left; ?></strong> item(s) left
         </div>
-        <ul class="list-inline pull-right">
+        <ul class="todo-filter list-inline pull-right">
             <li>
-                <a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/all'); ?>">
-                    <strong>All</strong>
-                </a>
+                <a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/all'); ?>">All</a>
             </li>
             <li>
-                <a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/active'); ?>">
-                    Active
-                </a>
+                <a class="text-muted" rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/active'); ?>">Active</a>
             </li>
             <li>
-                <a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/completed'); ?>">
-                    Completed
-                </a>
+                <a class="text-muted" rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/completed'); ?>">Completed</a>
             </li>
         </ul>
     </footer>
