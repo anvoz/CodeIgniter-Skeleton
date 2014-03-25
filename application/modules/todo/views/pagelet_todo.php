@@ -25,15 +25,9 @@
             <strong class="todo-count"><?php echo $items_left; ?></strong> item(s) left
         </div>
         <ul class="todo-filter list-inline pull-right">
-            <li>
-                <a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/all'); ?>">All</a>
-            </li>
-            <li>
-                <a class="text-muted" rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/active'); ?>">Active</a>
-            </li>
-            <li>
-                <a class="text-muted" rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/completed'); ?>">Completed</a>
-            </li>
+            <li><a rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/all'); ?>">All</a></li>
+            <li><a class="text-muted" rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/active'); ?>">Active</a></li>
+            <li><a class="text-muted" rel="async" href="#" ajaxify="<?php echo site_url('todo/todo_ajax/filter/completed'); ?>">Completed</a></li>
         </ul>
     </footer>
 </section>

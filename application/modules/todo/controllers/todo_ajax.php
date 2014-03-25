@@ -2,7 +2,7 @@
 
 class Todo_ajax extends Ajax_Controller {
 
-    function create()
+    public function create()
     {
         $title = $this->input->post('title', TRUE);
         $html_item = Modules::run('todo/_pagelet_item', array(
@@ -12,11 +12,11 @@ class Todo_ajax extends Ajax_Controller {
 
         $this->response->script('
             var $list = $(this).closest(".todo-control").find(".todo-list"),
-                $item = $(' . json_encode($html_item) . ');
+                $newItem = $(' . json_encode($html_item) . ');
             if ($list.attr("data-filter") == "completed") {
-                $item.hide();
+                $newItem.hide();
             }
-            $list.append($item);
+            $list.append($newItem);
         ');
         $this->response->script('
             var $control = $(this).closest(".todo-control");
@@ -29,116 +29,98 @@ class Todo_ajax extends Ajax_Controller {
         $this->response->send();
     }
 
-    function toggle()
+    public function toggle()
     {
         $this->response->script('
             var $item = $(this).closest(".todo-item"),
                 $toggle = $item.find(".todo-toggle"),
-                $title = $item.find(".todo-title"),
                 $list = $(this).closest(".todo-control").find(".todo-list"),
-                isChecked = $toggle.is(":checked");
+                isChecked = ! $toggle.is(":checked");
 
-            if (isChecked) {
-                $item.removeClass("completed");
-                $title.removeClass("text-muted");
-                if ($list.attr("data-filter") == "completed") {
-                    $item.hide();
-                }
-            } else {
-                $item.addClass("completed");
-                $title.addClass("text-muted");
-                if ($list.attr("data-filter") == "active") {
-                    $item.hide();
-                }
-            }
-            $toggle.prop("checked", ! isChecked);
+            $item.toggleClass("completed", isChecked)
+                .find(".todo-title").toggleClass("text-muted", isChecked).end()
+                .toggle($list.attr("data-filter") != (isChecked ? "active" : "completed"));
+            $toggle.prop("checked", isChecked);
         ');
         $this->response->script('
             var $control = $(this).closest(".todo-control");
-            $control.find(".todo-toggle-all").prop("checked", false);
             $control.find(".todo-count").text($control.find(".todo-item:not(.completed)").length);
         ');
+        $this->_render_toggle_all();
 
         $this->response->send();
     }
 
-    function toggle_all()
+    public function toggle_all()
     {
         $this->response->script('
             var $control = $(this).closest(".todo-control"),
-                $toggleAll = $control.find(".todo-toggle-all"),
                 $list = $control.find(".todo-list"),
-                isChecked = $toggleAll.is(":checked");
+                isChecked = ! $control.find(".todo-toggle-all").is(":checked");
 
-            if (isChecked) {
-                $list.find(".todo-item").each(function() {
-                    var $item = $(this);
-                    $item.removeClass("completed");
-                    $item.find(".todo-toggle").prop("checked", false);
-                    $item.find(".todo-title").removeClass("text-muted");
-                    if ($list.attr("data-filter") == "completed") {
-                        $item.hide();
-                    }
-                });
-            } else {
-                $list.find(".todo-item").each(function() {
-                    var $item = $(this);
-                    $item.addClass("completed");
-                    $item.find(".todo-toggle").prop("checked", true);
-                    $item.find(".todo-title").addClass("text-muted");
-                    if ($list.attr("data-filter") == "active") {
-                        $item.hide();
-                    }
-                });
-            }
-            $toggleAll.prop("checked", ! isChecked);
+            $list.find(".todo-item").each(function() {
+                $(this).toggleClass("completed", isChecked)
+                    .find(".todo-toggle").prop("checked", isChecked).end()
+                    .find(".todo-title").toggleClass("text-muted", isChecked).end()
+                    .toggle($list.attr("data-filter") != (isChecked ? "active" : "completed"));
+            });
 
             $control.find(".todo-count").text($control.find(".todo-item:not(.completed)").length);
         ');
+        $this->_render_toggle_all();
 
         $this->response->send();
     }
 
-    function filter($filter)
+    public function filter($filter)
+    {
+        switch ($filter)
+        {
+            case 'all':
+                $this->response->script('
+                    $(this).closest(".todo-control")
+                        .find(".todo-list").attr("data-filter", "all")
+                            .find(".todo-item").show();
+                ');
+                break;
+            case 'active':
+                $this->response->script('
+                    $(this).closest(".todo-control")
+                        .find(".todo-list").attr("data-filter", "active")
+                            .find(".todo-item").each(function() {
+                                $(this).toggle( ! $(this).hasClass("completed"));
+                            });
+                ');
+                break;
+            case 'completed':
+                $this->response->script('
+                    $(this).closest(".todo-control")
+                        .find(".todo-list").attr("data-filter", "completed")
+                            .find(".todo-item").each(function() {
+                                $(this).toggle($(this).hasClass("completed"));
+                            });
+                ');
+                break;
+        }
+        $this->response->script('
+            $(this).removeClass("text-muted")
+                .parent().siblings().find("a").addClass("text-muted");
+        ');
+        $this->_render_toggle_all();
+
+        $this->response->send();
+    }
+
+    public function _render_toggle_all()
     {
         $this->response->script('
             var $control = $(this).closest(".todo-control"),
-                $toggleAll = $control.find(".todo-toggle-all"),
-                $list = $control.find(".todo-list");
-            switch("' . $filter . '") {
-                case "all":
-                    $toggleAll.prop("checked", false);
-                    $list.find(".todo-item").show();
-                    $list.attr("data-filter", "all");
-                    break;
-                case "active":
-                    $toggleAll.prop("checked", false);
-                    $list.find(".todo-item").each(function() {
-                        if ($(this).hasClass("completed")) {
-                            $(this).hide();
-                        } else {
-                            $(this).show();
-                        }
-                    });
-                    $list.attr("data-filter", "active");
-                    break;
-                case "completed":
-                    $toggleAll.prop("checked", true);
-                    $list.find(".todo-item").each(function() {
-                        if ($(this).hasClass("completed")) {
-                            $(this).show();
-                        } else {
-                            $(this).hide();
-                        }
-                    });
-                    $list.attr("data-filter", "completed");
-                    break;
-            }
+                $list = $control.find(".todo-list"),
+                $visibleItems = $list.find(".todo-item:visible");
+            $control.find(".todo-toggle-all")
+                .prop("checked", $visibleItems.length == $visibleItems.filter(".completed").length)
+                .toggle($visibleItems.length > 0);
         ');
-        $this->response->script('$(this).closest(".todo-filter").find("a").addClass("text-muted");');
-        $this->response->script('$(this).removeClass("text-muted");');
-
-        $this->response->send();
     }
 }
 
