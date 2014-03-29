@@ -1,5 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * These functions are quick implements to help the todo example works
+ * without using any extra JS and CSS files.
+ * Do not consider this as good way to handle your todo app.
+ *
+ * All JS code here should be placed inside JS file if possible.
+ * For example, the "create" function should be:
+ *      1 - Insert $item into DB
+ *      2 - $html_item = Modules::run('todo/_pagelet_item' $item)
+ *      3 - $this->response->script('TodoApp.create(' . json_encode($html_item) . ')')
+ */
 class Todo_ajax extends Ajax_Controller {
 
     public function create()
