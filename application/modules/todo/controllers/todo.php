@@ -13,7 +13,16 @@ class Todo extends MY_Controller {
         $this->template->set_title('Todo example');
 
         $this->template->load_view('todo/index', array(
-            'pagelet_todo' => Modules::run('todo/_pagelet_todo'),
+            'pagelet_todo' => Modules::run('todo/_pagelet_todo', array(
+                array(
+                    'title' => 'Read the CI documentation',
+                    'completed' => TRUE,
+                ),
+                array(
+                    'title' => 'Learn how to use Modular Extensions - HMVC',
+                    'completed' => FALSE,
+                ),
+            )),
         ));
     }
 
@@ -22,21 +31,18 @@ class Todo extends MY_Controller {
      * an ajax form to submit new item
      * and some fake todo items
      */
-    public function _pagelet_todo()
+    public function _pagelet_todo($items = array())
     {
         $this->load->helper('form');
 
-        $items = array(
-            array(
-                'title' => 'Read the CI documentation',
-                'completed' => TRUE,
-            ),
-            array(
-                'title' => 'Learn how to use Modular Extensions - HMVC',
-                'completed' => FALSE,
-            ),
-        );
-        $items_left = 1;
+        $items_left = 0;
+        foreach ($items as $item)
+        {
+            if ( ! $item['completed'])
+            {
+                $items_left++;
+            }
+        }
         $this->load->view('todo/pagelet_todo', array(
             'items' => $items,
             'items_left' => $items_left,
