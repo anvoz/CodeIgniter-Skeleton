@@ -1,7 +1,4 @@
 <div class="row">
-    <div class="col-md-3">
-        <?php echo $pagelet_sidebar; ?>
-    </div>
     <div class="col-md-9">
         <div>
             <h1>Add-ons</h1>
@@ -13,5 +10,8 @@
                 <div><?php echo $pagelet_content[$addon_key]; ?></div>
             <?php endforeach; ?>
         </div>
+    </div>
+    <div class="col-md-3">
+        <?php echo $pagelet_sidebar; ?>
     </div>
 </div>
