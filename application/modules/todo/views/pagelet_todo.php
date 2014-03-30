@@ -11,6 +11,16 @@
                     <input class="todo-input form-control" name="title" placeholder="What needs to be done?" autofocus>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-xs-offset-1 col-xs-11">
+                    <?php if ( ! empty($pagelet_upload_control)): ?>
+                        <?php echo $pagelet_upload_control; ?>
+                    <?php else: ?>
+                        Install the <a href="<?php echo site_url('addons#jquery-file-upload'); ?>" target="_blank">jQuery file upload add-on</a>
+                        to show an upload control here.
+                    <?php endif; ?>
+                </div>
+            </div>
         <?php echo form_close(); ?>
     </header><hr>
 

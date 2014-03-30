@@ -47,6 +47,19 @@ class Todo extends MY_Controller {
         $this->load->view('todo/pagelet_todo', array(
             'items' => $items,
             'items_left' => $items_left,
+
+            // Show upload control from jQuery file upload add-on
+            // if it was already installed
+            'pagelet_upload_control' => Modules::run('photo/_pagelet_upload_control', array(
+                // Only display upload button and the uploaded photo
+                'message' => '',
+                'is_multiple' => FALSE,
+                'progress_template' => FALSE,
+                'item_template' => '
+                    <input type="hidden" name="thumbnail" value="{{thumbnailUrl}}">
+                    <img src="{{thumbnailUrl}}" style="width: 50px; height: 50px; padding: 1px;">
+                ',
+            )),
         ));
     }
 

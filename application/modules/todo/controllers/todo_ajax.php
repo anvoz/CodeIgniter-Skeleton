@@ -16,9 +16,12 @@ class Todo_ajax extends Ajax_Controller {
     public function create()
     {
         $title = $this->input->post('title', TRUE);
+        $thumbnail = $this->input->post('thumbnail', TRUE);
+
         $html_item = Modules::run('todo/_pagelet_item', array(
             'title' => $title,
             'completed' => FALSE,
+            'thumbnail' => $thumbnail,
         ));
 
         $this->response->script('
@@ -36,6 +39,13 @@ class Todo_ajax extends Ajax_Controller {
                 .find(".todo-input").val("").end()
                 .find(".todo-count").text($control.find(".todo-item:not(.completed)").length);
         ');
+        if ( ! empty($thumbnail))
+        {
+            $this->response->script('
+                $uploadControl = $(this).closest(".todo-control")
+                    .find(".upload-control .holder").remove();
+            ');
+        }
 
         $this->response->send();
     }

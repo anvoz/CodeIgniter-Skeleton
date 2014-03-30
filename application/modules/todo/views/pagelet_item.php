@@ -5,6 +5,9 @@
         </a>
     </div>
     <div class="col-xs-11">
+        <?php if ( ! empty($thumbnail)): ?>
+            <img src="<?php echo $thumbnail; ?>" style="width: 50px; height: 50px; padding: 1px;">
+        <?php endif; ?>
         <span class="todo-title <?php ($completed) && print('text-muted'); ?>">
             <?php echo $title; ?>
         </span>
