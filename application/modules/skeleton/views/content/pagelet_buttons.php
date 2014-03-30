@@ -1,5 +1,8 @@
-<p>
-    <button class="btn btn-default" type="button">button.btn.btn-default</button>
+<!-- Styled buttons -->
+<p class="bse-buttons js-html-inspector">
+    <button class="btn btn-default" type="button">
+        button.btn.btn-default
+    </button>
     <button class="btn btn-primary" type="button">..btn-primary</button>
     <button class="btn btn-success" type="button">..btn-success</button>
     <button class="btn btn-info" type="button">..btn-info</button>
@@ -7,120 +10,165 @@
     <button class="btn btn-danger" type="button">..btn-danger</button>
     <button class="btn btn-link" type="button">..btn-link</button>
 </p>
-<p>
+
+<!-- Button sizes -->
+<p class="bse-buttons js-html-inspector">
     <button class="btn btn-default btn-lg" type="button">...btn-lg</button>
     <button class="btn btn-default" type="button">Default button size</button>
     <button class="btn btn-default btn-sm" type="button">...btn-sm</button>
     <button class="btn btn-default btn-xs" type="button">...btn-xs</button>
 </p>
-<p>
-    <button class="btn btn-default btn-block" type="button">...btn-block</button>
-    <button class="btn btn-default btn-block" type="button">...btn-block</button>
+
+<!-- Block level buttons -->
+<p class="js-html-inspector">
+    <button class="btn btn-primary btn-block" type="button">
+        ..btn-primary.btn-block
+    </button>
+    <button class="btn btn-default btn-block" type="button">
+        ..btn-default.btn-block
+    </button>
 </p>
-<p>
+
+<!-- Button tags -->
+<p class="bse-buttons js-html-inspector">
     <a class="btn btn-default" href="#">a.btn.btn-default</a>
     <button class="btn btn-default" type="button">button..</button>
-    <input class="btn btn-default" type="button" value="input..">
-
-    <button class="btn btn-default" type="button" disabled="disabled">button..[disabled]</button>
-    <a class="btn btn-default disabled" href="#">a...disabled</a>
+    <input class="btn btn-default" type="button" value="input[type='button']..">
+    <input class="btn btn-default" type="submit" value="input[type='submit']..">
 </p>
 
-<p>.btn-group (Default button group size)</p>
-<div class="btn-group">
-    <button class="btn btn-primary" type="button" data-loading-text="Loading..." data-complete-text="Completed" onclick="$(this).button('loading').siblings('button').prop('disabled',false);" autocomplete="off">
-        $(this).button('loading')
+<p class="bse-buttons js-html-inspector">
+    <!-- Active state -->
+    <a class="btn btn-default active" href="#">a...active</a>
+    <button class="btn btn-default active" type="button">
+        button...active
     </button>
-    <button class="btn btn-primary" type="button" onclick="$(this).prop('disabled',true).parent().find('button:first').button('complete');" disabled="disabled" autocomplete="off">
-        $('&larr;').button('complete')
-    </button>
-    <button class="btn btn-primary" type="button" onclick="$(this).parent().find('button:first').button('reset').siblings('button').prop('disabled',true);" disabled="disabled" autocomplete="off">
-        $('&larr; &larr;').button('reset')
-    </button>
-</div>
-<button type="button" class="btn btn-primary" data-toggle="button">[data-toggle="button"]</button>
 
-<div>
-    <br>
-    <div class="btn-toolbar">
+    <!-- Disabled state -->
+    <a class="btn btn-default disabled" href="#">a...disabled</a>
+    <button class="btn btn-default" type="button" disabled="disabled">
+        button..[disabled]
+    </button>
+</p>
+
+<!-- Button groups -->
+<div class="js-html-inspector" data-remove-target="p:first">
+    <p><strong>.btn-group</strong></p>
+    <div class="btn-group">
+        <button class="btn btn-default" type="button">
+            button.btn.btn-default
+        </button>
+        <button class="btn btn-default" type="button">2</button>
+        <button class="btn btn-default" type="button">3</button>
+    </div>
+</div><br>
+
+<div class="js-html-inspector" data-remove-target="p:first" data-remove-class-target="div.bse-buttons">
+    <p><strong>.btn-toolbar .btn-group</strong></p>
+    <div class="btn-toolbar bse-buttons">
+        <!-- Large button group -->
         <div class="btn-group btn-group-lg">
-            <button type="button" class="btn btn-default">
-                <span class="text-muted">..btn-group-lg</span> button
+            <button class="btn btn-default" type="button">
+                ..btn-group-lg button
             </button>
-            <button type="button" class="btn btn-default">2</button>
-            <button type="button" class="btn btn-default">3</button>
+            <button class="btn btn-default" type="button">2</button>
+            <button class="btn btn-default" type="button">3</button>
         </div>
+
+        <!-- Small button group -->
         <div class="btn-group btn-group-sm">
-            <button type="button" class="btn btn-default">
-                <span class="text-muted">..btn-group-sm</span> button
+            <button class="btn btn-default" type="button">
+                ..btn-group-sm button
             </button>
-            <button type="button" class="btn btn-default">2</button>
-            <button type="button" class="btn btn-default">3</button>
+            <button class="btn btn-default" type="button">2</button>
+            <button class="btn btn-default" type="button">3</button>
         </div>
+
+        <!-- Extra small button group -->
         <div class="btn-group btn-group-xs">
-            <button type="button" class="btn btn-default">
-                <span class="text-muted">..btn-group-xs</span> button
+            <button class="btn btn-default" type="button">
+                ..btn-group-xs button
             </button>
-            <button type="button" class="btn btn-default">2</button>
-            <button type="button" class="btn btn-default">3</button>
+            <button class="btn btn-default" type="button">2</button>
+            <button class="btn btn-default" type="button">3</button>
         </div>
     </div>
-    <br>
-    <p>.btn-toolbar</p>
-    <div class="btn-toolbar">
+</div><br>
+
+<div class="btn-toolbar bse-buttons js-html-inspector">
+    <!-- Button group with dropdown -->
+    <div class="btn-group">
+        <button class="btn btn-default" type="button">1</button>
+        <button class="btn btn-default" type="button">2</button>
         <div class="btn-group">
-            <button type="button" class="btn btn-default">1</button>
-            <button type="button" class="btn btn-default">2</button>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    button.dropdown-toggle <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Link #1</a></li>
-                    <li><a href="#">Link #2</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="btn-group dropup">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <span class="text-muted">.dropup</span> button <span class="caret"></span>
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                button.dropdown-toggle
+                <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
                 <li><a href="#">Link #1</a></li>
                 <li><a href="#">Link #2</a></li>
             </ul>
         </div>
-        <div class="btn-group dropup">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                (.dropdown-menu-right) <span class="caret"></span>
+    </div>
+
+    &nbsp;<!-- Only .btn-group has left padding inside .btn-toolbar -->
+
+    <!-- Vertical button group with dropdown -->
+    <div class="btn-group-vertical">
+        <button class="btn btn-default" type="button">
+            .btn-group-vertical button
+        </button>
+        <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                Dropdown
+                <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right">
+            <ul class="dropdown-menu">
                 <li><a href="#">Link #1</a></li>
                 <li><a href="#">Link #2</a></li>
             </ul>
         </div>
-        &nbsp;<!-- Only .btn-group has left padding inside .btn-toolbar -->
-        <div class="btn-group-vertical">
-            <button class="btn btn-default" type="button"><span class="text-muted">.btn-group-vertical</span> button</button>
-            <div class="btn-group">
-                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                    Dropdown <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Link #1</a></li>
-                    <li><a href="#">Link #2</a></li>
-                </ul>
-            </div>
-            <button class="btn btn-default" type="button">3</button>
-        </div>
+        <button class="btn btn-default" type="button">3</button>
+    </div>
+</div><br>
+
+<div class="js-html-inspector" data-remove-target="p:first">
+    <p><strong>.btn-group.btn-group-justified</strong></p>
+    <div class="btn-group btn-group-justified">
+        <a href="#" class="btn btn-default">Button</a>
+        <a href="#" class="btn btn-default">2</a>
+        <a href="#" class="btn btn-default">3</a>
+    </div>
+</div><br>
+
+<div class="js-html-inspector" data-remove-target="p:first" data-remove-class-target="div.bse-buttons">
+    <p><strong>.btn-toolbar .btn-group.dropup</strong></p>
+    <!-- Split button dropup -->
+    <div class="btn-group dropup bse-buttons">
+        <button class="btn btn-default" type="button">
+            .dropdown-menu &rarr;
+        </button>
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Link #1</a></li>
+            <li><a href="#">Link #2</a></li>
+        </ul>
     </div>
 
-    <p>.btn-group-justified</p>
-    <div class="btn-toolbar">
-        <div class="btn-group btn-group-justified">
-            <a href="#" class="btn btn-default"><span class="text-muted">.btn-group.btn-group-justified</span> a</a>
-            <a href="#" class="btn btn-default">2</a>
-            <a href="#" class="btn btn-default">3</a>
-        </div>
+    <!-- Split button right dropup -->
+    <div class="btn-group dropup">
+        <button class="btn btn-default" type="button">
+            ..dropdown-menu-right &rarr;
+        </button>
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#">Link #1</a></li>
+            <li><a href="#">Link #2</a></li>
+        </ul>
     </div>
 </div>

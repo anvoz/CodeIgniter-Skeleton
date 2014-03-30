@@ -1,3 +1,8 @@
-<div class="page-header">
-    <h1><span class="text-muted">.page-header</span> h1</h1>
+<div class="js-html-inspector">
+    <div class="page-header">
+        <h3>
+            .page-header h3
+            <small>small</small>
+        </h3>
+    </div>
 </div>

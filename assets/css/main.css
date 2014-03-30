@@ -1,8 +1,3 @@
-body > .container {
-    /* Make some space for the fixed navbar */
-    padding-top: 50px;
-}
-
 #footer > .container {
     /* Align with the navbar container */
     padding-left: 15px;
@@ -11,7 +6,7 @@ body > .container {
 
 .footer-content {
     margin: 15px 0;
-    color: #999999;
+    color: #999;
 }
 
 /* Sticky footer styles

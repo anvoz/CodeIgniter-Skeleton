@@ -1,7 +1,4 @@
 <div class="row">
-    <div class="col-md-3">
-        <?php echo $pagelet_sidebar; ?>
-    </div>
     <div class="col-md-9">
         <div>
             <h1 id="welcome">Welcome to CodeIgniter Skeleton!</h1>
@@ -38,5 +35,22 @@
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
+    </div>
+    <div class="col-md-3">
+        <?php echo $pagelet_sidebar; ?>
+    </div>
+</div>
+
+<div class="modal" id="dialog-html-inspector">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                <h4 class="modal-title">Source Code</h4>
+            </div>
+            <div class="modal-body">
+                <pre><code></code></pre>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,92 +1,115 @@
-h1[id],
-h2[id] {
-    margin-top: -50px;
-    padding-top: 60px;
+/* Bootstrap's example styles
+-------------------------------------------------- */
+.bse-heading > .pull-left {
+    display: table;
+    height: 70px;
+}
+.bse-heading > .pull-left > * {
+    display: table-cell;
+    vertical-align: middle;
 }
 
-/*
- * Side navigation
- *
- * Scrollspy and affixed enhanced navigation to highlight sections and secondary
- * sections of docs content.
- */
-
-/* By default it's not affixed in mobile views, so undo that */
-.bs-sidebar.affix {
-    position: static;
+.bse-buttons > .btn,
+.bse-buttons > .btn-group {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-/* First level of nav */
-.bs-sidenav {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-shadow: 0 1px 0 #fff;
-    background-color: #f7f5fa;
-    border-radius: 5px;
+.bs-thumbnails > div {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-/* All levels of nav */
-.bs-sidebar .nav > li > a {
+/* Sidebar styles
+-------------------------------------------------- */
+.sidebar {
+    padding-left: 20px;
+}
+
+.sidebar .nav > .active > ul {
     display: block;
-    color: #716b7a;
-    padding: 5px 20px;
 }
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
+
+.sidebar .nav > li > a {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #999;
+    padding: 4px 20px;
+}
+.sidebar .nav > li > a:hover,
+.sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #333;
     text-decoration: none;
-    background-color: #e5e3e9;
-    border-right: 1px solid #dbd8e0;
-}
-.bs-sidebar .nav > .active > a,
-.bs-sidebar .nav > .active:hover > a,
-.bs-sidebar .nav > .active:focus > a {
-    font-weight: bold;
-    color: #563d7c;
     background-color: transparent;
-    border-right: 1px solid #563d7c;
+    border-left: 1px solid #333;
+}
+.sidebar .nav > .active > a,
+.sidebar .nav > .active:hover > a,
+.sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: 700;
+    color: #333;
+    background-color: transparent;
+    border-left: 2px solid #333;
 }
 
-/* Nav: second level (shown on .active) */
-.bs-sidebar .nav .nav {
-    display: none; /* Hide by default, but at >768px, show it */
-    margin-bottom: 8px;
+.sidebar .nav .nav {
+    display: none;
+    padding-bottom: 10px;
 }
-.bs-sidebar .nav .nav > li > a {
-    padding-top: 3px;
-    padding-bottom: 3px;
+
+.sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
     padding-left: 30px;
-    font-size: 90%;
+    font-size: 12px;
+    font-weight: 400;
+}
+.sidebar .nav .nav > li > a:hover,
+.sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.sidebar .nav .nav > .active > a,
+.sidebar .nav .nav > .active:hover > a,
+.sidebar .nav .nav > .active:focus > a {
+    font-weight: 500;
+    padding-left: 28px;
 }
 
-/* Show and affix the side nav when space allows it */
-@media screen and (min-width: 992px) {
-    .bs-sidebar .nav > .active > ul {
-        display: block;
-    }
-    /* Widen the fixed sidebar */
-    .bs-sidebar.affix,
-    .bs-sidebar.affix-bottom {
-        width: 213px;
-    }
-    .bs-sidebar.affix {
-        position: fixed; /* Undo the static from mobile first approach */
-        top: 80px;
-    }
-    .bs-sidebar.affix-bottom {
-        position: absolute; /* Undo the static from mobile first approach */
-    }
-    .bs-sidebar.affix-bottom .bs-sidenav,
-    .bs-sidebar.affix .bs-sidenav {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+.back-to-top {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #999;
 }
-@media screen and (min-width: 1200px) {
-    /* Widen the fixed sidebar again */
-    .bs-sidebar.affix-bottom,
-    .bs-sidebar.affix {
-        width: 263px;
-    }
+.back-to-top:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+/* HTML inspector button styles
+-------------------------------------------------- */
+.js-html-inspector {
+    position: relative;
+}
+.js-html-inspector .js-btn-inspector {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000;
+    background-color: #fff;
+}
+.js-html-inspector:hover .js-btn-inspector {
+    display: block;
+}
+#dialog-html-inspector code {
+    word-break: normal;
+    word-wrap: normal;
+    white-space: pre;
 }

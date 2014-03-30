@@ -1,30 +1,35 @@
-<p>.panel.panel-default</p>
-<div class="panel panel-default">
-    <div class="panel-heading">.panel-heading</div>
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <span class="text-muted">.panel-heading</span> h3.panel-title
-        </h3>
+<div class="js-html-inspector" data-remove-target="p:first">
+    <p><strong>.panel.panel-default</strong></p>
+    <div class="panel panel-default">
+        <div class="panel-heading">.panel-heading</div>
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                .panel-heading h3.panel-title
+            </h3>
+        </div>
+        <div class="panel-body">.panel-body</div>
+        <div class="panel-footer">.panel-footer</div>
     </div>
-    <div class="panel-body">.panel-body</div>
-    <div class="panel-footer">.panel-footer</div>
 </div>
 
-<p>.panel.panel-primary</p>
-<div class="panel panel-primary">
-    <div class="panel-heading">.panel-heading</div>
-    <div class="panel-body">.panel-body</div>
+<div class="js-html-inspector" data-remove-target="p:first">
+    <p><strong>.panel.panel-primary</strong></p>
+    <div class="panel panel-primary">
+        <div class="panel-heading">.panel-heading</div>
+        <div class="panel-body">.panel-body</div>
+    </div>
 </div>
+
 <div class="row">
-    <div class="col-md-6">
-        <p>.panel.panel-success</p>
+    <div class="col-sm-6 js-html-inspector" data-remove-target="p:first">
+        <p><strong>.panel.panel-success</strong></p>
         <div class="panel panel-success">
             <div class="panel-heading">.panel-heading</div>
             <div class="panel-body">.panel-body</div>
         </div>
     </div>
-    <div class="col-md-6">
-        <p>.panel.panel-info</p>
+    <div class="col-sm-6 js-html-inspector" data-remove-target="p:first">
+        <p><strong>.panel.panel-info</strong></p>
         <div class="panel panel-info">
             <div class="panel-heading">.panel-heading</div>
             <div class="panel-body">.panel-body</div>
@@ -32,8 +37,8 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
-        <p>.panel.panel-warning (with table)</p>
+    <div class="col-sm-6 js-html-inspector" data-remove-target="p:first">
+        <p><strong>.panel.panel-warning (with table)</strong></p>
         <div class="panel panel-warning">
             <div class="panel-heading">.panel-heading</div>
             <table class="table">
@@ -47,8 +52,8 @@
             </table>
         </div>
     </div>
-    <div class="col-md-6">
-        <p>.panel.panel-danger (with list group)</p>
+    <div class="col-sm-6 js-html-inspector" data-remove-target="p:first">
+        <p><strong>.panel.panel-danger (with list group)</strong></p>
         <div class="panel panel-danger">
             <div class="panel-heading">.panel-heading</div>
             <ul class="list-group">

@@ -1,5 +1,5 @@
-<div id="welcome-sidebar" class="bs-sidebar hidden-print affix">
-    <ul class="nav bs-sidenav">
+<div class="sidebar hidden-print" id="sidebar" data-spy="affix">
+    <ul class="nav sidenav">
         <li class="active"><a href="#welcome">Welcome</a></li>
         <?php foreach ($skeleton_data as $key => $items): ?>
             <li>
@@ -14,4 +14,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
+    <a class="back-to-top" href="#top">Back to top</a>
 </div>
