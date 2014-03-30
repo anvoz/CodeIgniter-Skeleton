@@ -27,6 +27,12 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.2 (last updated: Dec 13, 2013)
 * [validate.js](https://github.com/rickharrison/validate.js) 1.3.1 (last updated: Dec 30, 2013)
 
+### Example
+
+Getting started with a basic todo example which will help you learn how to use CIS in the right way.
+
+![todo-example](https://cloud.githubusercontent.com/assets/4688035/2560448/1bddf9d2-b7ca-11e3-9b1b-0d1ea8d3dae6.png)
+
 ## Directory Structure
 
 ### Application
@@ -45,6 +51,7 @@ library/
 modules/
     addons/                         // Add-ons management
     skeleton/                       // Showcase of all included components
+    todo/                           // Todo example
 third_party/
     MX/                             // Modular Extensions - HMVC
 views/
