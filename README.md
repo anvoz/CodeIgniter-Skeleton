@@ -5,7 +5,7 @@ CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps
 
 [Public board on Trello](https://trello.com/b/gOUmrT5J/codeigniter-skeleton)
 
-![cis](https://f.cloud.github.com/assets/4688035/1898027/7e70f520-7c08-11e3-93c7-71f4b5d8fa7c.png)
+![cis](https://cloud.githubusercontent.com/assets/4688035/2561535/471eba12-b81c-11e3-93d2-130d011f6b13.PNG)
 
 ## Include
 
@@ -32,7 +32,7 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 
 Getting started with a basic todo example which will help you learn how to use CIS in the right way.
 
-![todo-example](https://cloud.githubusercontent.com/assets/4688035/2560448/1bddf9d2-b7ca-11e3-9b1b-0d1ea8d3dae6.png)
+![todo-example](https://cloud.githubusercontent.com/assets/4688035/2561537/557533de-b81c-11e3-8590-8fd4c11ab30b.PNG)
 
 ## Directory Structure
 
