@@ -89,8 +89,10 @@ js/
 
 By default, you will be albe to check all features on the home page without doing any of the following instructions. Just unzip the package and put the source code in your server.
 
-* Set your base URL in `application/config/config.php` file. Example: `$config['base_url'] = 'http://localhost/ciske/';`.
-* Set your assets URL in `application/config/assets.php` file. Example: `$config['assets_url'] = 'http://localhost/ciske/assets/';`.
+* Set your base URL in `application/config/config.php` file. Example: `$config['base_url'] = 'http://example.com/';`.
+* Set your assets URL in `application/config/assets.php` file. Example: `$config['assets_url'] = 'http://example.com/assets/';`.
+
+**Note:** Base and assets URLs should be absolute, including the protocol.
 
 [H5BP's Server Configs](https://github.com/h5bp/server-configs): Best-practice server configurations to help improve site performance.
 
@@ -101,10 +103,10 @@ By default, you will be albe to check all features on the home page without doin
 #### Rendering page (with base view)
 
 Base view (masterview) is a well-designed HTML page based on [Bootstrap](https://github.com/twbs/bootstrap) and [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) template.
-```
-[PHP]
+```php
+<?php
 class Welcome extends MY_Controller {
-    // URL: {$site_url}/welcome/example
+    // URL: {{site_url}}/welcome/example
     public function example()
     {
         $this->load->library('template');
@@ -119,8 +121,8 @@ Use other methods of the `Template` library to customize base view: `set_layout`
 #### Rendering pagelet
 
 A single web page should be broken down into small pieces which are called pagelets. Pagelet is a set of self-contained MVC and Javascript functions that should be loaded independently via both normal page render and ajax request render.
-```
-[PHP]
+```php
+<?php
 // Must extend MY_Controller to use HMVC Modular Extensions
 class Welcome extends MY_Controller {
     // Pagelet should have _pagelet_ prefix
@@ -133,18 +135,19 @@ class Welcome extends MY_Controller {
 Use `Modules::run('welcome/_pagelet_example')` to get pagelet HTML output.
 
 #### Writing Javascript inside the page body
-```
-[PHP]
+```php
+<?php
 $this->_load_script('$(function() {
     console.log("The DOM is loaded.");
 });');
 ```
 To minify blocking time while the browser is executing Javascript, the script will be queued and only be executed after the page is completely rendered.
 
+**Note:** The `_load_script` function simply echos the script so you can not use it in the same block with `$this->template->load_view` function which will echo a whole page. It should be used inside a pagelet, please check this [example](https://github.com/anvoz/CodeIgniter-Skeleton/blob/master/application/modules/addons/data/validate_js/controllers/form_validation_example.php#L67-L77).
+
 #### Executing function after all of the required Javascript files were loaded
-```
-[JS]
-CIS.Script.require('{$js_file_path}', function() {
+```js
+CIS.Script.require('{{js_file_path}}', function() {
     console.log("Plugins are loaded.");
     $(function() {
         console.log("The DOM is loaded.");
@@ -153,22 +156,24 @@ CIS.Script.require('{$js_file_path}', function() {
 ```
 
 #### Ajaxifying request
-Via links: `<a href="#" rel="async" ajaxify="{$ajax_url}">...</a>`
+Via links: `<a href="#" rel="async" ajaxify="{{ajax_url}}">...</a>`
 
-Via forms: `<form rel="async" action="{$ajax_url}">...</form>`
+Via forms: `<form rel="async" action="{{ajax_url}}">...</form>`
 
-Via Javascript function: `CIS.Ajax.request('{$ajax_url}'[, settings])`
+Via Javascript function: `CIS.Ajax.request('{{ajax_url}}'[, settings])`
 
 #### Handling ajax response
-```
-[PHP]
+```php
+<?php
 // Should extend Ajax_Controller to use the Response library
 class Welcome_ajax extends Ajax_Controller {
     // URL: {$site_url}/welcome/welcome_ajax/example
     function example()
     {
-        // The request must be called via rel="async" or CIS.Ajax.request()
-        // to be able to execute the response script
+        // The request must be called via
+        // <a rel="async" href="#" ajaxify="{{URL}}">
+        // or CIS.Ajax.request() function (located at main.js)
+        // to be able to execute the response script below
         $this->response->script('console.log("Responded.");');
         $this->response->send();
     }
