@@ -26,7 +26,7 @@ Add-ons are custom builds of some useful libraries and plugins. They are **not i
 * Bootstrap form helpers: generate HTML form fields and buttons with Bootstrap CSS style
 * [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5 (last updated: Jul 15, 2013)
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.2 (last updated: Dec 13, 2013)
-* [validate.js](https://github.com/rickharrison/validate.js) 1.3.1 (last updated: Dec 30, 2013)
+* [validate.js](https://github.com/rickharrison/validate.js) 1.4 (last updated: Apr 14, 2014)
 
 ### Example
 
@@ -71,12 +71,12 @@ Use `MY_url_helper` `assets_url()` to get URL of Javascript, CSS or image resour
 ```
 css/
     modules/
-        {$module}.css               // Extra CSS for a specific module
+        {{module}}.css              // Extra CSS for a specific module
     bootstrap.min.css               // Bootstrap core CSS
     main.css                        // CSS for all pages
 js/
     modules/
-        {$module}.js                // Extra JS for a specific module
+        {{module}}.js               // Extra JS for a specific module
     bootstrap.min.js                // Bootstrap core JS
     html5shiv.js, respond.min.js    // IE8 support of HTML5 elements and media queries
     jquery.min.js                   // jQuery core JS
@@ -89,8 +89,10 @@ js/
 
 By default, you will be albe to check all features on the home page without doing any of the following instructions. Just unzip the package and put the source code in your server.
 
-* Set your base URL in `application/config/config.php` file. Example: `$config['base_url'] = 'http://example.com/';`.
-* Set your assets URL in `application/config/assets.php` file. Example: `$config['assets_url'] = 'http://example.com/assets/';`.
+* Set your base URL in `application/config/config.php` file.  
+Example: `$config['base_url'] = 'http://example.com/';`
+* Set your assets URL in `application/config/assets.php` file.  
+Example: `$config['assets_url'] = 'http://example.com/assets/';`
 
 **Note:** Base and assets URLs should be absolute, including the protocol.
 
@@ -167,7 +169,7 @@ Via Javascript function: `CIS.Ajax.request('{{ajax_url}}'[, settings])`
 <?php
 // Should extend Ajax_Controller to use the Response library
 class Welcome_ajax extends Ajax_Controller {
-    // URL: {$site_url}/welcome/welcome_ajax/example
+    // URL: {{site_url}}/welcome/welcome_ajax/example
     function example()
     {
         // The request must be called via
