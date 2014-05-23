@@ -2,6 +2,8 @@
 /**
 * Name:  Ion Auth Model
 *
+* Version: 2.5.2
+*
 * Author:  Ben Edmunds
 *          ben.edmunds@gmail.com
 *          @benedmunds
@@ -11,12 +13,12 @@
 * Location: http://github.com/benedmunds/CodeIgniter-Ion-Auth
 *
 * Created:  10.01.2009
-* 
+*
 * Last Change: 3.22.13
 *
 * Changelog:
 * * 3-22-13 - Additional entropy added - 52aa456eef8b60ad6754b31fbdcc77bb
-* 
+*
 * Description:  Modified auth system based on redux_auth with extensive customization.  This is basically what Redux Auth 2 should be.
 * Original Author name has been kept but that does not mean that the method has not been modified.
 *
@@ -194,12 +196,37 @@ class Ion_auth_model extends CI_Model
 
 
         //initialize messages and error
-        $this->messages = array();
-        $this->errors = array();
-        $this->message_start_delimiter = $this->config->item('message_start_delimiter', 'ion_auth');
-        $this->message_end_delimiter   = $this->config->item('message_end_delimiter', 'ion_auth');
-        $this->error_start_delimiter   = $this->config->item('error_start_delimiter', 'ion_auth');
-        $this->error_end_delimiter     = $this->config->item('error_end_delimiter', 'ion_auth');
+        $this->messages    = array();
+        $this->errors      = array();
+        $delimiters_source = $this->config->item('delimiters_source', 'ion_auth');
+
+        //load the error delimeters either from the config file or use what's been supplied to form validation
+        if ($delimiters_source === 'form_validation')
+        {
+            //load in delimiters from form_validation
+            //to keep this simple we'll load the value using reflection since these properties are protected
+            $this->load->library('form_validation');
+            $form_validation_class = new ReflectionClass("CI_Form_validation");
+
+            $error_prefix = $form_validation_class->getProperty("_error_prefix");
+            $error_prefix->setAccessible(TRUE);
+            $this->error_start_delimiter = $error_prefix->getValue($this->form_validation);
+            $this->message_start_delimiter = $this->error_start_delimiter;
+
+            $error_suffix = $form_validation_class->getProperty("_error_suffix");
+            $error_suffix->setAccessible(TRUE);
+            $this->error_end_delimiter = $error_suffix->getValue($this->form_validation);
+            $this->message_end_delimiter = $this->error_end_delimiter;
+        }
+        else
+        {
+            //use delimiters from config
+            $this->message_start_delimiter = $this->config->item('message_start_delimiter', 'ion_auth');
+            $this->message_end_delimiter   = $this->config->item('message_end_delimiter', 'ion_auth');
+            $this->error_start_delimiter   = $this->config->item('error_start_delimiter', 'ion_auth');
+            $this->error_end_delimiter     = $this->config->item('error_end_delimiter', 'ion_auth');
+        }
+
 
         //initialize our hooks object
         $this->_ion_hooks = new stdClass;
@@ -339,12 +366,70 @@ class Ion_auth_model extends CI_Model
     /**
      * Generates a random salt value.
      *
+     * Salt generation code taken from https://github.com/ircmaxell/password_compat/blob/master/lib/password.php
+     *
      * @return void
-     * @author Mathew
+     * @author Anthony Ferrera
      **/
     public function salt()
     {
-        return substr(md5(uniqid(rand(), true)), 0, $this->salt_length);
+
+        $raw_salt_len = 16;
+
+        $buffer = '';
+        $buffer_valid = false;
+
+        if (function_exists('mcrypt_create_iv') && !defined('PHALANGER')) {
+            $buffer = mcrypt_create_iv($raw_salt_len, MCRYPT_DEV_URANDOM);
+            if ($buffer) {
+                $buffer_valid = true;
+            }
+        }
+
+        if (!$buffer_valid && function_exists('openssl_random_pseudo_bytes')) {
+            $buffer = openssl_random_pseudo_bytes($raw_salt_len);
+            if ($buffer) {
+                $buffer_valid = true;
+            }
+        }
+
+        if (!$buffer_valid && @is_readable('/dev/urandom')) {
+            $f = fopen('/dev/urandom', 'r');
+            $read = strlen($buffer);
+            while ($read < $raw_salt_len) {
+                $buffer .= fread($f, $raw_salt_len - $read);
+                $read = strlen($buffer);
+            }
+            fclose($f);
+            if ($read >= $raw_salt_len) {
+                $buffer_valid = true;
+            }
+        }
+
+        if (!$buffer_valid || strlen($buffer) < $raw_salt_len) {
+            $bl = strlen($buffer);
+            for ($i = 0; $i < $raw_salt_len; $i++) {
+                if ($i < $bl) {
+                    $buffer[$i] = $buffer[$i] ^ chr(mt_rand(0, 255));
+                } else {
+                    $buffer .= chr(mt_rand(0, 255));
+                }
+            }
+        }
+
+        $salt = $buffer;
+
+        // encode string with the Base64 variant used by crypt
+        $base64_digits   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+        $bcrypt64_digits = './ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        $base64_string   = base64_encode($salt);
+        $salt = strtr(rtrim($base64_string, '='), $base64_digits, $bcrypt64_digits);
+
+        $salt = substr($salt, 0, $this->salt_length);
+
+
+        return $salt;
+
     }
 
     /**
@@ -681,11 +766,11 @@ class Ion_auth_model extends CI_Model
         if(function_exists("openssl_random_pseudo_bytes")) {
             $activation_code_part = openssl_random_pseudo_bytes(128);
         }
-        
+
         for($i=0;$i<1024;$i++) {
             $activation_code_part = sha1($activation_code_part . mt_rand() . microtime());
         }
-        
+
         $key = $this->hash_code($activation_code_part.$identity);
 
         $this->forgotten_password_code = $key;
@@ -836,7 +921,7 @@ class Ion_auth_model extends CI_Model
 
         //add to default group if not already set
         $default_group = $this->where('name', $this->config->item('default_group', 'ion_auth'))->group()->row();
-        if ((isset($default_group->id) && !isset($groups)) || (empty($groups) && !in_array($default_group->id, $groups)))
+        if ((isset($default_group->id) && empty($groups)) || (!empty($groups) && !in_array($default_group->id, $groups)))
         {
             $this->add_to_group($default_group->id, $id);
         }
@@ -947,18 +1032,16 @@ class Ion_auth_model extends CI_Model
      * Get number of attempts to login occured from given IP-address or identity
      * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)
      *
-     * @param   string $identity
-     * @return  int
+     * @param	string $identity
+     * @return	int
      */
     function get_attempts_num($identity)
     {
         if ($this->config->item('track_login_attempts', 'ion_auth')) {
             $ip_address = $this->_prepare_ip($this->input->ip_address());
-
             $this->db->select('1', FALSE);
-            $this->db->where('ip_address', $ip_address);
-            if (strlen($identity) > 0) $this->db->or_where('login', $identity);
-
+            if ($this->config->item('track_login_ip_address', 'ion_auth')) $this->db->where('ip_address', $ip_address);
+            else if (strlen($identity) > 0) $this->db->or_where('login', $identity);
             $qres = $this->db->get($this->tables['login_attempts']);
             return $qres->num_rows();
         }
@@ -969,7 +1052,7 @@ class Ion_auth_model extends CI_Model
      * Get a boolean to determine if an account should be locked out due to
      * exceeded login attempts within a given period
      *
-     * @return  boolean
+     * @return	boolean
      */
     public function is_time_locked_out($identity) {
 
@@ -979,16 +1062,16 @@ class Ion_auth_model extends CI_Model
     /**
      * Get the time of the last time a login attempt occured from given IP-address or identity
      *
-     * @param   string $identity
-     * @return  int
+     * @param	string $identity
+     * @return	int
      */
     public function get_last_attempt_time($identity) {
         if ($this->config->item('track_login_attempts', 'ion_auth')) {
             $ip_address = $this->_prepare_ip($this->input->ip_address());
 
             $this->db->select_max('time');
-            $this->db->where('ip_address', $ip_address);
-            if (strlen($identity) > 0) $this->db->or_where('login', $identity);
+            if ($this->config->item('track_login_ip_address', 'ion_auth')) $this->db->where('ip_address', $ip_address);
+            else if (strlen($identity) > 0) $this->db->or_where('login', $identity);
             $qres = $this->db->get($this->tables['login_attempts'], 1);
 
             if($qres->num_rows() > 0) {
@@ -1062,13 +1145,16 @@ class Ion_auth_model extends CI_Model
         return $this;
     }
 
-    public function like($like, $value = NULL)
+    public function like($like, $value = NULL, $position = 'both')
     {
         $this->trigger_events('like');
 
         if (!is_array($like))
         {
-            $like = array($like => $value);
+            $like = array($like => array(
+                'value'    => $value,
+                'position' => $position,
+            ));
         }
 
         array_push($this->_ion_like, $like);
@@ -1623,7 +1709,7 @@ class Ion_auth_model extends CI_Model
 
         $user = $this->user($id)->row();
 
-        $salt = sha1($user->password);
+        $salt = $this->salt();
 
         $this->db->update($this->tables['users'], array('remember_code' => $salt), array('id' => $id));
 
@@ -1775,12 +1861,12 @@ class Ion_auth_model extends CI_Model
 
             $data['name'] = $group_name;
         }
-        
+
 
         // IMPORTANT!! Third parameter was string type $description; this following code is to maintain backward compatibility
         // New projects should work with 3rd param as array
         if (is_string($additional_data)) $additional_data = array('description' => $additional_data);
-        
+
 
         //filter out any data passed that doesnt have a matching column in the groups table
         //and merge the set group data and the additional data
@@ -2061,13 +2147,7 @@ class Ion_auth_model extends CI_Model
     }
 
     protected function _prepare_ip($ip_address) {
-        if ($this->db->platform() === 'postgre' || $this->db->platform() === 'sqlsrv' || $this->db->platform() === 'mssql')
-        {
-            return $ip_address;
-        }
-        else
-        {
-            return inet_pton($ip_address);
-        }
+        //just return the string IP address now for better compatibility
+        return $ip_address;
     }
 }
