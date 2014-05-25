@@ -100,6 +100,14 @@ Example: `$config['assets_url'] = 'http://example.com/assets/';`
 
 [CodeIgniter Nginx Rewrite Rules](https://github.com/anvoz/CodeIgniter-Skeleton/wiki/CodeIgniter-Nginx-Rewrite-Rules)
 
+### Unit Tests
+
+```
+phpunit --coverage-text --configuration tests/phpunit.xml
+```
+
+Please take a look at [this](https://github.com/anvoz/CodeIgniter-Skeleton/tree/master/tests) for more info.
+
 ### Guidelines
 
 #### Rendering page (with base view)
