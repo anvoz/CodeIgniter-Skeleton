@@ -3,15 +3,13 @@ CodeIgniter Skeleton [![Build Status](https://travis-ci.org/anvoz/CodeIgniter-Sk
 
 CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps but also a new experience for CI-based development to ajaxify everything.
 
-[Public board on Trello](https://trello.com/b/gOUmrT5J/codeigniter-skeleton)
-
 ![cis](https://cloud.githubusercontent.com/assets/4688035/2561535/471eba12-b81c-11e3-93d2-130d011f6b13.PNG)
 
 ## Include
 
 ### Core
 
-* [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.1.4 (last updated: Jul 8, 2013)
+* [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.2.0 (last updated: Jun 6, 2014)
 * [Modular Extensions - HMVC](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 5.4 (last updated: Jul 31, 2013)
 * [jQuery](https://github.com/jquery/jquery) 1.11.1 (last updated: May 2, 2014)
 * [Bootstrap](https://github.com/twbs/bootstrap) 3.1.1 (last updated: Feb 14, 2014)
