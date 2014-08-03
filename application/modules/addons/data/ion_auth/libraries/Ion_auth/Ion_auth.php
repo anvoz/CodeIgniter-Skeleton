@@ -76,16 +76,12 @@ class Ion_auth
             $this->load->driver('session');
         }
 
-        // Load IonAuth MongoDB model if it's set to use MongoDB,
-        // We assign the model object to "ion_auth_model" variable.
-        $this->config->item('use_mongodb', 'ion_auth') ?
-            $this->load->model('ion_auth_mongodb_model', 'ion_auth_model') :
             $this->load->model('ion_auth_model');
 
         $this->_cache_user_in_group =& $this->ion_auth_model->_cache_user_in_group;
 
         //auto-login the user if they are remembered
-        if (!$this->logged_in() && get_cookie('identity') && get_cookie('remember_code'))
+        if (!$this->logged_in() && get_cookie($this->config->item('identity_cookie_name', 'ion_auth')) && get_cookie($this->config->item('remember_cookie_name', 'ion_auth')))
         {
             $this->ion_auth_model->login_remembered_user();
         }
@@ -388,13 +384,13 @@ class Ion_auth
                 $this->session->unset_userdata( array($identity => '', 'id' => '', 'user_id' => '') );
 
         //delete the remember me cookies if they exist
-        if (get_cookie('identity'))
+        if (get_cookie($this->config->item('identity_cookie_name', 'ion_auth')))
         {
-            delete_cookie('identity');
+            delete_cookie($this->config->item('identity_cookie_name', 'ion_auth'));
         }
-        if (get_cookie('remember_code'))
+        if (get_cookie($this->config->item('remember_cookie_name', 'ion_auth')))
         {
-            delete_cookie('remember_code');
+            delete_cookie($this->config->item('remember_cookie_name', 'ion_auth'));
         }
 
         //Destroy the session

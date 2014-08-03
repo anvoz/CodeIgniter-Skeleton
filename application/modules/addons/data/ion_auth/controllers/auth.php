@@ -11,10 +11,6 @@ class Auth extends MX_Controller {
         $this->load->library('form_validation');
         $this->load->helper('url');
 
-        // Load MongoDB library instead of native db driver if required
-        $this->config->item('use_mongodb', 'ion_auth') ?
-        $this->load->library('mongo_db') :
-
         $this->load->database();
 
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
@@ -187,7 +183,7 @@ class Auth extends MX_Controller {
     //forgot password
     function forgot_password()
     {
-        $this->form_validation->set_rules('email', $this->lang->line('forgot_password_validation_email_label'), 'required');
+        $this->form_validation->set_rules('email', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');
         if ($this->form_validation->run() == false)
         {
             //setup the input
@@ -360,7 +356,7 @@ class Auth extends MX_Controller {
     //deactivate the user
     function deactivate($id = NULL)
     {
-        $id = $this->config->item('use_mongodb', 'ion_auth') ? (string) $id : (int) $id;
+        $id = (int) $id;
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('confirm', $this->lang->line('deactivate_validation_confirm_label'), 'required');

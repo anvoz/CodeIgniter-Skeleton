@@ -23,31 +23,6 @@
 
 /*
 | -------------------------------------------------------------------------
-| Database Type
-| -------------------------------------------------------------------------
-| If set to TRUE, Ion Auth will use MongoDB as its database backend.
-|
-| If you use MongoDB there are two external dependencies that have to be
-| integrated with your project:
-|   CodeIgniter MongoDB Active Record Library - http://github.com/alexbilbie/codeigniter-mongodb-library/tree/v2
-|   CodeIgniter MongoDB Session Library - http://github.com/sepehr/ci-mongodb-session
-*/
-$config['use_mongodb'] = FALSE;
-
-/*
-| -------------------------------------------------------------------------
-| MongoDB Collection.
-| -------------------------------------------------------------------------
-| Setup the mongodb docs using the following command:
-| $ mongorestore sql/mongo
-|
-*/
-$config['collections']['users']          = 'users';
-$config['collections']['groups']         = 'groups';
-$config['collections']['login_attempts'] = 'login_attempts';
-
-/*
-| -------------------------------------------------------------------------
 | Tables.
 | -------------------------------------------------------------------------
 | Database table names.
@@ -86,12 +61,16 @@ $config['join']['groups'] = 'group_id';
  |
  | Be careful how high you set max_rounds, I would do your own testing on how long it takes
  | to encrypt with x rounds.
+ |
+ | salt_prefix: Used for bcrypt. Versions of PHP before 5.3.7 only support "$2a$" as the salt prefix
+ | Versions 5.3.7 or greater should use the default of "$2y$".
  */
-$config['hash_method']    = 'sha1';     // sha1 or bcrypt, bcrypt is STRONGLY recommended
+$config['hash_method']    = 'bcrypt';   // sha1 or bcrypt, bcrypt is STRONGLY recommended
 $config['default_rounds'] = 8;          // This does not apply if random_rounds is set to true
 $config['random_rounds']  = FALSE;
 $config['min_rounds']     = 5;
 $config['max_rounds']     = 9;
+$config['salt_prefix']    = '$2y$';
 
 /*
  | -------------------------------------------------------------------------
@@ -120,6 +99,15 @@ $config['maximum_login_attempts']     = 3;                   // The maximum numb
 $config['lockout_time']               = 600;                 // The number of seconds to lockout an account due to exceeded attempts
 $config['forgot_password_expiration'] = 0;                   // The number of milliseconds after which a forgot password request will expire. If set to 0, forgot password requests will not expire.
 
+/*
+ | -------------------------------------------------------------------------
+ | Cookie options.
+ | -------------------------------------------------------------------------
+ | remember_cookie_name Default: remember_code
+ | identity_cookie_name Default: identity
+ */
+$config['remember_cookie_name'] = 'remember_code';
+$config['identity_cookie_name'] = 'identity';
 
 /*
  | -------------------------------------------------------------------------
@@ -171,14 +159,14 @@ $config['email_forgot_password_complete'] = 'new_password.tpl.php';
  | -------------------------------------------------------------------------
  | Salt options
  | -------------------------------------------------------------------------
- | salt_length Default: 10
+ | salt_length Default: 22
  |
  | store_salt: Should the salt be stored in the database?
  | This will change your password encryption algorithm,
  | default password, 'password', changes to
  | fbaa5e216d163a02ae630ab1a43372635dd374c0 with default salt.
  */
-$config['salt_length'] = 10;
+$config['salt_length'] = 22;
 $config['store_salt']  = FALSE;
 
 /*

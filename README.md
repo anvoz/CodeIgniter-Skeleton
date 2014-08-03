@@ -22,7 +22,7 @@ CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps
 Add-ons are custom builds of some useful libraries and plugins. They are **not included** in the project but already have a quick mechanic to install by (at least) simply clicking on the `Copy` button in Add-ons page.
 
 * Bootstrap form helpers: generate HTML form fields and buttons with Bootstrap CSS style
-* [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.5.2 (last updated: Apr 19, 2014)
+* [Ion Auth](https://github.com/benedmunds/CodeIgniter-Ion-Auth) 2.6.0 (last updated: Jul 31, 2014)
 * [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) 9.5.7 (last updated: Mar 11, 2014)
 * [validate.js](https://github.com/rickharrison/validate.js) 1.4 (last updated: Apr 14, 2014)
 
