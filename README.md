@@ -12,7 +12,7 @@ CodeIgniter Skeleton (CIS) is not only a decent starting point for most web apps
 * [CodeIgniter](https://github.com/EllisLab/CodeIgniter) 2.2.0 (last updated: Jun 6, 2014)
 * [Modular Extensions - HMVC](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 5.4 (last updated: Oct 4, 2013)
 * [jQuery](https://github.com/jquery/jquery) 1.11.1 (last updated: May 2, 2014)
-* [Bootstrap](https://github.com/twbs/bootstrap) 3.1.1 (last updated: Feb 14, 2014)
+* [Bootstrap](https://github.com/twbs/bootstrap) 3.2.0 (last updated: Jun 26, 2014)
 * [Bootstrap TLDR](https://github.com/anvoz/bootstrap-tldr) 1.1.0 (last updated: Mar 22, 2014)
 * Template library: handle masterview and views within masterview
 * Ajax request & response library: provide rapid ways to ajaxify everything
