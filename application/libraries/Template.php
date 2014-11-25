@@ -14,7 +14,8 @@ class Template {
     protected $ga_id = FALSE; // UA-XXXXX-X
 
     protected $layout = 'default';
-    protected $layoutPath = 'layout/default';
+    public $layoutPath = 'layout/default/';
+    public $layoutPathPartial = 'layout/default/partial/';
 
     protected $title = FALSE;
     protected $description = FALSE;
@@ -178,19 +179,18 @@ class Template {
             $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
         }
         $css = implode('', $css);
-
-        $layoutPathPartial = $this->layoutPath.'/partial/'; 
-        $header = $this->_ci->load->view($layoutPathPartial . 'header', array(), TRUE);
-        $footer = $this->_ci->load->view($layoutPathPartial . 'footer', array(), TRUE);
+        
+        $header = $this->_ci->load->view($this->layoutPathPartial . 'header', array(), TRUE);
+        $footer = $this->_ci->load->view($this->layoutPathPartial . 'footer', array(), TRUE);
         $main_content = $this->_ci->load->view($view, $data, TRUE);
 
-        $body = $this->_ci->load->view($this->layoutPath . '/'. $this->layout, array(
+        $body = $this->_ci->load->view($this->layoutPath . $this->layout, array(
             'header' => $header,
             'footer' => $footer,
             'main_content' => $main_content,
         ), TRUE);
 
-        return $this->_ci->load->view($layoutPathPartial . 'base_view', array(
+        return $this->_ci->load->view($this->layoutPathPartial . 'base_view', array(
             'title' => $title,
             'description' => $description,
             'metadata' => $metadata,
