@@ -9,10 +9,15 @@ class Dialog {
 
     private $_ci;
     protected $data;
+    private $layoutPathPartial;
 
     function __construct()
     {
         $this->_ci =& get_instance();
+
+        // add pathLayout
+        $this->_ci->load->library('template');
+        $this->layoutPathPartial = $this->_ci->template->layoutPathPartial;
     }
 
     /**
@@ -140,7 +145,7 @@ class Dialog {
         {
             $this->data['id'] = 'dialog-' . mt_rand(1000000, 9999999);
         }
-        return $this->_ci->load->view('dialog', $this->data, TRUE);
+        return $this->_ci->load->view($this->layoutPathPartial .'dialog', $this->data, TRUE);
     }
 }
 

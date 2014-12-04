@@ -14,6 +14,8 @@ class Template {
     protected $ga_id = FALSE; // UA-XXXXX-X
 
     protected $layout = 'default';
+    public $layoutPath = 'layout/default/';
+    public $layoutPathPartial = 'layout/default/partial/';
 
     protected $title = FALSE;
     protected $description = FALSE;
@@ -26,6 +28,18 @@ class Template {
     function __construct()
     {
         $this->_ci =& get_instance();
+    }
+
+    /**
+    * Set directories layout
+    * @param string $layoutPath path in folder views/
+    *
+    * @return void
+    */
+    public function set_layoutPath($layoutPath)
+    {
+        $this->layoutPath = $layoutPath;
+
     }
 
     /**
@@ -165,18 +179,18 @@ class Template {
             $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
         }
         $css = implode('', $css);
-
-        $header = $this->_ci->load->view('header', array(), TRUE);
-        $footer = $this->_ci->load->view('footer', array(), TRUE);
+        
+        $header = $this->_ci->load->view($this->layoutPathPartial . 'header', array(), TRUE);
+        $footer = $this->_ci->load->view($this->layoutPathPartial . 'footer', array(), TRUE);
         $main_content = $this->_ci->load->view($view, $data, TRUE);
 
-        $body = $this->_ci->load->view('layout/' . $this->layout, array(
+        $body = $this->_ci->load->view($this->layoutPath . $this->layout, array(
             'header' => $header,
             'footer' => $footer,
             'main_content' => $main_content,
         ), TRUE);
 
-        return $this->_ci->load->view('base_view', array(
+        return $this->_ci->load->view($this->layoutPathPartial . 'base_view', array(
             'title' => $title,
             'description' => $description,
             'metadata' => $metadata,
