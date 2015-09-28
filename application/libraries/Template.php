@@ -13,7 +13,7 @@ class Template {
     protected $title_separator = ' - ';
     protected $ga_id = FALSE; // UA-XXXXX-X
 
-    protected $layout = 'default';
+    protected $layout;
 
     protected $title = FALSE;
     protected $description = FALSE;
@@ -103,6 +103,63 @@ class Template {
     {
         $this->css[$css] = $css;
     }
+    
+    public function get_title() 
+    {
+        if (empty($this->title)) {
+            $this->title = $this->brand_name;;
+        } else {
+            $this->title = $this->title . $this->title_separator . $this->brand_name;
+        }
+        return $this->title;
+    }
+    
+    public function get_description() 
+    {
+        if (empty($this->description)) {
+            $this->description = '';
+        }
+        return $this->description;
+    }
+
+    public function get_metadata()
+    {
+        $metadata = array();
+        foreach ($this->metadata as $name => $content) {
+            if (strpos($name, 'og:') === 0) {
+                $metadata[] = '<meta property="' . $name . '" content="' . $content . '">';
+            } else {
+                $metadata[] = '<meta name="' . $name . '" content="' . $content . '">';
+            }
+        }
+        return implode('', $metadata);
+    }
+    
+    public function get_js()
+    {
+        $js = array();
+        foreach ($this->js as $js_file) {
+            $js[] = '<script src="' . assets_url('js/' . $js_file) . '"></script>';
+        }
+        return implode('', $js);
+    }
+    
+    public function get_css()
+    {
+        $css = array();
+        foreach ($this->css as $css_file) {
+            $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
+        }
+        return implode('', $css);
+    }
+
+    public function get_layout() 
+    {
+        if(empty($this->layout)) {
+            $this->layout = 'default';
+        }
+        return $this->layout;
+    }
 
     /**
      * Load view
@@ -123,54 +180,28 @@ class Template {
         }
 
         // Title
-        if (empty($this->title))
-        {
-            $title = $this->brand_name;
-        }
-        else
-        {
-            $title = $this->title . $this->title_separator . $this->brand_name;
-        }
+        $title = $this->get_title();
 
         // Description
-        $description = $this->description;
+        $description = $this->get_description();
 
         // Metadata
-        $metadata = array();
-        foreach ($this->metadata as $name => $content)
-        {
-            if (strpos($name, 'og:') === 0)
-            {
-                $metadata[] = '<meta property="' . $name . '" content="' . $content . '">';
-            }
-            else
-            {
-                $metadata[] = '<meta name="' . $name . '" content="' . $content . '">';
-            }
-        }
-        $metadata = implode('', $metadata);
+        $metadata = $this->get_metadata();
 
         // Javascript
-        $js = array();
-        foreach ($this->js as $js_file)
-        {
-            $js[] = '<script src="' . assets_url('js/' . $js_file) . '"></script>';
-        }
-        $js = implode('', $js);
+        $js = $this->get_js();
 
         // CSS
-        $css = array();
-        foreach ($this->css as $css_file)
-        {
-            $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
-        }
-        $css = implode('', $css);
+        $css = $this->get_css();
 
+        // Layout        
+        $layout = $this->get_layout();
+        
         $header = $this->_ci->load->view('header', array(), TRUE);
         $footer = $this->_ci->load->view('footer', array(), TRUE);
         $main_content = $this->_ci->load->view($view, $data, TRUE);
 
-        $body = $this->_ci->load->view('layout/' . $this->layout, array(
+        $body = $this->_ci->load->view('layout/' . $layout, array(
             'header' => $header,
             'footer' => $footer,
             'main_content' => $main_content,
