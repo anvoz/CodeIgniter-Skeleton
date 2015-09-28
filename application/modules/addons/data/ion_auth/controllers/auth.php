@@ -767,12 +767,12 @@ class Auth extends MX_Controller {
 
             if ( ! in_array($view, array('auth/index')))
             {
-                $this->template->set_layout('pagelet');
+                $this->template->layout->set('pagelet');
             }
 
             if ( ! empty($data['title']))
             {
-                $this->template->set_title($data['title']);
+                $this->template->title->set($data['title']);
             }
 
             $this->template->load_view($view, $data);

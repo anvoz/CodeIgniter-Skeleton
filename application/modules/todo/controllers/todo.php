@@ -10,8 +10,8 @@ class Todo extends MY_Controller {
         $this->load->library('template');
 
         // Use custom layout (application/views/layout/pagelet.php)
-        $this->template->set_layout('pagelet');
-        $this->template->set_title('Todo example');
+        $this->template->layout->set('pagelet');
+        $this->template->title->set('Todo example');
 
         $this->template->load_view('todo/index', array(
             // Load todo pagelet with some fake items

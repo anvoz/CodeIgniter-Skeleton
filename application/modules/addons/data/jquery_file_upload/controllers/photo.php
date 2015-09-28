@@ -6,7 +6,7 @@ class Photo extends MY_Controller {
     {
         $this->load->library('template');
 
-        $this->template->set_title('Photo upload');
+        $this->template->title->set('Photo upload');
 
         $this->template->load_view('upload', array(
             'pagelet_upload_control' => Modules::run('photo/_pagelet_upload_control')

@@ -6,7 +6,7 @@ class Form_validation_example extends MY_Controller {
     {
         $this->load->library('template');
 
-        $this->template->set_title('Form validation example');
+        $this->template->title->set('Form validation example');
 
         $this->template->load_view('form_validation_example/example_form', array(
             'pagelet_example_form' => Modules::run('form_validation_example/_pagelet_example_form')
