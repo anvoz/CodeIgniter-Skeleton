@@ -4,7 +4,7 @@
 
 class Layout {
 
-    private $_layout;
+    protected $_layout;
 
     /**
      * Set page layout view (1 column, 2 column...)

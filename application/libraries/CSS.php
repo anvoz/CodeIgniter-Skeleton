@@ -4,7 +4,7 @@
 
 class CSS {
 
-    private $_css = array();
+    protected $_css = array();
 
     /**
      * Add css file path

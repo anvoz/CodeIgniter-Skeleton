@@ -4,7 +4,7 @@
 
 class JS {
 
-    private $_js = array();
+    protected $_js = array();
 
     /**
      * Add js file path

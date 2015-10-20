@@ -38,8 +38,8 @@ defined('ENVIRONMENT') OR define('ENVIRONMENT', 'development');
 isset($_SERVER['REMOTE_ADDR']) OR $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
 
 // Prep our test environment
-include_once $dir.'/mocks/core/common.php';
-include_once SYSTEM_PATH.'core/Common.php';
+//include_once $dir.'/mocks/core/common.php';
+//include_once SYSTEM_PATH.'core/Common.php';
 include_once $dir.'/mocks/autoloader.php';
 spl_autoload_register('autoload');
 
