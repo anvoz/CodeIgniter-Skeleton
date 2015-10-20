@@ -11,7 +11,11 @@
 // and so on...
 function autoload($class)
 {
-    $dir = realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR;
+
+   var_dump("==".$class."==\n");
+
+
+    /*$dir = realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR;
 
     $ci_core = array(
         'Benchmark', 'Config', 'Controller',
@@ -92,5 +96,5 @@ function autoload($class)
         return FALSE;
     }
 
-    include_once($file);
+    include_once($file);*/
 }

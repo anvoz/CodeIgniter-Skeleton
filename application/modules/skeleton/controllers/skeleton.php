@@ -21,9 +21,9 @@ class Skeleton extends MY_Controller {
     {
         $this->load->library('template');
 
-        $this->template->set_title('Welcome');
-        $this->template->add_js('modules/skeleton.js');
-        $this->template->add_css('modules/skeleton.css');
+        $this->template->title->set('Welcome');
+        $this->template->js->add('modules/skeleton.js');
+        $this->template->css->add('modules/skeleton.css');
 
         $this->load->helper('file');
         $skeleton_data = array();

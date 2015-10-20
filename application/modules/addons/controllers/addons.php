@@ -6,9 +6,9 @@ class Addons extends MY_Controller {
     {
         $this->load->library('template');
 
-        $this->template->set_title('Add-ons');
-        $this->template->add_js('modules/skeleton.js');
-        $this->template->add_css('modules/skeleton.css');
+        $this->template->title->set('Add-ons');
+        $this->template->js->add('modules/skeleton.js');
+        $this->template->css->add('modules/skeleton.css');
 
         $addons = $this->load->config('addons/addons', TRUE);
         $data = array(
